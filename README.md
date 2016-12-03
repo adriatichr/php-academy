@@ -1,3 +1,14 @@
+Adriatic.hr PHP Akademija (Prosinac 2016. - Siječanj 2017.)
+=============================
+
+Ovo je službeni repozitorij [Adriatic PHP akademije](http://www.adriatic.hr/php-akademija). Repozitorij će biti ažuriran nakon svakog predavanja sa najnovijim materijalima i PHP kôdom.
+
+Repozitorij se sastoji od tri direktorija:
+* **booking** ogledna aplikacija za iznajmljivanje privatnog smještaja koju ćemo razvijati tijekom predavanja koristeći Symfony 3 framework
+* **example** aplikacija za primjere u PHP-u i SQL-u koje ne možemo ugraditi direktno u ``` booking ``` applikaciju
+* **predavanja** ovdje će se nalaziti ostali materijali sa predavanja, na primjer prezentacije u ``` .odp ``` formatu
+
+
 Razvojna okolina
 =============================
 
@@ -13,20 +24,20 @@ Na prvom predavanju svi će polaznici od predavača dobiti podatke potrebne za p
 Koristeći ove podatke svaki polaznik će moći pristupiti svojim datotekama, spojiti se preko SSH na server, spojiti se na MySQL server i otvoriti stranice svojih projekata u browseru.
 
 Svaki korisnik će na serveru imati tri direktorija, po jedan za svaku web aplikaciju koju će trebati raditi:
-* **booking.{inicijali polaznika akademije}** - namijenjen za oglednu booking aplikaciju koju ćemo razvijati kroz predavanja o Symfony-ju
+* **booking.{inicijali polaznika akademije}** - namijenjen za oglednu booking aplikaciju koju će razvijati kroz predavanja
 * **example.{inicijali polaznika akademije}** - sve primjere koje ne možemo ugraditi u oglednu booking aplikaciju raditi ćemo ovdje
 * **project.{inicijali polaznika akademije}** - direktorij gdje će polaznik raditi završni projekt koji odabere na početku akademije
 
 ## Uputstva za inicijalno postavljanje razvojne okoline:
 
 1. Na računalu na kojem ćemo raditi otvoriti Windows **hosts** datoteku (*C:\Windows\System32\drivers\etc\hosts*) i dodati sljedeći tekst:
-	```	
+	```
   35.156.154.147 phpacademy
 35.156.154.147 phpacademy.booking.{inicijali polaznika akademije}
 35.156.154.147 phpacademy.example.{inicijali polaznika akademije}
-35.156.154.147 phpacademy.project.{inicijali polaznika akademije}	
+35.156.154.147 phpacademy.project.{inicijali polaznika akademije}
   ```
-  
+
 	Ovo je potrebno kako bi mogli otvoriti stranice web aplikacija u pregledniku sa tog računala.
 5. Sada možemo pristupiti direktorijima svake web aplikacije preko address bar-a od windows file explorera:
 	* \\\\phpacademy\booking.{inicijali polaznika akademije}
