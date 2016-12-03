@@ -8,9 +8,9 @@ Ovom serveru polaznici će moći pristupiti na predavanjima i sa svojih kućnih 
 Na prvom predavanju svi će polaznici od predavača dobiti podatke potrebne za pristup serveru PHP akademije:
 * korisničko ime u obliku **ime.prezime**
 * inicijala polaznika
-* nasumično izgenerirana lozinka
+* nasumično generirana lozinka
 
-Koristeći ove podatke svaki polaznik će moći pristupiti svojim datotekama, spojiti se preko SSH na server, spojiti se na MySQL server i otvoriti stranice svojih projekata u browseru.
+Koristeći ove podatke svaki polaznik će moći pristupiti svojim datotekama, spojiti se preko SSH na server, spojiti se na MySQL server i otvoriti stranice svojih projekata u web pregledniku.
 
 Svaki korisnik će na serveru imati tri direktorija, po jedan za svaku web aplikaciju koju će trebati raditi:
 * **booking.{inicijali polaznika akademije}** - namijenjen za oglednu booking aplikaciju koju će razvijati kroz predavanja
