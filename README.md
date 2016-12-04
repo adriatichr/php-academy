@@ -8,6 +8,8 @@ Repozitorij se sastoji od tri direktorija:
 * **example** aplikacija za primjere u PHP-u i SQL-u koje ne možemo ugraditi direktno u ``` booking ``` applikaciju
 * **predavanja** ovdje će se nalaziti ostali materijali sa predavanja, na primjer prezentacije u ``` .odp ``` formatu
 
+[Stranica sa obavijestima](ANNOUNCEMENTS.md).
+
 [Popis završnih projekata za polaznike akademije](PROJECTS.md).
 
 [Upute za postavljanje razvojne okoline](ENVIRONMENT-SETUP.md).
