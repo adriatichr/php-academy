@@ -20,7 +20,7 @@ Kao bonus projekt može sadržavati nešto od sljedećeg:
 Popis završnih projekata
 ========================
 
-Za svaki projekt predložen je kratki popis značajki koje se može implementirati, ali taj popis *nije* konačan. Polaznici mogu ako žele napraviti nešto drugačije, bitno je jedino da projekt zadovoljava tražene minimalne zahtjeve.
+Za svaki projekt predložen je kratki popis značajki koje se može implementirati, ali radi se samo o prijedlozima. Polaznici mogu ako žele napraviti nešto drugačije ili predložiti vlastitu ideju za završni projekt, bitno je jedino da projekt zadovoljava tražene [minimalne zahtjeve](PROJECTS.md#minimalni-zahtjevi-za-završni-projekt).
 
 1. **Foto galerija**
 	* pretraživanje uploadanih slika
@@ -95,3 +95,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pregled i pretraživanje knjiga po nazivu ili autoru
 	* korisnik može posuditi neku knjigu na određeni period
 	* administrator dodaje ili briše knjige
+170. **Kviz**
+	* korisnik odgovara na niz pitanja sa ponuđenim odgovorima
+	* prijavljeni korisnik može vidjeti rezultate svih svojih kvizova
+	* administrator može dodati nova pitanja i brisati postojeća
