@@ -1,4 +1,4 @@
-Adriatic.hr PHP Akademija (Prosinac 2016. - Siječanj 2017.)
+Adriatic.hr PHP Akademija (prosinac 2016. - siječanj 2017.)
 =============================
 
 Ovo je službeni repozitorij [Adriatic PHP akademije](http://www.adriatic.hr/php-akademija). Repozitorij će biti ažuriran nakon svakog predavanja sa najnovijim materijalima i PHP kôdom.
