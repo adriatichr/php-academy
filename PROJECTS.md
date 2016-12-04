@@ -3,9 +3,9 @@ Završni projekti
 
 Svaki polaznik akademije mora odabrati projekt koji će raditi dok traje akademija i prezentirati na posljednjem predavanju.
 
-Svaki projekt mora zadovoljiti sljedeće minimalne uvjete:
+### Minimalni zahtjevi za završni projekt:
 - mora biti napisan u [Symfony 3](http://symfony.com) frameworku
-- mora koristiti [Doctrine](http://www.doctrine-project.org/) za pristup bazi
+- mora koristiti [Doctrine](http://www.doctrine-project.org/) za pristup [MySQL](http://dev.mysql.com/doc/refman/5.7/en/) bazi
 - mora koristiti [Twig](http://twig.sensiolabs.org/) za templating engine
 - mora imati barem jednu GET i POST formu (koristeći [Symfony form](http://twig.sensiolabs.org) komponentu)
 - mora imati server side [validaciju](https://symfony.com/doc/current/validation.html) za barem jednu formu
@@ -19,6 +19,8 @@ Kao bonus projekt može sadržavati nešto od sljedećeg:
 
 Popis završnih projekata
 ========================
+
+Za svaki projekt predložen je kratki popis značajki koje se može implementirati, ali taj popis *nije* konačan. Polaznici mogu ako žele napraviti nešto drugačije, bitno je jedino da projekt zadovoljava tražene minimalne zahtjeve.
 
 1. **Foto galerija**
 	* pretraživanje uploadanih slika
