@@ -69,7 +69,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pregled rasporeda utakmica
 	* korisnik prati omiljenu ekipu,
 	* administrator unosi ekipe, raspored utakmica, rezultate
-100. **Videoteka**
+100. **Videoteka** (Antoni Dragun)
 	* pretraživanje filmova po naslovu, godini, žanru
 	* prijavljeni korisnik može rezervirati filmove
 	* administrator može brisati ili dodati filmove
