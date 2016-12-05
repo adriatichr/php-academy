@@ -5,14 +5,17 @@ Svaki polaznik akademije mora odabrati projekt koji će raditi dok traje akademi
 
 ### Minimalni zahtjevi za završni projekt:
 - mora biti napisan u [Symfony 3](http://symfony.com) frameworku
+- PHP kôd mora biti dokumentiran koristeći [PHPDoc](https://phpdoc.org/docs/latest/getting-started/your-first-set-of-documentation.html)
 - mora koristiti [Doctrine](http://www.doctrine-project.org/) za pristup [MySQL](http://dev.mysql.com/doc/refman/5.7/en/) bazi
-- mora koristiti [Twig](http://twig.sensiolabs.org/) za templating engine
+- mora koristiti  [HTML5](https://en.wikipedia.org/wiki/HTML5) i [Twig](http://twig.sensiolabs.org/) kao templating engine
 - mora imati barem jednu GET i POST formu (koristeći [Symfony form](http://twig.sensiolabs.org) komponentu)
 - mora imati server side [validaciju](https://symfony.com/doc/current/validation.html) za barem jednu formu
 - mora podržavati dvije vrste korisnika, običnog korisnika i administratora (preko [Symfony Security](http://symfony.com/doc/current/security.html) komponente)
 
 Kao bonus projekt može sadržavati nešto od sljedećeg:
+- kôd napisan koristeći [PSR-1](http://www.php-fig.org/psr/psr-1/) i [PSR-2](http://www.php-fig.org/psr/psr-2/) coding standard
 - client side validaciju preko JavaScript-a, ili [AJAX](https://en.wikipedia.org/wiki/Ajax_(programming)) pozive
+- jednostavni REST servis
 - primijenjen neki od design patterna
 - unit i/ili funkcionalne testove pisane u [PHPUnit-u](https://phpunit.de/)
 - implementiran neki oblik [HTTP cachiranja](http://symfony.com/doc/current/http_cache.html) stranice
