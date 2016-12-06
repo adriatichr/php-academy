@@ -25,21 +25,8 @@ Popis završnih projekata
 
 Za svaki projekt predložen je kratki popis značajki koje se može implementirati, ali radi se samo o prijedlozima. Polaznici mogu ako žele napraviti nešto drugačije ili predložiti vlastitu ideju za završni projekt, bitno je jedino da projekt zadovoljava tražene [minimalne zahtjeve](PROJECTS.md#minimalni-zahtjevi-za-završni-projekt).
 
-1. **Blog**
-	* pretraživanje članaka po tagovima
-	* komentari članaka
-	* korisnik može pisati članke na svom blogu i dodavati tagove
-	* korisnik može brisati (samo) svoje članke i prateće komentare
-30. **Poliklinika**
-	* pretraživanje doktora i njihovih specijalizacija
-	* prijavljeni korisnik se može naručiti kod doktora
-	* administrator može mijenjati podatke o doktorima
-50. **News portal**
-	* prikaz vijesti preko layouta
-	* pretraživanje po naslovu i/ili datumu
-	* korisnici mogu komentirati članke
-	* administrator unosi nove članke, briše komentare korisnika
-60. **Rentacar/bike/boat**
+
+1. **Rentacar/bike/boat**
 	* pretraživanje vozila u ponudi
 	* prijavljeni korisnik može rezervirati vozilo
 	* administrator može dodati, izmijeniti ili ukloniti vozila iz ponude
@@ -57,20 +44,10 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pregled rasporeda utakmica
 	* korisnik prati omiljenu ekipu,
 	* administrator unosi ekipe, raspored utakmica, rezultate
-110. **Baza filmova** (poput IMDB-a)
-	* pretraživanje filmova po naslovu, godini, žanru
-	* korisnici mogu ocjenjivati filmove
-	* pregled najbolje ocjenjenih filmova
-	* administrator dodaje i briše filmove
 120. **Seminari** (poput Meetup-a)
 	* pregled dostupnih seminara
 	* korisnik se može prijaviti na seminar, organizirati svoj seminar
 	* administrator može brisati seminare
-130. **Forum** (poput Reddit-a)
-	* pretraživanje postova
-	* korisnik može otvoriti temu, pisati postove,
-	* upvote/downvote postova
-	* administrator može brisati i uređivati sve postove
 140. **Obračun i evidencija plaća zaposlenika**
 	* pregled svih zaposlenika, tko je na poslu a tko nije
 	* zaposlenik može kliknuti početak i kraj rada, vidjeti vlastitu satnicu, vidjeti plaću za cijeli mjesec na osnovi odrađenih sati
@@ -117,3 +94,27 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* preko forme se unosi više nalog odjednom
 	* administrator moze dodavati još zaposlenika i slično
 	* ispis putnih naloga sumiranih po mjesecu i zaposleniku
+70. **Blog** - **Igor Šušić**
+	* pretraživanje članaka po tagovima
+	* komentari članaka
+	* korisnik može pisati članke na svom blogu i dodavati tagove
+	* korisnik može brisati (samo) svoje članke i prateće komentare
+80. **Baza filmova** (poput IMDB-a) - **Tereza Karabatić**
+	* pretraživanje filmova po naslovu, godini, žanru
+	* korisnici mogu ocjenjivati filmove
+	* pregled najbolje ocjenjenih filmova
+	* administrator dodaje i briše filmove
+90. **Poliklinika** - **Petar Perišić**
+	* pretraživanje doktora i njihovih specijalizacija
+	* prijavljeni korisnik se može naručiti kod doktora
+	* administrator može mijenjati podatke o doktorima
+100. **News portal** - **Nikolina Pečnjak**
+	* prikaz vijesti preko layouta
+	* pretraživanje po naslovu i/ili datumu
+	* korisnici mogu komentirati članke
+	* administrator unosi nove članke, briše komentare korisnika
+110. **Forum** (poput Reddit-a) - **Ante Todorić**
+	* pretraživanje postova
+	* korisnik može otvoriti temu, pisati postove,
+	* upvote/downvote postova
+	* administrator može brisati i uređivati sve postove
