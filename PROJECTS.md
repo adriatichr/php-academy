@@ -25,11 +25,7 @@ Popis završnih projekata
 
 Za svaki projekt predložen je kratki popis značajki koje se može implementirati, ali radi se samo o prijedlozima. Polaznici mogu ako žele napraviti nešto drugačije ili predložiti vlastitu ideju za završni projekt, bitno je jedino da projekt zadovoljava tražene [minimalne zahtjeve](PROJECTS.md#minimalni-zahtjevi-za-završni-projekt).
 
-1. **Foto galerija**
-	* pretraživanje uploadanih slika
-	* prijavljeni korisnik može dodati/brisati svoje slike
-	* administrator može urediti parametre za upload slika (max. veličina, rezolucija)
-10. **Blog**
+1. **Blog**
 	* pretraživanje članaka po tagovima
 	* komentari članaka
 	* korisnik može pisati članke na svom blogu i dodavati tagove
@@ -112,3 +108,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* učitelj unosi ocjene za učenike,
 	* svi korisnici mogu vidjeti unešene ocjene
 	* učitelj može unositi i brisati nove učenike u sustav
+50. **Foto galerija** - **Marin Ćapeta**
+	* pretraživanje uploadanih slika
+	* prijavljeni korisnik može dodati/brisati svoje slike
+	* administrator može urediti parametre za upload slika (max. veličina, rezolucija)
