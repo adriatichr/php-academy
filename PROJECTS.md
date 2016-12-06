@@ -90,10 +90,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pregled i pretraživanje knjiga po nazivu ili autoru
 	* korisnik može posuditi neku knjigu na određeni period
 	* administrator dodaje ili briše knjige
-170. **Kviz**
-	* korisnik odgovara na niz pitanja sa ponuđenim odgovorima
-	* prijavljeni korisnik može vidjeti rezultate svih svojih kvizova
-	* administrator može dodati nova pitanja i brisati postojeća
+
 
 ## Dodijeljeni projekti
 
@@ -105,3 +102,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pretraživanje oglasa
 	* prijavljeni korisnik može dodati nove i uređivati svoje postojeće oglase
 	* administrator može izbrisati bilo koji oglas ili korisnika
+170. **Kviz** - **Ivan Šimić**
+	* korisnik odgovara na niz pitanja sa ponuđenim odgovorima
+	* prijavljeni korisnik može vidjeti rezultate svih svojih kvizova
+	* administrator može dodati nova pitanja i brisati postojeća
