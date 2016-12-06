@@ -42,7 +42,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pretraživanje doktora i njihovih specijalizacija
 	* prijavljeni korisnik se može naručiti kod doktora
 	* administrator može mijenjati podatke o doktorima
-40. **Oglasnik** (mobiteli/nekretnine/vozila)
+40. **Oglasnik** (mobiteli/nekretnine/vozila) - **Zvonimir Maglica**
 	* pretraživanje oglasa
 	* prijavljeni korisnik može dodati nove i uređivati svoje postojeće oglase
 	* administrator može izbrisati bilo koji oglas ili korisnika
@@ -69,7 +69,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pregled rasporeda utakmica
 	* korisnik prati omiljenu ekipu,
 	* administrator unosi ekipe, raspored utakmica, rezultate
-100. **Videoteka** (Antoni Dragun)
+100. **Videoteka** - **Antoni Dragun**
 	* pretraživanje filmova po naslovu, godini, žanru
 	* prijavljeni korisnik može rezervirati filmove
 	* administrator može brisati ili dodati filmove
