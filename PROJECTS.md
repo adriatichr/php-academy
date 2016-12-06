@@ -102,7 +102,13 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pretraživanje oglasa
 	* prijavljeni korisnik može dodati nove i uređivati svoje postojeće oglase
 	* administrator može izbrisati bilo koji oglas ili korisnika
-170. **Kviz** - **Ivan Šimić**
+20. **Kviz** - **Ivan Šimić**
 	* korisnik odgovara na niz pitanja sa ponuđenim odgovorima
 	* prijavljeni korisnik može vidjeti rezultate svih svojih kvizova
 	* administrator može dodati nova pitanja i brisati postojeća
+30. **Budget Watcher** - **Tončica Buličić**
+	* aplikacija u kojoj korisnik unosi potrošnju za određenu kategoriju (hrana, odjeća, putovanja, režije)
+	* svaki korisnik vidi samo svoju potrošnju
+	* korisniku omogućeno da ima mjesečni prikaz, u smislu u tom mjesecu je najviše potrošio na putovanja, prikaz njegove statistike
+	* administrator dodaje kategorije (mogućnost dodavanja i podkategorija)
+	* administratoru je vidljiva i statistika potrošnje za kategorije i podkategorije
