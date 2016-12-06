@@ -42,10 +42,6 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pretraživanje doktora i njihovih specijalizacija
 	* prijavljeni korisnik se može naručiti kod doktora
 	* administrator može mijenjati podatke o doktorima
-40. **Oglasnik** (mobiteli/nekretnine/vozila) - **Zvonimir Maglica**
-	* pretraživanje oglasa
-	* prijavljeni korisnik može dodati nove i uređivati svoje postojeće oglase
-	* administrator može izbrisati bilo koji oglas ili korisnika
 50. **News portal**
 	* prikaz vijesti preko layouta
 	* pretraživanje po naslovu i/ili datumu
@@ -69,10 +65,6 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pregled rasporeda utakmica
 	* korisnik prati omiljenu ekipu,
 	* administrator unosi ekipe, raspored utakmica, rezultate
-100. **Videoteka** - **Antoni Dragun**
-	* pretraživanje filmova po naslovu, godini, žanru
-	* prijavljeni korisnik može rezervirati filmove
-	* administrator može brisati ili dodati filmove
 110. **Baza filmova** (poput IMDB-a)
 	* pretraživanje filmova po naslovu, godini, žanru
 	* korisnici mogu ocjenjivati filmove
@@ -102,3 +94,14 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* korisnik odgovara na niz pitanja sa ponuđenim odgovorima
 	* prijavljeni korisnik može vidjeti rezultate svih svojih kvizova
 	* administrator može dodati nova pitanja i brisati postojeća
+
+## Dodijeljeni projekti
+
+1. **Videoteka** - **Antoni Dragun**
+	* pretraživanje filmova po naslovu, godini, žanru
+	* prijavljeni korisnik može rezervirati filmove
+	* administrator može brisati ili dodati filmove
+10. **Oglasnik** (mobiteli/nekretnine/vozila) - **Zvonimir Maglica**
+	* pretraživanje oglasa
+	* prijavljeni korisnik može dodati nove i uređivati svoje postojeće oglase
+	* administrator može izbrisati bilo koji oglas ili korisnika
