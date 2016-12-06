@@ -34,10 +34,6 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* komentari članaka
 	* korisnik može pisati članke na svom blogu i dodavati tagove
 	* korisnik može brisati (samo) svoje članke i prateće komentare
-20. **Školski imenik**
-	* učitelj unosi ocjene za učenike,
-	* svi korisnici mogu vidjeti unešene ocjene
-	* učitelj može unositi i brisati nove učenike u sustav
 30. **Poliklinika**
 	* pretraživanje doktora i njihovih specijalizacija
 	* prijavljeni korisnik se može naručiti kod doktora
@@ -112,3 +108,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* korisniku omogućeno da ima mjesečni prikaz, u smislu u tom mjesecu je najviše potrošio na putovanja, prikaz njegove statistike
 	* administrator dodaje kategorije (mogućnost dodavanja i podkategorija)
 	* administratoru je vidljiva i statistika potrošnje za kategorije i podkategorije
+40. **Školski imenik** - **Angela Bašić-Šiško**
+	* učitelj unosi ocjene za učenike,
+	* svi korisnici mogu vidjeti unešene ocjene
+	* učitelj može unositi i brisati nove učenike u sustav
