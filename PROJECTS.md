@@ -29,11 +29,6 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pretraživanje programa po danu ili nazivu
 	* korisnik može zatražiti snimanje programa
 	* administrator dodaje nove programe u raspored ili briše stare
-90. **Sportska liga**
-	* pregled tablice lige, sortiranje po npr. gol razlici
-	* pregled rasporeda utakmica
-	* korisnik prati omiljenu ekipu,
-	* administrator unosi ekipe, raspored utakmica, rezultate
 120. **Seminari** (poput Meetup-a)
 	* pregled dostupnih seminara
 	* korisnik se može prijaviti na seminar, organizirati svoj seminar
@@ -118,3 +113,8 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* korisnici mogu komentirati naloge
 	* korisnici mogu mijenjati stanje naloga (primjer stanja: u tijeku, u redu čekanja, zatvoreno, potrebna povratna informacija)
 	* administrator dodaje nove vrste naloga, može brisati naloge
+210. **Sportska liga** - **Ivan Brković**
+	* pregled tablice lige, sortiranje po npr. gol razlici
+	* pregled rasporeda utakmica
+	* korisnik prati omiljenu ekipu,
+	* administrator unosi ekipe, raspored utakmica, rezultate
