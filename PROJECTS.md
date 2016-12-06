@@ -25,17 +25,7 @@ Popis završnih projekata
 
 Za svaki projekt predložen je kratki popis značajki koje se može implementirati, ali radi se samo o prijedlozima. Polaznici mogu ako žele napraviti nešto drugačije ili predložiti vlastitu ideju za završni projekt, bitno je jedino da projekt zadovoljava tražene [minimalne zahtjeve](PROJECTS.md#minimalni-zahtjevi-za-završni-projekt).
 
-
-1. **Rentacar/bike/boat**
-	* pretraživanje vozila u ponudi
-	* prijavljeni korisnik može rezervirati vozilo
-	* administrator može dodati, izmijeniti ili ukloniti vozila iz ponude
-70. **Radni nalozi** (ticketing sustav)
-	* korisnik može izraditi radni nalog
-	* korisnici mogu komentirati naloge
-	* korisnici mogu mijenjati stanje naloga (primjer stanja: u tijeku, u redu čekanja, zatvoreno, potrebna povratna informacija)
-	* administrator dodaje nove vrste naloga, može brisati naloge
-80. **Sportski TV program**
+1. **Sportski TV program**
 	* pretraživanje programa po danu ili nazivu
 	* korisnik može zatražiti snimanje programa
 	* administrator dodaje nove programe u raspored ili briše stare
@@ -48,18 +38,6 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pregled dostupnih seminara
 	* korisnik se može prijaviti na seminar, organizirati svoj seminar
 	* administrator može brisati seminare
-140. **Obračun i evidencija plaća zaposlenika**
-	* pregled svih zaposlenika, tko je na poslu a tko nije
-	* zaposlenik može kliknuti početak i kraj rada, vidjeti vlastitu satnicu, vidjeti plaću za cijeli mjesec na osnovi odrađenih sati
-	* administrator unosi zaposlenika, postavlja satnicu, briše zaposlenika
-150. **Knjižara**
-	* korisnik može pregledavati ponudu, dodavati artikle u shopping cart, ocijeniti artikle
-	* administrator može dodati nove artikle ili ukloniti postojeće iz ponude, brisati korisnika
-160. **Knjižnica**
-	* pregled i pretraživanje knjiga po nazivu ili autoru
-	* korisnik može posuditi neku knjigu na određeni period
-	* administrator dodaje ili briše knjige
-
 
 ## Dodijeljeni projekti
 
@@ -118,3 +96,25 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* korisnik može otvoriti temu, pisati postove,
 	* upvote/downvote postova
 	* administrator može brisati i uređivati sve postove
+120. **Obračun i evidencija plaća zaposlenika** - **Ivana Krivić**
+	* pregled svih zaposlenika, tko je na poslu a tko nije
+	* zaposlenik može kliknuti početak i kraj rada, vidjeti vlastitu satnicu, vidjeti plaću za cijeli mjesec na osnovi odrađenih sati
+	* administrator unosi zaposlenika, postavlja satnicu, briše zaposlenika
+150. **Knjižara** - **Ante Domjanović**
+	* korisnik može pregledavati ponudu, dodavati artikle u shopping cart, ocijeniti artikle
+	* administrator može dodati nove artikle ili ukloniti postojeće iz ponude, brisati korisnika
+160. **Rentacar/bike/boat** - **Fani Bajić**
+	* pretraživanje vozila u ponudi
+	* prijavljeni korisnik može rezervirati vozilo
+	* administrator može dodati, izmijeniti ili ukloniti vozila iz ponude
+170. **Knjižnica** - **Tomislav Parčina**
+	* pregled i pretraživanje knjiga po nazivu ili autoru
+	* korisnik može posuditi neku knjigu na određeni period
+	* administrator dodaje ili briše knjige
+180. **Social Network** - **Vladimir Buktenica**
+190. **Rezervacija događaja** (na primjer vjenčanje) - **Ivan Pandžić**
+200. **Radni nalozi** (ticketing sustav) - **Ivana Žaper**
+	* korisnik može izraditi radni nalog
+	* korisnici mogu komentirati naloge
+	* korisnici mogu mijenjati stanje naloga (primjer stanja: u tijeku, u redu čekanja, zatvoreno, potrebna povratna informacija)
+	* administrator dodaje nove vrste naloga, može brisati naloge
