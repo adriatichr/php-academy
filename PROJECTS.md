@@ -112,3 +112,8 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pretraživanje uploadanih slika
 	* prijavljeni korisnik može dodati/brisati svoje slike
 	* administrator može urediti parametre za upload slika (max. veličina, rezolucija)
+60. **Unos putnih naloga** - **Ani Šore**
+	* formi moze pristupiti prijavljeni korisnik
+	* preko forme se unosi više nalog odjednom
+	* administrator moze dodavati još zaposlenika i slično
+	* ispis putnih naloga sumiranih po mjesecu i zaposleniku
