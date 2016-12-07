@@ -123,3 +123,10 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pretraživanje programa po danu ili nazivu
 	* korisnik može zatražiti snimanje programa
 	* administrator dodaje nove programe u raspored ili briše stare
+240. **Organizacija nogometnih utakmica** - **Vanja Dobrijević**
+	* pozivi igračima za pojedine utakmice
+	* slaganje momčadi prije utakmice
+	* bilježenje rezultata utakmica
+	* prikaz rezultata i popratne statistike
+	* administrator može uređivati popis igrača, rezultate i termine igranja utakmica, kreirati profile koje igrači koriste i organizirati utakmice
+	* korisnici odgovaraju na pozive organizatora i uređuju svoje kontakt podatke
