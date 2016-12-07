@@ -25,11 +25,7 @@ Popis završnih projekata
 
 Za svaki projekt predložen je kratki popis značajki koje se može implementirati, ali radi se samo o prijedlozima. Polaznici mogu ako žele napraviti nešto drugačije ili predložiti vlastitu ideju za završni projekt, bitno je jedino da projekt zadovoljava tražene [minimalne zahtjeve](PROJECTS.md#minimalni-zahtjevi-za-završni-projekt).
 
-1. **Sportski TV program**
-	* pretraživanje programa po danu ili nazivu
-	* korisnik može zatražiti snimanje programa
-	* administrator dodaje nove programe u raspored ili briše stare
-120. **Seminari** (poput Meetup-a)
+1. **Seminari** (poput Meetup-a)
 	* pregled dostupnih seminara
 	* korisnik se može prijaviti na seminar, organizirati svoj seminar
 	* administrator može brisati seminare
@@ -123,3 +119,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* korisnik (tvrtka koja traži proizvode) može pretraživati ponudu svih proizvođača
 	* korisnik također može poslati zahtjev za ponudu ili odmah naručiti željeni proizvod u nekoj količini od nekog dobavljača
 	* administrator može vidjeti statistiku ponuda i narudžbi
+230. **Sportski TV program** - **Stjepan Puača**
+	* pretraživanje programa po danu ili nazivu
+	* korisnik može zatražiti snimanje programa
+	* administrator dodaje nove programe u raspored ili briše stare
