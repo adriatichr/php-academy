@@ -1,0 +1,11 @@
+<phpunit
+   colors="true"
+   bootstrap="test/bootstrap.php"
+>
+   <testsuites>
+     <testsuite name="PHP Akademija">
+       <directory>./test/</directory>
+     </testsuite>
+   </testsuites>
+  <!-- ... -->
+</phpunit>
