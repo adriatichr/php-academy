@@ -1,0 +1,7 @@
+{
+	"host": "phpacademy",
+	"db_name": "examples",
+	"user": "Vase korisnicko ime za pristup bazi",
+	"password": "Vasa lozinka za pristup bazi",
+	"port": 3306
+}
