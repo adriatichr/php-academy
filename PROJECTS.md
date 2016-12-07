@@ -118,3 +118,4 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* pregled rasporeda utakmica
 	* korisnik prati omiljenu ekipu,
 	* administrator unosi ekipe, raspored utakmica, rezultate
+220. **Aplikacija za pronalazak dobavljača** - **Nina Marić**
