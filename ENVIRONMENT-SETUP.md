@@ -45,7 +45,7 @@ Svaki korisnik će na serveru imati tri direktorija, po jedan za svaku web aplik
 	* **example_{inicijali polaznika akademije}**
 	* **project_{inicijali polaznika akademije}**
 
-	Za uređivanje baze može se koristiti [HeidiSQL](http://www.heidisql.com/download.php).
+	Za uređivanje baze može se koristiti [HeidiSQL](http://www.heidisql.com/download.php) ili [phpMyAdmin](http://phpacademy/phpmyadmin/).
 15. Podaci za SSH pristup:
 	* host name: **ime.prezime@phpacademy**
 	* port: **22**
