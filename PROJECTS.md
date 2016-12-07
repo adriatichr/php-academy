@@ -119,3 +119,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* korisnik prati omiljenu ekipu,
 	* administrator unosi ekipe, raspored utakmica, rezultate
 220. **Aplikacija za pronalazak dobavljača** - **Nina Marić**
+	* proizvođač ili trgovac (veleprodaja) definira svoju ponudu
+	* korisnik (tvrtka koja traži proizvode) može pretraživati ponudu svih proizvođača
+	* korisnik također može poslati zahtjev za ponudu ili odmah naručiti željeni proizvod u nekoj količini od nekog dobavljača
+	* administrator može vidjeti statistiku ponuda i narudžbi
