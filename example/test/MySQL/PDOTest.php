@@ -11,12 +11,7 @@ class PDOTest extends TestCase
     public static function setUpBeforeClass()
     {
         try {
-            $config = Db::createDbConnectionParams();
-
-            self::$pdo = new PDO(
-                sprintf('mysql:dbname=%s;host=%s;port:%s;charset=UTF8', $config->db_name, $config->host, $config->port),
-                $config->user, $config->password,
-                [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+            self::$pdo = Db::createPDO();
         } catch (PDOException $e) {
             self::$pdoNotFound = true;
             self::$pdoNotFoundFailMessage = $e->getMessage() . "\n\n" . $e->getTraceAsString();
@@ -172,11 +167,11 @@ class PDOTest extends TestCase
                 INDEX student_group_id (group_id),
                 CONSTRAINT student_group_id FOREIGN KEY (group_id) REFERENCES `group` (id)
             );
-            INSERT INTO `group` (id, name) VALUES (1, 'Računarstvo'), (2, 'Matematika'), (3, 'Matematika i Računarstvo');
-            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Ana', 'Anić', 1, 1);
-            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Iva', 'Ivić', 3, 1);
-            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Mate', 'Matić', 2, 2);
-            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Šime', 'Anić', 1, 1);
+            INSERT INTO `group` (id, name) VALUES (1, 'Racunarstvo'), (2, 'Matematika'), (3, 'Matematika i Racunarstvo');
+            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Ana', 'Anic', 1, 1);
+            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Iva', 'Ivic', 3, 1);
+            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Mate', 'Matic', 2, 2);
+            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Sime', 'Anic', 1, 1);
 SQL;
 
         self::$pdo->query($initialState);
