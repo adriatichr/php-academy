@@ -135,3 +135,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* klijent podnosi zahtjev za dodavanje eventa
 	* administrator upravlja accountovima i eventovima, izdaje QR kodove klijentima
 	* web service za Android aplikaciju
+260. **Praćenje troška održavanja vozila** - **Ivan Penović**
+	* korisnik unosi i mijenja podatke o svojim vozilima
+	* korisnik može brisati svoje vozilo
+	* administrator može brisati korisnike i vidjeti sva vozila
