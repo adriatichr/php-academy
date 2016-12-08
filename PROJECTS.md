@@ -130,3 +130,8 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* prikaz rezultata i popratne statistike
 	* administrator može uređivati popis igrača, rezultate i termine igranja utakmica, kreirati profile koje igrači koriste i organizirati utakmice
 	* korisnici odgovaraju na pozive organizatora i uređuju svoje kontakt podatke
+250. **Party time** - **Ivan Tomić**
+	* korisnik skuplja bodove preko QR kodova
+	* klijent podnosi zahtjev za dodavanje eventa
+	* administrator upravlja accountovima i eventovima, izdaje QR kodove klijentima
+	* web service za Android aplikaciju
