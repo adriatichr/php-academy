@@ -4,7 +4,7 @@
     <h1>PHP Academy Booking app</h1>
 
     <p>
-        Welcome! Take a look at our
+        {{ rot13function('Welcome! Take a look at our')|rot13filter }}
         <a href="{{ path('AppBundle_Accommodation_accommodation', {'accommodationId': 1}) }}">accommodation offer</a>.
     </p>
 
