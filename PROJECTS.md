@@ -25,11 +25,6 @@ Popis završnih projekata
 
 Za svaki projekt predložen je kratki popis značajki koje se može implementirati, ali radi se samo o prijedlozima. Polaznici mogu ako žele napraviti nešto drugačije ili predložiti vlastitu ideju za završni projekt, bitno je jedino da projekt zadovoljava tražene [minimalne zahtjeve](PROJECTS.md#minimalni-zahtjevi-za-završni-projekt).
 
-1. **Seminari** (poput Meetup-a)
-	* pregled dostupnih seminara
-	* korisnik se može prijaviti na seminar, organizirati svoj seminar
-	* administrator može brisati seminare
-
 ## Dodijeljeni projekti
 
 1. **Videoteka** - **Antoni Dragun**
@@ -139,3 +134,7 @@ Za svaki projekt predložen je kratki popis značajki koje se može implementira
 	* korisnik unosi i mijenja podatke o svojim vozilima
 	* korisnik može brisati svoje vozilo
 	* administrator može brisati korisnike i vidjeti sva vozila
+270. **Seminari** (poput Meetup-a) - **Mario Raguž**
+	* pregled dostupnih seminara
+	* korisnik se može prijaviti na seminar, organizirati svoj seminar
+	* administrator može brisati seminare
