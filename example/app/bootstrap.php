@@ -5,7 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 class Db
 {
     private static $pdo;
-    private static $connection;
+    private static $dbalConnection;
 
     public static function createPDO()
     {

@@ -1,32 +1,9 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+use Adriatic\PHPAkademija\Test\MySQL\DatabaseTestCase;
 
-class PDOTest extends TestCase
+class PDOTest extends DatabaseTestCase
 {
-    private static $pdo;
-    private static $pdoNotFound = false;
-    private static $pdoNotFoundFailMessage = '';
-
-    public static function setUpBeforeClass()
-    {
-        try {
-            self::$pdo = Db::createPDO();
-        } catch (PDOException $e) {
-            self::$pdoNotFound = true;
-            self::$pdoNotFoundFailMessage = $e->getMessage() . "\n\n" . $e->getTraceAsString();
-        }
-    }
-
-    public function setUp()
-    {
-        if (self::$pdoNotFound) {
-            $this->markTestSkipped("Baza podataka nije pronađena, preskačem PDO testove. Stack trace\n:"
-                . self::$pdoNotFoundFailMessage);
-        }
-        self::setupInitialState();
-    }
-
     /** @test */
     public function rollbackTransactionExample()
     {
@@ -149,31 +126,4 @@ class PDOTest extends TestCase
         return $result;
     }
 
-    private static function setupInitialState()
-    {
-        $initialState = <<<SQL
-            DROP TABLE IF EXISTS student;
-            DROP TABLE IF EXISTS `group`;
-            CREATE TABLE `group` (
-                id INT UNSIGNED NOT NULL PRIMARY KEY,
-                name VARCHAR(60) NOT NULL
-            );
-            CREATE TABLE student (
-                id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(50) NOT NULL,
-                surname VARCHAR(50) NOT NULL,
-                group_id INT UNSIGNED NULL DEFAULT NULL,
-                year_of_study TINYINT UNSIGNED NOT NULL,
-                INDEX student_group_id (group_id),
-                CONSTRAINT student_group_id FOREIGN KEY (group_id) REFERENCES `group` (id)
-            );
-            INSERT INTO `group` (id, name) VALUES (1, 'Racunarstvo'), (2, 'Matematika'), (3, 'Matematika i Racunarstvo');
-            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Ana', 'Anic', 1, 1);
-            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Iva', 'Ivic', 3, 1);
-            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Mate', 'Matic', 2, 2);
-            INSERT INTO student (name, surname, group_id, year_of_study) VALUES ('Sime', 'Anic', 1, 1);
-SQL;
-
-        self::$pdo->query($initialState);
-    }
 }

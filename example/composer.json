@@ -2,6 +2,9 @@
 	"autoload": {
 		"psr-4": {"Adriatic\\PHPAkademija\\": "src/"}
 	},
+	"autoload-dev": {
+		"psr-4": { "Adriatic\\PHPAkademija\\Test\\": "test/" }
+	},
 
 	"require-dev": {
 		"phpunit/phpunit": "~5.5",
