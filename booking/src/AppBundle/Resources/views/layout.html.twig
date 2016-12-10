@@ -1,1 +1,17 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/akademija.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header>
+        <a href="{{ path('AppBundle_Welcome_homepage') }}">
+            <div id="logo"><img src="{{ asset('images/logo.png') }}"></div>
+        </a>
+    </header>
+    <div id="main">
+        {% block content %}
+        {% endblock %}
+    </div>
+{% endblock %}

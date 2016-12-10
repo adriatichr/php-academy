@@ -1,0 +1,455 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Open sans";
+	font-size: 16px;
+	line-height: 24px;
+	background: #f5f5f5;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: normal;
+}
+
+h1 {
+	margin-bottom: 35px;
+}
+
+h4 {
+	margin: 10px 0;
+}
+
+img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(50,150,255);
+}
+
+a img {
+	border: none;
+	outline: none;
+}
+
+header {
+	padding: 10px;
+	color: #fff;
+	background: #1a6395;
+}
+
+header #logo {
+	display: inline-block;
+}
+
+header .predavac {
+	display: inline-block;
+}
+
+header h2 {
+	display: inline-block;
+	margin: 0;
+	float: right;
+}
+
+#main {
+	width: 100%;
+	max-width: 1250px;
+	margin: 0 auto;
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+table {
+	clear: both;
+	position: relative;
+	width: 100%;
+	margin: 25px 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	z-index: 1;
+	box-sizing: border-box;
+}
+
+caption {
+	padding: 5px;
+	background: #000;
+	color: #fff;
+	font-size: 0.8em;
+}
+
+.kalendarWrap {
+	position: relative;
+	display: inline-block;
+	margin: 35px 0 0;
+}
+
+.arrowPrev {
+	position: absolute;
+	display: block;
+	top: 4px;
+	left: 5px;
+	width: 25px;
+	height: 25px;
+	z-index: 5;
+	background: #FA6060 url('slike/arrow-prev.png') no-repeat;
+	background-position: 7px 6px;
+	cursor: pointer;
+}
+
+.arrowNext {
+	position: absolute;
+	display: block;
+	top: 4px;
+	right: 5px;
+	width: 25px;
+	height: 25px;
+	z-index: 5;
+	background: #FA6060 url('slike/arrow-next.png') no-repeat;
+	background-position: 9px 6px;
+	cursor: pointer;
+}
+
+.arrowPrev:hover,
+.arrowNext:hover {
+	background-color: #fa2d2d;
+}
+
+
+table tr th,
+table tr td {
+	margin: 0;
+	padding: 12px 8px;
+	text-align: center;
+}
+
+table tr th {
+	border-spacing: 0;
+	border-bottom: 1px solid red;
+}
+
+table tr td {
+	position: relative;
+	border-bottom: 1px solid #fff;
+	z-index: 1;
+}
+
+.tableLeft {
+	text-align: left;
+}
+
+.tableRight {
+	text-align: right;
+}
+
+table.kalendar {
+	width: auto;
+	margin: 0 0 35px;
+}
+
+table.kalendar tr th,
+table.kalendar tr td {
+	max-width: 45px;
+	width: 45px;
+	max-height: 45px;
+	height: 45px;
+	padding: 0;
+}
+
+table.kalendar tr td {
+	border-bottom: none;
+}
+
+table.kalendar tr th {
+	border-bottom: none;
+	background: #fff;
+}
+
+.notFree {
+	background: rgb(250,160,160) !important;
+}
+
+.free {
+	background: rgb(150,240,150) !important;
+}
+
+.nextMonth {
+	color: #aaa;
+}
+
+.weekend {
+	color: rgba(255,0,0,0.5);
+}
+
+.notFreeIn:before {
+	content: "";
+	position: absolute;
+	display: block;
+	z-index: -1;
+	top: 1px;
+	right: -5px;
+	width: 0; 
+	height: 0; 
+	border-top: 32px solid transparent;
+	border-bottom: 32px solid transparent;
+	
+	border-left: 32px solid rgb(250,160,160);
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.notFreeOut:after {
+	content: "";
+	position: absolute;
+	display: block;
+	z-index: -1;
+	top: -21px;
+	left: -4.6px;
+	width: 0; 
+	height: 0; 
+	border-top: 32px solid transparent;
+	border-bottom: 32px solid transparent;
+	
+	border-left: 32px solid rgb(250,160,160);
+	-ms-transform: rotate(225deg);
+	-webkit-transform: rotate(225deg);
+	transform: rotate(225deg);
+}
+
+.freeIn:before {
+	content: "";
+	position: absolute;
+	display: block;
+	z-index: -1;
+	top: 1px;
+	right: -5px;
+	width: 0; 
+	height: 0; 
+	border-top: 32px solid transparent;
+	border-bottom: 32px solid transparent;
+	
+	border-left: 32px solid rgb(150,240,150);
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.freeOut:after {
+	content: "";
+	position: absolute;
+	display: block;
+	z-index: -1;
+	top: -21px;
+	left: -4.6px;
+	width: 0; 
+	height: 0; 
+	border-top: 32px solid transparent;
+	border-bottom: 32px solid transparent;
+	
+	border-left: 32px solid rgb(150,240,150);
+	-ms-transform: rotate(225deg);
+	-webkit-transform: rotate(225deg);
+	transform: rotate(225deg);
+}
+
+.col-2 {
+	width: 100%;
+	margin: 0 0 35px;
+}
+
+.col-2 h3 {
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.col-3-wrapper {
+	width: 100%;
+	text-align: center;
+}
+
+.col-3 {
+	width: 100%;
+	margin: 0 0 35px;
+}
+
+.col-2-wrapper,
+.col-3-wrapper {
+	clear: both;
+	margin: 35px 0;
+}
+
+.col-2-wrapper p,
+.col-3-wrapper p {
+	text-align: left;
+}
+
+.red {
+	color: red;
+}
+
+.blue {
+	color: blue;
+}
+
+.white {
+	background: #fff;
+}
+
+.kartica {
+	display: block;
+	padding: 15px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+}
+
+a.kartica:hover {
+	border: 1px solid red;
+}
+
+.zvjezdice {
+	display: inline-block;
+	color: gold;
+	font-size: 22px;
+	line-height: 1px;
+	vertical-align: middle;
+}
+
+.cijena {
+	color: black;
+}
+
+.prijavaOdjava {
+	position: relative;
+	display: inline-block;
+	padding: 7px 20px;
+	top: -2px;
+	float: right;
+	color: #fff;
+	background: rgb(50,150,255);
+}
+
+.prijavaOdjava:hover {
+	background: black;
+}
+
+form {
+	clear: both;
+	width: 100%;
+	margin: 35px auto; 
+	padding: 25px;
+	background: #fff;
+	text-align: center;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+}
+
+label {
+	display: block;
+	margin-right: 15px;
+	font-size: 13px;
+	line-height: 25px;
+	text-align: left;
+	vertical-align: middle;
+	color: #999;
+}
+
+input,
+select {
+	display: block;
+	margin: 2px 0 15px;
+	padding: 10px;
+	height: 45px;
+	width: 100%;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+input[type="submit"] {
+	display: inline-block;
+	width: 35%;
+	margin: 15px 5px 0;
+	background: rgb(50,150,255);
+	border: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover,
+.odustani:hover {
+	background: black !important;
+}
+
+.odustani {
+	background: coral !important;
+}
+
+.checkboxRadio {
+	padding: 5px;
+}
+
+.checkboxRadio label {
+	display: inline;
+	line-height: 25px;
+	vertical-align: middle;
+	color: #444;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	width: 25px;
+	height: 25px;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+option {
+	font-size: 16px
+}
+
+@media screen and (min-width: 600px) {
+	#main {
+		padding: 35px;
+	}
+	
+	.col-2 {
+		width: 45%;
+		margin: 35px 0;
+	}
+
+	.col-2:first-of-type {
+		float: left;
+	}
+
+	.col-2:last-of-type {
+		float: right;
+	}
+
+	.col-3 {
+		max-width: 30%;
+		display: inline-block;
+	}
+
+	.col-3:first-of-type {
+		float: left;
+	}
+
+	.col-3:last-of-type {
+		float: right;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	form {
+		max-width: 550px;
+	}
+}

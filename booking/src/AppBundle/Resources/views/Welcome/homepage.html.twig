@@ -1,13 +1,15 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
-{% block body %}
-  <h1>PHP Academy Booking app</h1>
+{% block content %}
+    <h1>PHP Academy Booking app</h1>
 
-  <p>
-      Welcome! Take a look at our accommodation offer.
-  </p>
+    <p>
+        Welcome! Take a look at our
+        <a href="{{ path('AppBundle_Accommodation_accommodation', {'accommodationId': 1}) }}">accommodation offer</a>.
+    </p>
 
-  <a href="{{ path('AppBundle_Welcome_about') }}">About us.</a>
-{% endblock %}
+
+    <a href="{{ path('AppBundle_Welcome_about') }}">About us.</a>
+{% endblock content %}
 
 
