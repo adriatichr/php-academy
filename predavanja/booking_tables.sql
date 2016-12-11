@@ -2,6 +2,7 @@
 CREATE TABLE IF NOT EXISTS place (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50) NOT NULL,
+	postal_code VARCHAR(10) NOT NULL,
 	PRIMARY KEY(id)
 ) COLLATE utf8_general_ci;
 
@@ -49,7 +50,8 @@ CREATE TABLE IF NOT EXISTS shortlist (
 
 # Punjenje tablica dummy podacima
 START TRANSACTION;
-INSERT INTO place (id, name) VALUES (1, 'Split'), (3, 'Omiš'), (4, 'Kaštel Sućurac'), (5, 'Solin');
+INSERT INTO place (id, name, postal_code) VALUES
+	(1, 'Split', '21000'), (3, 'Omiš', '21310'), (4, 'Kaštel Sućurac', '21212'), (5, 'Solin', '21210');
 INSERT INTO accommodation (id, name, price_per_day, place_id, category, description) VALUES
 	(1, 'Split Luxury Rentals', 349.99, 1, 5, 'Luxury accommodation near Split city center, with a swimming pool, vine cellar, all that good stuff.'),
 	(2, 'Happy Sunny Verygood apartments', 19.99, 4, 2, 'Spacious apartments located in the middle of Kaštel Sućurac\'s historic Jugovinil district.'),

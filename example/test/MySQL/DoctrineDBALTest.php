@@ -78,12 +78,14 @@ class DoctrineDBALTest extends DatabaseTestCase
             ->innerJoin('s', '`group`', 'g', 's.group_id = g.id')
             ->execute();
 
+        $result = $statement->fetchAll();
+
         $this->assertEquals([
             ['id' => '1', 'name' => 'Ana', 'surname' => 'Anić', 'group_name' => 'Računarstvo'],
             ['id' => '2', 'name' => 'Iva', 'surname' => 'Ivić', 'group_name' => 'Matematika i Računarstvo'],
             ['id' => '3', 'name' => 'Mate', 'surname' => 'Matić', 'group_name' => 'Matematika'],
             ['id' => '4', 'name' => 'Šime', 'surname' => 'Anić', 'group_name' => 'Računarstvo'],
-        ], $statement->fetchAll());
+        ], $result);
     }
 
     private function assertNewGroupAdded($groupName)
