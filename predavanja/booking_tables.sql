@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS accommodation (
 	place_id INT UNSIGNED NOT NULL,
 	category TINYINT UNSIGNED,
 	description MEDIUMTEXT,
+	created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(id),
 	CONSTRAINT accommodation_place FOREIGN KEY (place_id) REFERENCES place (id)
 ) COLLATE utf8_general_ci;
@@ -21,6 +22,7 @@ CREATE TABLE IF NOT EXISTS customer (
 	email VARCHAR(100) NOT NULL,
 	name VARCHAR(50) NOT NULL,
 	surname VARCHAR(50) NOT NULL,
+	created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id),
 	UNIQUE INDEX email (email)
 ) COLLATE utf8_general_ci;
@@ -31,6 +33,7 @@ CREATE TABLE IF NOT EXISTS reservation (
 	customer_id BIGINT UNSIGNED NOT NULL,
 	start_date DATE NOT NULL,
 	end_date DATE NOT NULL,
+	created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id),
 	CONSTRAINT reservation_accommodation FOREIGN KEY (accommodation_id) REFERENCES accommodation (id) ON UPDATE CASCADE ON DELETE RESTRICT,
 	CONSTRAINT reservation_customer FOREIGN KEY (customer_id) REFERENCES customer (id) ON UPDATE CASCADE ON DELETE RESTRICT
