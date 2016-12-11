@@ -1,5 +1,7 @@
 <?php
 
+// Ovo je zadana opcija u PHP 7 i ne mora se izričito naznačiti, tj. donju liniju možemo zakomentirati i testovi će i
+// dalje prolaziti
 declare(strict_types=0);
 
 use Adriatic\PHPAkademija\OOPIntro\TypeDeclarations\TypeFoo;

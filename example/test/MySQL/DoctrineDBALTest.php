@@ -68,6 +68,24 @@ class DoctrineDBALTest extends DatabaseTestCase
         $this->assertGroupNotAdded('Fizika');
     }
 
+    /** @test */
+    public function joinTablesUsingQueryBuilder()
+    {
+        $queryBuilder = $this->conn->createQueryBuilder();
+        $statement = $queryBuilder
+            ->select('s.id', 's.name', 's.surname', 'g.name AS group_name')
+            ->from('student', 's')
+            ->innerJoin('s', '`group`', 'g', 's.group_id = g.id')
+            ->execute();
+
+        $this->assertEquals([
+            ['id' => '1', 'name' => 'Ana', 'surname' => 'Anić', 'group_name' => 'Računarstvo'],
+            ['id' => '2', 'name' => 'Iva', 'surname' => 'Ivić', 'group_name' => 'Matematika i Računarstvo'],
+            ['id' => '3', 'name' => 'Mate', 'surname' => 'Matić', 'group_name' => 'Matematika'],
+            ['id' => '4', 'name' => 'Šime', 'surname' => 'Anić', 'group_name' => 'Računarstvo'],
+        ], $statement->fetchAll());
+    }
+
     private function assertNewGroupAdded($groupName)
     {
         $this->assertEquals($groupName,

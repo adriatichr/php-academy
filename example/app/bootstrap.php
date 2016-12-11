@@ -30,6 +30,7 @@ class Db
                 'dbname' => $params->db_name,
                 'user' => $params->user,
                 'password' => $params->password,
+                'charset'  => 'utf8',
             ], new \Doctrine\DBAL\Configuration());
 
         return self::$dbalConnection;
