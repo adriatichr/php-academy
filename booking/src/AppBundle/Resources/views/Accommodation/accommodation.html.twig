@@ -1,7 +1,34 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
-{% block content %}
-<h1>Stranica smještaja {{ id }}</h1>
+{% macro printCategory(category) %}
+    <span class="zvjezdice">
+        {% if category != null %}
+            {% for i in 1..category -%}
+                *
+            {%- endfor %}
+        {% endif %}
+    </span>
+{% endmacro printCategory %}
+{% macro printPrice(price) %}
+    <div class="cijena">Price: <span class="red">{{ price }} €</span></div>
+{% endmacro %}
 
+{% import _self as helper %}
+
+{% block content %}
+
+    <h1>{{ accommodation['name'] }}</h1>
+
+    <div class="col-2-wrapper">
+        <div class="col-2"></div>
+        <div class="col-2">
+            {{ helper.printCategory(accommodation['category']) }}
+            <p>Location: {{ accommodation['place_name'] }}</p>
+            <p>
+                {{ accommodation['description'] }}
+            </p>
+            {{ helper.printPrice(accommodation['price_per_day']) }}
+        </div>
+    </div>
 
 {% endblock %}

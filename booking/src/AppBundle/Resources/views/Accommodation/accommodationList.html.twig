@@ -1,0 +1,19 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% import 'AppBundle:Accommodation:accommodation.html.twig' as helper %}
+
+{% block content %}
+    {% for accommodation in accommodations %}
+        {% if loop.index is odd %}<div class="col-2-wrapper">{% endif %}
+            <a href="{{ path('AppBundle_Accommodation_accommodation', {'accommodationId': accommodation['id']}) }}"
+                class="col-2 white kartica">
+                <h4>
+                    {{ accommodation['name'] }}
+                    {{ helper.printCategory(accommodation['category']) }}
+                </h4>
+                {{ helper.printPrice(accommodation['price_per_day']) }}
+            </a>
+        {% if loop.index is even %}</div>{% endif %}
+    {% endfor %}
+
+{% endblock content %}
