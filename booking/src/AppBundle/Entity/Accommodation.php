@@ -5,8 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="accommodation")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AccommodationRepository")
  */
 class Accommodation
 {
@@ -17,27 +16,19 @@ class Accommodation
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string")
-     */
+    /** @ORM\Column(type="string") */
     private $name;
 
     /** @ORM\Column(type="decimal") */
     private $pricePerDay;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
+    /** @ORM\Column(type="integer") */
     private $category;
 
-    /**
-     * @ORM\Column(type="text")
-     */
+    /** @ORM\Column(type="text") */
     private $description;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
+    /** @ORM\Column(type="datetime") */
     private $created;
 
     /**

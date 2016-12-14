@@ -13,8 +13,8 @@ class AccommodationController extends Controller
      */
     public function accommodationAction($accommodationId)
     {
-        $manager = $this->getDoctrine()->getManager();
-        $accommodation = $manager->getRepository('AppBundle:Accommodation')->find($accommodationId);
+        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
+        $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
 
         if(!$accommodation)
             throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
