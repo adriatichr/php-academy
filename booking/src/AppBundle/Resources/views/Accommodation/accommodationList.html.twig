@@ -5,15 +5,19 @@
 {% block content %}
     {% for accommodation in accommodations %}
         {% if loop.index is odd %}<div class="col-2-wrapper">{% endif %}
-            <a href="{{ path('AppBundle_Accommodation_accommodation', {'accommodationId': accommodation['id']}) }}"
+            <a href="{{ path('AppBundle_Accommodation_accommodation', {'accommodationId': accommodation.id}) }}"
                 class="col-2 white kartica">
+                <img src="{{ asset('images/accommodation/apartman' ~ accommodation.id ~ '.jpg') }}"
+                    alt="Apartment image" />
                 <h4>
-                    {{ accommodation['name'] }}
-                    {{ helper.printCategory(accommodation['category']) }}
+                    {{ accommodation.name }}
+                    {{ helper.printCategory(accommodation.category) }}
                 </h4>
-                {{ helper.printPrice(accommodation['price_per_day']) }}
+                {{ helper.printPrice(accommodation.pricePerDay) }}
             </a>
         {% if loop.index is even %}</div>{% endif %}
+    {% else %}
+        No accommodations found.
     {% endfor %}
 
 {% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% macro printCategory(category) %}
+	<span class="zvjezdice">
+		{% if category != null %}
+			{% for i in 1..category -%}
+				*
+			{%- endfor %}
+		{% endif %}
+	</span>
+{% endmacro printCategory %}
+
+{% import _self as helper %}
+
+{% block content %}
+<h1>{{ accommodation.name }}</h1>
+
+<div class="col-2-wrapper">
+	<div class="col-2 white kartica">
+		<img src="{{ asset('images/accommodation/apartman' ~ accommodation.id ~ '.jpg') }}">
+	</div>
+	<div class="col-2">
+		<p>
+			{{ helper.printCategory(accommodation.category) }}
+			<br />
+			{{ accommodation.description }}
+		</p>
+	</div>
+</div>
+{% endblock %}

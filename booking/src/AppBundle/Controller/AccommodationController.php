@@ -13,15 +13,9 @@ class AccommodationController extends Controller
      */
     public function accommodationAction($accommodationId)
     {
-        $queryBuilder = $this->get('database_connection')->createQueryBuilder();
-        $statement = $queryBuilder
-            ->select('a.*', 'p.name AS place_name')
-            ->from('accommodation', 'a')
-            ->join('a', 'place', 'p', 'p.id = a.place_id')
-            ->where('a.id = ?')
-            ->setParameter(0, $accommodationId)
-            ->execute();
-        $accommodation = $statement->fetch();
+        $manager = $this->getDoctrine()->getManager();
+        $accommodation = $manager->getRepository('AppBundle:Accommodation')->find($accommodationId);
+
         if(!$accommodation)
             throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
 
@@ -33,11 +27,11 @@ class AccommodationController extends Controller
      */
     public function accommodationListAction()
     {
-        $conn = $this->get('database_connection');
-        $statement = $conn->query('SELECT * FROM accommodation');
+        $manager = $this->getDoctrine()->getManager();
+        $accommodations = $manager->getRepository('AppBundle:Accommodation')->findAll();
 
         return $this->render('AppBundle:Accommodation:accommodationList.html.twig', [
-            'accommodations' => $statement->fetchAll()
+            'accommodations' => $accommodations
         ]);
     }
 

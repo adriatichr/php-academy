@@ -17,17 +17,19 @@
 
 {% block content %}
 
-    <h1>{{ accommodation['name'] }}</h1>
+    <h1>{{ accommodation.name }}</h1>
 
     <div class="col-2-wrapper">
-        <div class="col-2"></div>
+        <div class="col-2 white kartica">
+            <img src="{{ asset('images/accommodation/apartman' ~ accommodation.id ~ '.jpg') }}" alt="Apartment image" />
+        </div>
         <div class="col-2">
-            {{ helper.printCategory(accommodation['category']) }}
-            <p>Location: {{ accommodation['place_name'] }}</p>
+            {{ helper.printCategory(accommodation.category) }}
+            <p>Location: {{ accommodation.place.name }}</p>
             <p>
-                {{ accommodation['description'] }}
+                {{ accommodation.description }}
             </p>
-            {{ helper.printPrice(accommodation['price_per_day']) }}
+            {{ helper.printPrice(accommodation.pricePerDay) }}
         </div>
     </div>
 
