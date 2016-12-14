@@ -16,10 +16,16 @@ class AccommodationController extends Controller
         $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
         $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
 
+        $availability = $this->get('app.view.availability');
+        $reservedDates = $availability->forAccommodationAndDate($accommodationId, 7, date('Y'));
+
         if(!$accommodation)
             throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
 
-        return $this->render('AppBundle:Accommodation:accommodation.html.twig', ['accommodation' => $accommodation]);
+        return $this->render('AppBundle:Accommodation:accommodation.html.twig', [
+            'accommodation' => $accommodation,
+            'reservedDates' => $reservedDates,
+        ]);
     }
 
     /**
