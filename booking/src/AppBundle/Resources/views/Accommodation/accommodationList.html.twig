@@ -3,11 +3,11 @@
 {% import 'AppBundle:Accommodation:accommodation.html.twig' as helper %}
 
 {% block content %}
-    {% for accommodation in accommodations %}
-        {% if loop.index is odd %}<div class="col-2-wrapper">{% endif %}
+    <div class="col-2-wrapper">
+        {% for accommodation in accommodations %}
             <a href="{{ path('AppBundle_Accommodation_accommodation', {'accommodationId': accommodation.id}) }}"
                 class="col-2 white kartica">
-                <img src="{{ asset('images/accommodation/apartman' ~ accommodation.id ~ '.jpg') }}"
+                <img src="{{ path('AppBundle_Accommodation_mainImage', {'accommodationId': accommodation.id}) }}"
                     alt="Apartment image" />
                 <h4>
                     {{ accommodation.name }}
@@ -15,9 +15,9 @@
                 </h4>
                 {{ helper.printPrice(accommodation.pricePerDay) }}
             </a>
-        {% if loop.index is even %}</div>{% endif %}
-    {% else %}
-        No accommodations found.
-    {% endfor %}
+        {% else %}
+            No accommodations found.
+        {% endfor %}
+    </div>
 
 {% endblock content %}

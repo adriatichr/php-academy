@@ -98,7 +98,7 @@ caption {
 	width: 25px;
 	height: 25px;
 	z-index: 5;
-	background: #FA6060 url('slike/arrow-prev.png') no-repeat;
+	background: #FA6060 url('images/arrow-prev.png') no-repeat;
 	background-position: 7px 6px;
 	cursor: pointer;
 }
@@ -111,7 +111,7 @@ caption {
 	width: 25px;
 	height: 25px;
 	z-index: 5;
-	background: #FA6060 url('slike/arrow-next.png') no-repeat;
+	background: #FA6060 url('images/arrow-next.png') no-repeat;
 	background-position: 9px 6px;
 	cursor: pointer;
 }
@@ -194,11 +194,11 @@ table.kalendar tr th {
 	z-index: -1;
 	top: 1px;
 	right: -5px;
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-top: 32px solid transparent;
 	border-bottom: 32px solid transparent;
-	
+
 	border-left: 32px solid rgb(250,160,160);
 	-ms-transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
@@ -212,11 +212,11 @@ table.kalendar tr th {
 	z-index: -1;
 	top: -21px;
 	left: -4.6px;
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-top: 32px solid transparent;
 	border-bottom: 32px solid transparent;
-	
+
 	border-left: 32px solid rgb(250,160,160);
 	-ms-transform: rotate(225deg);
 	-webkit-transform: rotate(225deg);
@@ -230,11 +230,11 @@ table.kalendar tr th {
 	z-index: -1;
 	top: 1px;
 	right: -5px;
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-top: 32px solid transparent;
 	border-bottom: 32px solid transparent;
-	
+
 	border-left: 32px solid rgb(150,240,150);
 	-ms-transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
@@ -248,11 +248,11 @@ table.kalendar tr th {
 	z-index: -1;
 	top: -21px;
 	left: -4.6px;
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-top: 32px solid transparent;
 	border-bottom: 32px solid transparent;
-	
+
 	border-left: 32px solid rgb(150,240,150);
 	-ms-transform: rotate(225deg);
 	-webkit-transform: rotate(225deg);
@@ -342,7 +342,7 @@ a.kartica:hover {
 form {
 	clear: both;
 	width: 100%;
-	margin: 35px auto; 
+	margin: 35px auto;
 	padding: 25px;
 	background: #fff;
 	text-align: center;
@@ -420,31 +420,30 @@ option {
 	#main {
 		padding: 35px;
 	}
-	
+
 	.col-2 {
 		width: 45%;
 		margin: 35px 0;
 	}
 
-	.col-2:first-of-type {
+	.col-2:nth-child(odd) {
 		float: left;
 	}
 
-	.col-2:last-of-type {
+	.col-2:nth-child(even) {
 		float: right;
 	}
 
 	.col-3 {
-		max-width: 30%;
-		display: inline-block;
-	}
-
-	.col-3:first-of-type {
+		width: 31%;
 		float: left;
+		display: inline-block;
+		margin-right: 3.33%;
 	}
 
-	.col-3:last-of-type {
+	.col-3:nth-child(3) {
 		float: right;
+		margin-right: 0;
 	}
 }
 

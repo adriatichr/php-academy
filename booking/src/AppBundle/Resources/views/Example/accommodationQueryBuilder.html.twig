@@ -17,7 +17,7 @@
 
 <div class="col-2-wrapper">
 	<div class="col-2 white kartica">
-		<img src="{{ asset('images/accommodation/apartman' ~ accommodation.id ~ '.jpg') }}">
+		<img src="{{ path('AppBundle_Accommodation_mainImage', {'accommodationId': accommodation.id}) }}">
 	</div>
 	<div class="col-2">
 		<p>

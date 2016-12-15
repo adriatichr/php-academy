@@ -21,7 +21,8 @@
 
     <div class="col-2-wrapper">
         <div class="col-2 white kartica">
-            <img src="{{ asset('images/accommodation/apartman' ~ accommodation.id ~ '.jpg') }}" alt="Apartment image" />
+            <img src="{{ path('AppBundle_Accommodation_mainImage', {'accommodationId': accommodation.id}) }}"
+                    alt="Apartment image" />
         </div>
         <div class="col-2">
             {{ helper.printCategory(accommodation.category) }}
