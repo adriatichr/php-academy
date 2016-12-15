@@ -43,11 +43,6 @@ class CalendarExtension extends \Twig_Extension
             $classes[] = $this->isReservedDate($day, $reservedDates) ? 'notFree' : 'free';
 
         return implode(' ', $classes);
-
-        // if(in_array($day, $reservedDates))
-        //     return 'notFree';
-
-        // return 'free';
     }
 
     private function isReservedDate(\DateTimeImmutable $day, array $reservedDates)

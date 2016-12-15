@@ -61,8 +61,11 @@ INSERT INTO accommodation (id, name, price_per_day, place_id, category, descript
 INSERT INTO customer (id, email, name, surname) VALUES
 	(1, 'alice@gmail.com', 'Alice', 'Smith'),
 	(2, 'bob.customer@yahoo.com', 'Robert', 'Customer');
-INSERT INTO reservation (accommodation_id, customer_id, start_date, end_date) VALUES
-	(3, 1, '2017-07-16', '2017-07-28'),
-	(2, 2, '2017-09-01', '2017-09-15');
+INSERT INTO `reservation` (`accommodation_id`, `customer_id`, `start_date`, `end_date`, `created`) VALUES (2, 2, '2016-06-11', '2016-09-15', '2016-12-11 21:53:01');
+INSERT INTO `reservation` (`accommodation_id`, `customer_id`, `start_date`, `end_date`, `created`) VALUES (1, 1, '2016-07-15', '2016-07-20', '2016-12-15 00:47:02');
+INSERT INTO `reservation` (`accommodation_id`, `customer_id`, `start_date`, `end_date`, `created`) VALUES (1, 2, '2016-06-15', '2016-07-02', '2016-12-15 01:02:41');
+INSERT INTO `reservation` (`accommodation_id`, `customer_id`, `start_date`, `end_date`, `created`) VALUES (1, 1, '2016-07-29', '2016-08-10', '2016-12-15 01:03:18');
 INSERT INTO shortlist (accommodation_id, customer_id) VALUES (3, 1),	(2, 2),	(1, 2),	(2, 1),	(5, 1),	(5, 2);
 COMMIT;
+
+
