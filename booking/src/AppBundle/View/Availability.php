@@ -1,45 +1,55 @@
-<?php 
+<?php
 
 namespace AppBundle\View;
 
 class Availability
 {
-	private $entityManager;
+    private $entityManager;
 
-	public function __construct($entityManager)
-	{
-		$this->entityManager = $entityManager;
-	}
+    public function __construct($entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
 
-	public function forAccommodationAndDate(int $accommodationId, int $month, int $year)
-	{
-		$dql = 'SELECT r FROM AppBundle:Reservation AS r 
-			WHERE r.accommodationId = :id AND r.startDate > :start AND r.endDate < :end';
+    public function forAccommodationAndDate(int $accommodationId, int $month, int $year)
+    {
+        // Slučajevi koje moramo pokriti sa queryjem (puna crta je ciljani mjesec):
+        // ---------_________________--------
+        //       [     ]
+        //             [    ]
+        //                       [      ]
+        //     [                          ]
+        //
+        $dql = 'SELECT r FROM AppBundle:Reservation AS r
+            WHERE r.accommodationId = :id
+            AND (
+                (r.startDate >= :start AND r.startDate < :end)
+                OR (r.endDate > :start AND r.endDate <= :end)
+                OR (r.startDate < :start AND r.endDate > :end)
+            )';
 
-		$startDate = \DateTimeImmutable::createFromFormat('Y-m-d', 
-			sprintf('%s-%s-01', $year, $month));
-		$endDate = \DateTimeImmutable::createFromFormat('Y-m-d', 
-			sprintf('%s-%s-01', $year, $month + 1));
+        $startDate = \DateTimeImmutable::createFromFormat('Y-m-d', sprintf('%s-%s-01', $year, $month));
+        $endDate = \DateTimeImmutable::createFromFormat('Y-m-d', sprintf('%s-%s-01', $year, $month + 1));
 
-		$reservations = $this->entityManager
-			->createQuery($dql)
-			->setParameter('id', $accommodationId)
-			->setParameter('start', $startDate)
-			->setParameter('end', $endDate)
-			->getResult();
+        $reservations = $this->entityManager
+            ->createQuery($dql)
+            ->setParameter('id', $accommodationId)
+            ->setParameter('start', $startDate)
+            ->setParameter('end', $endDate)
+            ->getResult();
 
-		$reservedDates = [];
-		foreach ($reservations as $reservation) {
-			$reservationPeriod = new \DatePeriod(
-				$reservation->getStartDate(), 
-				\DateInterval::createFromDateString('1 day'),
-				$reservation->getEndDate());
+        $reservedDates = [];
+        foreach ($reservations as $reservation) {
+            $reservationPeriod = new \DatePeriod(
+                $reservation->getStartDate(),
+                \DateInterval::createFromDateString('1 day'),
+                $reservation->getEndDate());
 
-			foreach ($reservationPeriod as $date) {
-				$reservedDates[] = $date;
-			}
-		}
+            foreach ($reservationPeriod as $date) {
+                $reservedDates[] = $date;
+            }
+        }
 
-		return $reservedDates;
-	}
+        return $reservedDates;
+    }
 }
