@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class AccommodationController extends Controller
@@ -39,6 +40,25 @@ class AccommodationController extends Controller
         return $this->render('AppBundle:Accommodation:accommodationList.html.twig', [
             'accommodations' => $accommodations
         ]);
+    }
+
+    /**
+     * Akcija koja servira slike smještaja.
+     *
+     * Ako slika ne postoji, servira se no-image.jpg slika.
+     *
+     * @Route("/accommodation/image/main/{accommodationId}", name="AppBundle_Accommodation_mainImage")
+     */
+    public function mainImageAction(int $accommodationId)
+    {
+        $imagePath = '../src/AppBundle/Resources/images/accommodation/apartman' . $accommodationId . '.jpg';
+        if(!file_exists($imagePath))
+            $imagePath = '../src/AppBundle/Resources/images/accommodation/no-image.jpg';
+
+        $response = new BinaryFileResponse($imagePath);
+        $response->headers->set('Content-Type', 'image/jpeg');
+
+        return $response;
     }
 
 }
