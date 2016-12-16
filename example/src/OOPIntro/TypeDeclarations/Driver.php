@@ -10,7 +10,7 @@ class Driver
 
     /**
      * U ovom slučaju type declaration je interface Driveable. Kôdiranje prema interfaceu nam omogućuje da variramo
-     * implementaciju bez potrebe za mijenjanjem kôda u Driver klasi.
+     * implementaciju auta bez potrebe za mijenjanjem kôda u Driver klasi.
      */
     public function getInACar(Driveable $car)
     {

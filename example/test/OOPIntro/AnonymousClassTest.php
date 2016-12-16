@@ -12,17 +12,17 @@ class AnonymousClassTest extends TestCase
     {
         $driver = new Driver();
         $driver->getInACar(new class implements Driveable {
-            public function steerLeft()
+            public function steerLeft() : string
             {
                 return 'Anonimni auto ide lijevo';
             }
 
-            public function steerRight()
+            public function steerRight() : string
             {
                 return 'Anonimni auto ide desno';
             }
 
-            public function driveForward()
+            public function driveForward() : string
             {
                 return 'Anonimni auto vozi naprid';
             }
