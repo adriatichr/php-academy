@@ -4,10 +4,17 @@
 require_once __DIR__.'/../../app/bootstrap.php';
 
 use Adriatic\PHPAkademija\OOPIntro\InterfaceExample\DieselCar;
-use Adriatic\PHPAkademija\OOPIntro\InterfaceExample\Driveable;
 use Adriatic\PHPAkademija\OOPIntro\InterfaceExample\ElectricCar;
 use Adriatic\PHPAkademija\OOPIntro\InterfaceExample\GasolineCar;
 use Adriatic\PHPAkademija\OOPIntro\TypeDeclarations\Driver;
+
+/**
+ * Razlike između interface-a i abstraktne klase:
+ * * klasa može implementirati više interface-a, ali može naslijediti samo jednu abstraktnu klasu (PHP ne podržava
+ *   višestruko nasljeđivanje)
+ * * abstraktna klasa može definirati zadanu implementaciju za neke svoje metode, dok interface dopušta samo definiciju
+ *   metoda bez implementacije (tj. bez tijela metode)
+ */
 
 $gasolineCar = new GasolineCar();
 $dieselCar = new DieselCar();
