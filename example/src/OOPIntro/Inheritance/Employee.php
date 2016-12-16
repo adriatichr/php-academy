@@ -2,6 +2,9 @@
 
 namespace Adriatic\PHPAkademija\OOPIntro\Inheritance;
 
+/**
+ * Employee nasljeđuje metodu getFullName() od Person klase.
+ */
 class Employee extends Person
 {
     private $salary;
