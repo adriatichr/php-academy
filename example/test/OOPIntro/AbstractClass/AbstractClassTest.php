@@ -35,7 +35,7 @@ class AbstractClassTest extends TestCase
     /** @test */
     public function dieselCarUsesDieselEngineToDriveForward()
     {
-        $electricCar = new DieselCar();
-        $this->assertEquals('Vozim naprijed koristeći dizelski motor.', $electricCar->driveForward());
+        $dieselCar = new DieselCar();
+        $this->assertEquals('Vozim naprijed koristeći dizelski motor.', $dieselCar->driveForward());
     }
 }
