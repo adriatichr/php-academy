@@ -1,0 +1,20 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% import 'AppBundle:Accommodation:accommodation.html.twig' as helper %}
+
+{% block content %}
+    <h1>Unos smještaja</h1>
+    {% if insert == false %}
+        {{ form_start(form) }}
+        {{ form_row(form.name, {'label' : 'Ime smještaja'}) }}
+        {{ form_row(form.pricePerDay, {'label' : 'Cijena po danu'}) }}
+        {{ form_row(form.category, {'label' : 'Kategorija'}) }}
+        {{ form_row(form.place, {'label' : 'Mjesto'}) }}
+        <input type="submit" value="Dodaj smještaj">
+        {{ form_end(form) }}
+    {% else %}
+        {% do form.setRendered() %}
+        <h3>Smještaj je uspješno unešen!<h3>
+        <a href="{{ path("AppBundle_Accommodation_accommodationAdd") }}">Dodaj novi smještaj</a>
+    {% endif %}
+{% endblock content %}

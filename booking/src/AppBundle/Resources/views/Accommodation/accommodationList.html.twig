@@ -3,6 +3,16 @@
 {% import 'AppBundle:Accommodation:accommodation.html.twig' as helper %}
 
 {% block content %}
+
+    {{ form_start(form) }}
+        <h4>Cijena</h4>
+        {{ form_row(form.priceFrom, {'label' : 'Od'}) }}
+        {{ form_row(form.priceTo, {'label' : 'Do'}) }}
+        <h4>Mjesto</h4>
+        {{ form_row(form.place) }}
+        <input type="submit" value="Filtriraj">
+    {{ form_end(form) }}
+
     <div class="col-2-wrapper">
         {% for accommodation in accommodations %}
             <a href="{{ path('AppBundle_Accommodation_accommodation', {'accommodationId': accommodation.id}) }}"

@@ -2,6 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Accommodation as EntityAccommodation;
+use AppBundle\Form\Model\Accommodation as FormAccommodation;
+use AppBundle\Form\Model\SearchParameters;
+use AppBundle\Form\Type\AccommodationType;
+use AppBundle\Form\Type\SearchParametersType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -32,13 +37,21 @@ class AccommodationController extends Controller
     /**
      * @Route("/accommodation", name="AppBundle_Accommodation_accommodationList")
      */
-    public function accommodationListAction()
+    public function accommodationListAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $accommodations = $manager->getRepository('AppBundle:Accommodation')->findAll();
+
+        $form = $this->get('form.factory')->createNamed(null, SearchParametersType::class, new SearchParameters());
+        $form->handleRequest($request);
+        if($form->isSubmitted()) {
+            $accommodations = $manager->getRepository('AppBundle:Accommodation')->findByParameters($form->getData());
+        } else {
+            $accommodations = $manager->getRepository('AppBundle:Accommodation')->findAll();
+        }
 
         return $this->render('AppBundle:Accommodation:accommodationList.html.twig', [
-            'accommodations' => $accommodations
+            'accommodations' => $accommodations,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -59,6 +72,41 @@ class AccommodationController extends Controller
         $response->headers->set('Content-Type', 'image/jpeg');
 
         return $response;
+    }
+
+    /**
+     * @Route("/admin/accommodation/add", name="AppBundle_Accommodation_accommodationAdd")
+     */
+    public function accommodationAddAction(Request $request)
+    {
+        $manager = $this->getDoctrine()->getManager();
+
+        $formAccommodation = new FormAccommodation();
+        $form = $this->createForm(AccommodationType::class, $formAccommodation);
+        $form->handleRequest($request);
+        $insert = false;
+
+        if($form->isValid() && $form->isSubmitted()) {
+            $formAccommodation = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $place = $entityManager->getRepository('AppBundle:Place')->findOneByName($formAccommodation->place);
+            $accommodation = new EntityAccommodation();
+            $accommodation->setName($formAccommodation->name);
+            $accommodation->setCategory($formAccommodation->category);
+            $accommodation->setPricePerDay($formAccommodation->pricePerDay);
+            $accommodation->setPlace($place);
+
+            $entityManager->persist($accommodation);
+            $entityManager->flush();
+
+            $insert = true;
+        }
+
+        return $this->render('AppBundle:Accommodation:accommodationAdd.html.twig', [
+            'form' => $form->createView(),
+            'insert' => $insert
+        ]);
     }
 
 }
