@@ -9,6 +9,7 @@ class CalendarExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFunction('generateDatesForMonth', [$this, 'generateDatesForMonth']),
             new \Twig_SimpleFunction('getDayClass', [$this, 'getDayClass']),
+            new \Twig_SimpleFunction('getMonthName', [$this, 'getMonthName'])
         ];
     }
 
@@ -59,6 +60,25 @@ class CalendarExtension extends \Twig_Extension
         }
 
         return false;
+    }
+    
+    public function getMonthName(int $month)
+    {
+        switch($month) {
+            case 1: return 'Siječanj';
+            case 2: return 'Veljača';
+            case 3: return 'Ožujak';
+            case 4: return 'Travanj';
+            case 5: return 'Svibanj';
+            case 6: return 'Lipanj';
+            case 7: return 'Srpanj';
+            case 8: return 'Kolovoz';
+            case 9: return 'Rujan';
+            case 10: return 'Listopad';
+            case 11: return 'Studeni';
+            case 12: return 'Prosinac';
+            default: return '';
+        }
     }
 
     public function getName()
