@@ -31,6 +31,9 @@ class AccommodationController extends Controller
         $em = $this->getDoctrine()->getManager();
         $accommodation = $em->getRepository('AppBundle:Accommodation')
             ->findByIdWithPlace($accommodationId);
+        
+        if (!$accommodation)
+            throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
 
         $availability = $this->get('app.view.availability');                       
         $reservedDates = $availability->forAccommodationAndDate($accommodationId, $month, $year);
