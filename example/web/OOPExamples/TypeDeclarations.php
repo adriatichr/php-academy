@@ -20,6 +20,14 @@ d('Vrijednost ulaznog parametra nakon implicitne konverzije:', $foo->implicitInt
 d('Ulazni parametar metode:', false);
 d('Vrijednost ulaznog parametra nakon implicitne konverzije:', $foo->implicitIntegerConversion(false));
 
+try {
+    $foo->implicitIntegerConversion(new stdClass());
+} catch(TypeError $e) {
+    echo '<h3>Implicitna konverzija ne vrijedi ako je ulazni parametar metode neki objekt, u tom slučaju PHP javlja TypeError</h3>';
+    d('Ulazni parametar metode:', new stdClass());
+    d('Rezultat:', $e);
+}
+
 echo '<h3>Implicitna konverzija u string</h3>';
 d('Ulazni parametar metode:', 5);
 d('Vrijednost ulaznog parametra nakon implicitne konverzije: ', $foo->implicitStringConversion(5));
