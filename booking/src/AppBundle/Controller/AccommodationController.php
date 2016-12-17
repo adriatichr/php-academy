@@ -15,22 +15,31 @@ use Symfony\Component\HttpFoundation\Request;
 class AccommodationController extends Controller
 {
     /**
-     * @Route("/accommodation/{accommodationId}", name="AppBundle_Accommodation_accommodation")
+     * @Route("/accommodation/{accommodationId}/{month}/{year}", name="AppBundle_Accommodation_accommodation")
      */
-    public function accommodationAction($accommodationId)
+    public function accommodationAction($accommodationId, $month = null, $year = null) 
     {
-        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
-        $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
+        $now = new \DateTime('now');
 
-        $availability = $this->get('app.view.availability');
-        $reservedDates = $availability->forAccommodationAndDate($accommodationId, 7, date('Y'));
+        if ($year == null) {
+            $year = $now->format('Y');
+        }
+        if ($month == null) {
+            $month = $now->format('m');
+        }
 
-        if(!$accommodation)
-            throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
+        $em = $this->getDoctrine()->getManager();
+        $accommodation = $em->getRepository('AppBundle:Accommodation')
+            ->findByIdWithPlace($accommodationId);
+
+        $availability = $this->get('app.view.availability');                       
+        $reservedDates = $availability->forAccommodationAndDate($accommodationId, $month, $year);
 
         return $this->render('AppBundle:Accommodation:accommodation.html.twig', [
             'accommodation' => $accommodation,
             'reservedDates' => $reservedDates,
+            'year' => $year,
+            'month' => $month
         ]);
     }
 
