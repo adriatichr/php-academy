@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS accommodation (
 CREATE TABLE IF NOT EXISTS customer (
 	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	email VARCHAR(100) NOT NULL,
+	password CHAR(60) NOT NULL,
 	name VARCHAR(50) NOT NULL,
 	surname VARCHAR(50) NOT NULL,
 	created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -58,9 +59,9 @@ INSERT INTO accommodation (id, name, price_per_day, place_id, category, descript
 	(3, 'Pirate\'s Bed & Breakfast', 29.99, 3, NULL, 'Spend your vacation on an actual restored pirate ship moored in the Omiš harbour.'),
 	(4, 'Generic rooms and studios', 29.99, 1, 3, 'Lorem ipsum dolor sit amet, duo viderer vituperatoribus no. Eos ne ullum volumus, saperet detracto aliquando vix ne.'),
 	(5, 'Solin Heights', 50, 5, 3, 'Lovely apartment with a glorious view over the entire Kaštela bay.');
-INSERT INTO customer (id, email, name, surname) VALUES
-	(1, 'alice@gmail.com', 'Alice', 'Smith'),
-	(2, 'bob.customer@yahoo.com', 'Robert', 'Customer');
+INSERT INTO customer (id, email, password, name, surname) VALUES
+	(1, 'alice@gmail.com', 'swordfish', 'Alice', 'Smith'),
+	(2, 'bob.customer@yahoo.com', '123456', 'Robert', 'Customer');
 INSERT INTO reservation (accommodation_id, customer_id, start_date, end_date) VALUES
 	(3, 1, '2017-07-16', '2017-07-28'),
 	(2, 2, '2017-09-01', '2017-09-15');

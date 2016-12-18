@@ -4,18 +4,27 @@ security:
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory:
-                users:
-                    bob:
-                        password: $2y$13$KF7ccW988oncGfNp8qwin.GcxQECuikS/C3qAxP/B5rbLpQlvIwW2
-                        roles: 'ROLE_USER'
-                    danko:
-                        password: $2y$13$r1MNH1xR0REpa4UPqTlCYOAqyuE9S1dh37PCc.UgsmViCNfZMqFNG
-                        roles: 'ROLE_ADMIN'
+        # in_memory:
+        #     memory:
+        #         users:
+        #             bob:
+        #                 password: $2y$13$KF7ccW988oncGfNp8qwin.GcxQECuikS/C3qAxP/B5rbLpQlvIwW2
+        #                 roles: 'ROLE_USER'
+        #             danko:
+        #                 password: $2y$13$r1MNH1xR0REpa4UPqTlCYOAqyuE9S1dh37PCc.UgsmViCNfZMqFNG
+        #                 roles: 'ROLE_ADMIN'
+        database_provider:
+            entity:
+                class: AppBundle:User
+                property: email
 
     encoders:
-        Symfony\Component\Security\Core\User\User:
+        # # Ovaj način definiranja encodera je potreban za in_memory user providere
+        # Symfony\Component\Security\Core\User\User:
+        #     algorithm: bcrypt
+        #     cost: 13
+
+        AppBundle\Entity\User:
             algorithm: bcrypt
             cost: 13
 
@@ -32,9 +41,12 @@ security:
             # http_basic: ~
             # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
 
+            provider: database_provider
+
             form_login:
                 login_path: AppBundle_Security_login
                 check_path: AppBundle_Security_login
+                csrf_token_generator: security.csrf.token_manager
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
 
     access_control:
