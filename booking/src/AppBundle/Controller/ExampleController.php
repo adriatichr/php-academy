@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\Model\User;
+use AppBundle\Form\Type\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,5 +52,45 @@ class ExampleController extends Controller
         return $this->render('AppBundle:Example:accommodationQueryBuilder.html.twig', [
             'accommodation' => $accommodation,
         ]);
+    }
+
+    /**
+     * @Route("/example/forms/begin")
+     */
+    public function formsBeginAction(Request $request)
+    {
+        $user = new User();
+        $user->firstname = 'Mate';
+        $user->phones = ['4575467457','3454574567','347466567','4575467457','3454574567','347466567'];
+        $form = $this->createForm(UserType::class, $user, ['validation_groups' => ['broj', 'tekst']]);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            dump($form->getData());
+        }
+
+        return $this->render('AppBundle:Example:formsBegin.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/example/validation")
+     */
+    public function validationAction(Request $request)
+    {
+        $user = new User();
+        $user->firstname = '140';
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($user);
+        if (count($errors) > 0) {
+            $errorsString = (string) $errors;
+
+            return new Response($errorsString);
+        }
+
+        return new Response('Nema greške');
     }
 }

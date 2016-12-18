@@ -1,0 +1,22 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+	<h1>HTML FORME</h1>
+	<h3>zeljko.vranjes@adriatic.hr</h3>
+	{{ form_start(form) }}
+	{{ form_errors(form.age) }}
+	{{ form_errors(form.addressHome.postCode) }}
+	------
+	{{ form_label(form.lastname) }}
+	{{ form_errors(form.lastname) }}
+	{{ form_widget(form.lastname) }}
+	{{ form_label(form.firstname) }}
+	{{ form_errors(form.firstname) }}
+	{{ form_widget(form.firstname) }}
+	{% do form.age.setRendered() %}
+	{{ form_row(form) }}
+
+	<input type="submit" value="Submit">
+	{{ form_end(form) }}
+
+{% endblock %}
