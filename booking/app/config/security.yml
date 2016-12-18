@@ -8,14 +8,16 @@ security:
             memory:
                 users:
                     bob:
-                        password: bobsyouruncle
+                        password: $2y$13$KF7ccW988oncGfNp8qwin.GcxQECuikS/C3qAxP/B5rbLpQlvIwW2
                         roles: 'ROLE_USER'
                     danko:
-                        password: 12345
+                        password: $2y$13$r1MNH1xR0REpa4UPqTlCYOAqyuE9S1dh37PCc.UgsmViCNfZMqFNG
                         roles: 'ROLE_ADMIN'
 
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 13
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
