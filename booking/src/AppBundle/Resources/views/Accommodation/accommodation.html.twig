@@ -33,29 +33,58 @@
             {{ helper.printPrice(accommodation.pricePerDay) }}
 
             <div class="kalendarWrap">
+                {% if month != 1 %}
+                    <a href="{{ url('AppBundle_Accommodation_accommodation', {
+                    'accommodationId': accommodation.id,
+                    'month' : month - 1,
+                    'year' : year }) }}">
+                {% endif %}
+                {% if month == 1 %}
+                    <a href="{{ url('AppBundle_Accommodation_accommodation', {
+                    'accommodationId': accommodation.id,
+                    'month' : 12,
+                    'year' : year - 1 }) }}">
+                {% endif %}
+                    <div class="arrowPrev"></div>
+                </a>
+
+                {% if month != 12 %}
+                    <a href="{{ url('AppBundle_Accommodation_accommodation', {
+                        'accommodationId': accommodation.id,
+                        'month' : month + 1,
+                        'year' : year }) }}">
+                {% endif %}
+                {% if month == 12 %}
+                    <a href="{{ url('AppBundle_Accommodation_accommodation', {
+                    'accommodationId': accommodation.id,
+                    'month' : 1,
+                    'year' : year + 1 }) }}">
+                {% endif %}
+                    <div class="arrowNext"></div>
+                </a>
                 <table class="kalendar">
-                    <caption>July</caption>
+                    <caption>{{ getMonthName(month) }}</caption>
                     <thead>
                         <tr>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th class="weekend">Sat</th>
-                            <th class="weekend">Sun</th>
+                            <th>Po</th>
+                            <th>Ut</th>
+                            <th>Sr</th>
+                            <th>Če</th>
+                            <th>Pe</th>
+                            <th class="weekend">Su</th>
+                            <th class="weekend">Ne</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% set month = 7 %}
-                        {% for day in generateDatesForMonth(month, 'now'|date('Y')) %}
+                        {% for day in generateDatesForMonth(month , year) %}
                             {% if loop.index % 7 == 1 %}<tr>{% endif %}
-                                <td class="{{ getDayClass(day, month, reservedDates) }}">{{ day.format('d') }}</td>
+                                <td class="{{ getDayClass(day, reservedDates) }}">{{ day.format('d') }}</td>
                             {% if loop.index % 7 == 0 %}</tr>{% endif %}
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
+            
         </div>
     </div>
 
