@@ -14,8 +14,10 @@ CREATE TABLE IF NOT EXISTS accommodation (
 	category TINYINT UNSIGNED,
 	description MEDIUMTEXT,
 	created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	owner_id BIGINT UNSIGNED,
 	PRIMARY KEY(id),
-	CONSTRAINT accommodation_place FOREIGN KEY (place_id) REFERENCES place (id)
+	CONSTRAINT accommodation_place FOREIGN KEY (place_id) REFERENCES place (id),
+	CONSTRAINT accommodation_owner FOREIGN KEY (owner_id) REFERENCES customer (id)
 ) COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS customer (
