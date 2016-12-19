@@ -60,8 +60,8 @@ INSERT INTO accommodation (id, name, price_per_day, place_id, category, descript
 	(4, 'Generic rooms and studios', 29.99, 1, 3, 'Lorem ipsum dolor sit amet, duo viderer vituperatoribus no. Eos ne ullum volumus, saperet detracto aliquando vix ne.'),
 	(5, 'Solin Heights', 50, 5, 3, 'Lovely apartment with a glorious view over the entire Kaštela bay.');
 INSERT INTO customer (id, email, password, name, surname) VALUES
-	(1, 'alice@gmail.com', 'swordfish', 'Alice', 'Smith'),
-	(2, 'bob.customer@yahoo.com', '123456', 'Robert', 'Customer');
+	(1, 'alice@gmail.com', '$2y$13$H3Lrp.baxGSaxajE/5nga.E8U0J47J1R/Y7vlz98HY6N96weUoWbq', 'Alice', 'Smith'),
+	(2, 'bob.customer@yahoo.com', '$2y$13$D0Oh3yEnhte3KxjniJA/2u2CLZKI4igRLE4vy46gh7miLfCx4ZWnu', 'Robert', 'Customer');
 INSERT INTO reservation (accommodation_id, customer_id, start_date, end_date) VALUES
 	(3, 1, '2017-07-16', '2017-07-28'),
 	(2, 2, '2017-09-01', '2017-09-15');
