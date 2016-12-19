@@ -89,4 +89,14 @@ class User implements UserInterface, \Serializable
         ) = unserialize($serialized);
     }
 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
 }
