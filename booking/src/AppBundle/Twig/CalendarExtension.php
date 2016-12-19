@@ -9,6 +9,7 @@ class CalendarExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFunction('generateDatesForMonth', [$this, 'generateDatesForMonth']),
             new \Twig_SimpleFunction('getDayClass', [$this, 'getDayClass']),
+            new \Twig_SimpleFunction('getMonthName', [$this, 'getMonthName']),
         ];
     }
 
@@ -43,6 +44,11 @@ class CalendarExtension extends \Twig_Extension
             $classes[] = $this->isReservedDate($day, $reservedDates) ? 'notFree' : 'free';
 
         return implode(' ', $classes);
+    }
+
+    public function getMonthName(int $monthNumber)
+    {
+        return \DateTimeImmutable::createFromFormat('m', $monthNumber)->format('F');
     }
 
     private function isReservedDate(\DateTimeImmutable $day, array $reservedDates)

@@ -1,0 +1,21 @@
+<table class="kalendar">
+    <caption>{{ getMonthName(month) }}</caption>
+    <thead>
+        <tr>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th class="weekend">Sat</th>
+            <th class="weekend">Sun</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for day in generateDatesForMonth(month, year) %}
+            {% if loop.index % 7 == 1 %}<tr>{% endif %}
+                <td class="{{ getDayClass(day, month, reservedDates) }}">{{ day.format('d') }}</td>
+            {% if loop.index % 7 == 0 %}</tr>{% endif %}
+        {% endfor %}
+    </tbody>
+</table>
