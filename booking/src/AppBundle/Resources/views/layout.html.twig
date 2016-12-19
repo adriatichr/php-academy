@@ -9,6 +9,12 @@
         <a href="{{ path('AppBundle_Welcome_homepage') }}">
             <div id="logo"><img src="{{ asset('images/logo.png') }}"></div>
         </a>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="{{ path('logout') }}" class="prijavaOdjava">Logout</a>
+        {% else %}
+            <a href="{{ path('AppBundle_Security_login') }}" class="prijavaOdjava">Login</a>
+        {% endif %}
     </header>
     <div id="main">
         {% block content %}
