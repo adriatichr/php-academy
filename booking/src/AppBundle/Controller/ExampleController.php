@@ -93,4 +93,20 @@ class ExampleController extends Controller
 
         return new Response('Nema greške');
     }
+
+    /**
+     * @Route("/example/cache/expiration/super-slow-page")
+     */
+    public function superSlowAction()
+    {
+        // Simulira neku kompliciranu i dugotrajnu kalkulaciju
+        sleep(2);
+        $response = $this->render('AppBundle:Welcome:homepage.html.twig');
+
+        // Postavljamo
+        $response->setSharedMaxAge(3600);
+        $response->headers->addCacheControlDirective('must-revalidate', true);
+
+        return $response;
+    }
 }
