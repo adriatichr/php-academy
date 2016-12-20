@@ -124,4 +124,31 @@ class ExampleController extends Controller
 
         return $response;
     }
+
+    /**
+     * @Route("/example/cache/validation/last-modified/accommodation/{accommodationId}")
+     */
+    public function accommodationAction($accommodationId, Request $request)
+    {
+        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
+        $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
+
+        if(!$accommodation)
+            throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
+
+        $response = new Response();
+        $response->setLastModified($accommodation->getModified());
+        $response->setPublic();
+
+        if($response->isNotModified($request)) {
+            return $response;
+        }
+
+        $content = $this->renderView('AppBundle:Accommodation:accommodation.html.twig', [
+            'accommodation' => $accommodation,
+            'reservedDates' => [],
+        ]);
+
+        return $response->setContent($content);
+    }
 }

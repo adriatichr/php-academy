@@ -31,6 +31,9 @@ class Accommodation
     /** @ORM\Column(type="datetime") */
     private $created;
 
+    /** @ORM\Column(type="datetime") */
+    private $modified;
+
     /**
      * @ORM\ManyToOne(targetEntity="Place", inversedBy="accommodations")
      * @ORM\JoinColumn(name="place_id", referencedColumnName="id")
@@ -90,5 +93,10 @@ class Accommodation
     public function getPricePerDay()
     {
         return $this->pricePerDay;
+    }
+
+    public function getModified()
+    {
+        return $this->modified;
     }
 }
