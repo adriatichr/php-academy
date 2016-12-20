@@ -6,6 +6,17 @@ CREATE TABLE IF NOT EXISTS place (
 	PRIMARY KEY(id)
 ) COLLATE utf8_general_ci;
 
+CREATE TABLE IF NOT EXISTS customer (
+	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	email VARCHAR(100) NOT NULL,
+	password CHAR(60) NOT NULL,
+	name VARCHAR(50) NOT NULL,
+	surname VARCHAR(50) NOT NULL,
+	created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (id),
+	UNIQUE INDEX email (email)
+) COLLATE utf8_general_ci;
+
 CREATE TABLE IF NOT EXISTS accommodation (
 	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
@@ -14,18 +25,10 @@ CREATE TABLE IF NOT EXISTS accommodation (
 	category TINYINT UNSIGNED,
 	description MEDIUMTEXT,
 	created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	owner_id BIGINT UNSIGNED,
 	PRIMARY KEY(id),
-	CONSTRAINT accommodation_place FOREIGN KEY (place_id) REFERENCES place (id)
-) COLLATE utf8_general_ci;
-
-CREATE TABLE IF NOT EXISTS customer (
-	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-	email VARCHAR(100) NOT NULL,
-	name VARCHAR(50) NOT NULL,
-	surname VARCHAR(50) NOT NULL,
-	created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (id),
-	UNIQUE INDEX email (email)
+	CONSTRAINT accommodation_place FOREIGN KEY (place_id) REFERENCES place (id),
+	CONSTRAINT accommodation_owner FOREIGN KEY (owner_id) REFERENCES customer (id)
 ) COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS reservation (
@@ -58,14 +61,12 @@ INSERT INTO accommodation (id, name, price_per_day, place_id, category, descript
 	(3, 'Pirate\'s Bed & Breakfast', 29.99, 3, NULL, 'Spend your vacation on an actual restored pirate ship moored in the Omiš harbour.'),
 	(4, 'Generic rooms and studios', 29.99, 1, 3, 'Lorem ipsum dolor sit amet, duo viderer vituperatoribus no. Eos ne ullum volumus, saperet detracto aliquando vix ne.'),
 	(5, 'Solin Heights', 50, 5, 3, 'Lovely apartment with a glorious view over the entire Kaštela bay.');
-INSERT INTO customer (id, email, name, surname) VALUES
-	(1, 'alice@gmail.com', 'Alice', 'Smith'),
-	(2, 'bob.customer@yahoo.com', 'Robert', 'Customer');
+INSERT INTO customer (id, email, password, name, surname) VALUES
+	(1, 'alice@gmail.com', '$2y$13$H3Lrp.baxGSaxajE/5nga.E8U0J47J1R/Y7vlz98HY6N96weUoWbq', 'Alice', 'Smith'),
+	(2, 'bob.customer@yahoo.com', '$2y$13$D0Oh3yEnhte3KxjniJA/2u2CLZKI4igRLE4vy46gh7miLfCx4ZWnu', 'Robert', 'Customer');
 INSERT INTO `reservation` (`accommodation_id`, `customer_id`, `start_date`, `end_date`, `created`) VALUES (2, 2, '2016-06-11', '2016-09-15', '2016-12-11 21:53:01');
 INSERT INTO `reservation` (`accommodation_id`, `customer_id`, `start_date`, `end_date`, `created`) VALUES (1, 1, '2016-07-15', '2016-07-20', '2016-12-15 00:47:02');
 INSERT INTO `reservation` (`accommodation_id`, `customer_id`, `start_date`, `end_date`, `created`) VALUES (1, 2, '2016-06-15', '2016-07-02', '2016-12-15 01:02:41');
 INSERT INTO `reservation` (`accommodation_id`, `customer_id`, `start_date`, `end_date`, `created`) VALUES (1, 1, '2016-07-29', '2016-08-10', '2016-12-15 01:03:18');
 INSERT INTO shortlist (accommodation_id, customer_id) VALUES (3, 1),	(2, 2),	(1, 2),	(2, 1),	(5, 1),	(5, 2);
 COMMIT;
-
-
