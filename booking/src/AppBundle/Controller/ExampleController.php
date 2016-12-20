@@ -109,4 +109,19 @@ class ExampleController extends Controller
 
         return $response;
     }
+
+    /**
+     * @Route("/example/cache/validation/etag/super-slow-page")
+     */
+    public function superSlowWithEtagCacheAction(Request $request)
+    {
+        sleep(2);
+        $response = $this->render('AppBundle:Welcome:homepage.html.twig');
+
+        $response->setETag(md5($response->getContent()));
+        $response->setPublic();
+        $response->isNotModified($request);
+
+        return $response;
+    }
 }
