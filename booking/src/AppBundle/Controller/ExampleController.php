@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class ExampleController extends Controller
 {
@@ -92,6 +93,22 @@ class ExampleController extends Controller
         }
 
         return new Response('Nema greške');
+    }
+
+    /**
+     * @Route("/example/user-in-controller")
+     */
+    public function userInControllerAction()
+    {
+        // Ako korisnik nije logiran, bacit ćemo Symfony AccessDeniedException koji će uhvatiti security sistem od
+        // Symfony-ja i presumjeriti nas na stranicu za prijavu
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $user = $this->getUser();
+
+        return new Response('<html><body>Hello ' . $user->getName() . ' ' . $user->getSurname() . '</body></html>');
     }
 
     /**

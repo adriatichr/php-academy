@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class AccommodationController extends Controller
 {
@@ -107,6 +108,21 @@ class AccommodationController extends Controller
             'form' => $form->createView(),
             'insert' => $insert
         ]);
+    }
+
+    /**
+     * @Route("/admin/accommodation/{accommodationId}/edit/", name="AppBundle_Accommodation_accommodationEdit")
+     */
+    public function accommodationEditAction(int $accommodationId)
+    {
+        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
+        $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
+        if(!$accommodation)
+            throw $this->createNotFoundException('Smjestaj nije pronadjen');
+
+        $this->denyAccessUnlessGranted('edit', $accommodation);
+
+        return new Response('<html><body>Uređivanje smještaja</body></html>');
     }
 
 }

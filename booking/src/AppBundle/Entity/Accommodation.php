@@ -35,6 +35,12 @@ class Accommodation
     private $modified;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="owner_id", referencedColumnName="id")
+     */
+    private $owner;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Place", inversedBy="accommodations")
      * @ORM\JoinColumn(name="place_id", referencedColumnName="id")
      */
@@ -98,5 +104,10 @@ class Accommodation
     public function getModified()
     {
         return $this->modified;
+    }
+
+    public function getOwner()
+    {
+        return $this->owner;
     }
 }
