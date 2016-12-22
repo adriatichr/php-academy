@@ -33,13 +33,35 @@
             {{ helper.printPrice(accommodation.pricePerDay) }}
 
             <div class="kalendarWrap">
-                {{ include('AppBundle:Accommodation:calendar.html.twig', {
-                    'month': 7,
-                    'year': 'now'|date('Y'),
-                    'reservedDates': reservedDates,
-                }, with_context = false) }}
+                <div id="monthCalendar">
+                    {{ include('AppBundle:Accommodation:calendar.html.twig', {
+                        'month': 7,
+                        'year': 'now'|date('Y'),
+                        'reservedDates': reservedDates,
+                    }, with_context = false) }}
+                </div>
             </div>
         </div>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/calendar.js') }}"></script>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+       var accommodationId = "{{accommodation.id}}",
+            urlCalendar = "{{ path('AppBundle_Accommodation_accommodation_changeCalendar', {'accommodationId': '__UNITID__', 'month': '__DATE_MONTH__',   'year':'__DATE_YEAR__'}) }}"
+
+        calendar.init({
+            'accommodationId': accommodationId,
+            'urlCalendar': urlCalendar,
+            'monthPrevious': '#prevMonth',
+            'monthNext': '#nextMonth',
+            'monthChange': '.changeMonth',
+            'calendarDivId': '#monthCalendar',
+            'loaderCalendar': '#loaderCalendar',
+        });
+    /* ]]> */
+    </script>
 {% endblock %}

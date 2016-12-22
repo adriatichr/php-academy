@@ -124,5 +124,24 @@ class AccommodationController extends Controller
 
         return new Response('<html><body>Uređivanje smještaja</body></html>');
     }
+    /**
+     * @Route("/ajax/changeCalendar",
+     *  name="AppBundle_Accommodation_accommodation_changeCalendar")
+     */
+    public function changeCalendarAction(Request $request)
+    {
+        $month = (int) $request->query->get('month');
+        $year = (int) $request->query->get('year');
+        $accommodationId = (int) $request->query->get('accommodationId');
+        $availability = $this->get('app.view.availability');
+        $reservedDates = $availability->forAccommodationAndDate($accommodationId, $month, $year);
+
+        return $this->render('AppBundle:Accommodation:calendar.html.twig', [
+            'month' => 7,
+            'year' => date('Y'),
+            'reservedDates' => $reservedDates,
+        ]);
+    }
+
 
 }
