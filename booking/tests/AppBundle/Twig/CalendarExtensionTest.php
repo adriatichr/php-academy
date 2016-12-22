@@ -68,6 +68,21 @@ class CalendarExtensionTest extends TestCase
         $this->assertContains('weekend', explode(' ', $class));
     }
 
+    /** @test */
+    public function getNextMonth()
+    {
+        $this->assertEquals('{"month":6,"year":2017}', $this->extension->getNextMonth(5, 2017));
+        $this->assertEquals('{"month":1,"year":2018}', $this->extension->getNextMonth(12, 2017));
+    }
+
+    /** @test */
+    public function getPreviousMonth()
+    {
+        $this->assertEquals('{"month":4,"year":2017}', $this->extension->getPreviousMonth(5, 2017));
+        $this->assertEquals('{"month":12,"year":2016}', $this->extension->getPreviousMonth(1, 2017));
+    }
+
+
     private function date($dateString)
     {
         return new \DateTimeImmutable($dateString);

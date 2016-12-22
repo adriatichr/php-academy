@@ -10,6 +10,8 @@ class CalendarExtension extends \Twig_Extension
             new \Twig_SimpleFunction('generateDatesForMonth', [$this, 'generateDatesForMonth']),
             new \Twig_SimpleFunction('getDayClass', [$this, 'getDayClass']),
             new \Twig_SimpleFunction('getMonthName', [$this, 'getMonthName']),
+            new \Twig_SimpleFunction('getNextMonth', [$this, 'getNextMonth']),
+            new \Twig_SimpleFunction('getPreviousMonth', [$this, 'getPreviousMonth']),
         ];
     }
 
@@ -49,6 +51,26 @@ class CalendarExtension extends \Twig_Extension
     public function getMonthName(int $monthNumber)
     {
         return \DateTimeImmutable::createFromFormat('m', $monthNumber)->format('F');
+    }
+
+    public function getNextMonth(int $month, int $year)
+    {
+        return $this->getJsonMonthData('next', $month, $year);
+    }
+
+    public function getPreviousMonth(int $month, int $year)
+    {
+        return $this->getJsonMonthData('previous', $month, $year);
+    }
+
+    private function getJsonMonthData(string $nextOrPrevious, int $month, int $year)
+    {
+        $month = $nextOrPrevious === 'next' ? $month + 1 : $month - 1;
+        $date = \DateTimeImmutable::createFromFormat('Y-m', $year . '-' . $month);
+        $month = (int)$date->format('m');
+        $year = (int)$date->format('Y');
+
+        return json_encode(['month' => $month, 'year' => $year]);
     }
 
     private function isReservedDate(\DateTimeImmutable $day, array $reservedDates)
