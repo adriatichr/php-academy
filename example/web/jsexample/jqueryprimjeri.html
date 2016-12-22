@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>jQuery primjeri</title>
+	</head>
+	<body>
+		<div>
+			Primjer  : <span id="primjer">Primjer</span>
+			<br>
+			Rezultat : <span id="rezultat">Rezultat</span>
+			<p id="p1" class="plavo">paragraf 1</p>
+			<p id="p2" class="crveno">paragraf 2</p>
+			<p id="p3" class="crveno">paragraf 3</p>
+		</div>
+<!--		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>
+			var rezultat = "";
+			var primjer = "";
+			$(document).ready(function(){
+  			  	$(".plavo").on("click",function(){
+        			$(this).hide();
+    			});
+			});
+			document.getElementById("primjer").innerHTML = primjer;
+			document.getElementById("rezultat").innerHTML = rezultat;	
+			</script>
+		</div>
+	</body>
+</html>
