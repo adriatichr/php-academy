@@ -51,7 +51,11 @@
     <script type="text/javascript">
     /* <![CDATA[ */
        var accommodationId = "{{accommodation.id}}",
-            urlCalendar = "{{ path('AppBundle_Accommodation_accommodation_changeCalendar', {'accommodationId': '__UNITID__', 'month': '__DATE_MONTH__',   'year':'__DATE_YEAR__'}) }}"
+            urlCalendar = "{{ path('AppBundle_Accommodation_accommodation_changeCalendar', {
+                'accommodationId': '__UNITID__',
+                'month': '__DATE_MONTH__',
+                'year': '__DATE_YEAR__'
+            })|e('js') }}"
 
         calendar.init({
             'accommodationId': accommodationId,
@@ -60,7 +64,6 @@
             'monthNext': '#nextMonth',
             'monthChange': '.changeMonth',
             'calendarDivId': '#monthCalendar',
-            'loaderCalendar': '#loaderCalendar',
         });
     /* ]]> */
     </script>

@@ -1,16 +1,12 @@
-/*globals $:false */
-// jshint node: true
-// jshint laxbreak: true
-// jshint browser: true
 "use strict";
+
 var calendar = {
 	accommodationId: null,
 	urlCalendar: null,
 	monthPrevious: null,
 	monthNext: null,
 	monthChange: null,
-	calendarTableId: null,
-	loaderCalendar: null,
+	calendarDivId: null,
 
 	init: function(options) {
 		var self = this;
@@ -20,7 +16,7 @@ var calendar = {
 		self.monthPrevious = options.monthPrevious;
 		self.monthNext = options.monthNext;
 		self.monthChange = options.monthChange;
-		self.calendarTableId = options.calendarTableId;
+		self.calendarDivId = options.calendarDivId;
 
 		$(document).on('click', self.monthChange, function(e) { // Promjena prikaza mjeseca
 			e.preventDefault();
@@ -29,9 +25,6 @@ var calendar = {
 		});
 	},
 	changeMonth: function(self, date) {
-		var calendarTable = $(self.calendarTableId);
-		var loaderCalendar = $(self.loaderCalendar);
-		loaderCalendar.show();
 		var ajaxUrl = self.urlCalendar.replace('__UNITID__', self.accommodationId);
 		ajaxUrl = ajaxUrl.replace('__DATE_MONTH__', date.month);
 		ajaxUrl = ajaxUrl.replace('__DATE_YEAR__', date.year);
@@ -42,9 +35,8 @@ var calendar = {
 			dataType: "html",
 			success: function(data) {
 				if (data !== '') {
-					$(self.monthPricesId).html(data);
+					$(self.calendarDivId).html(data);
 				}
-				loaderCalendar.hide();
 			}
 		});
 	},
