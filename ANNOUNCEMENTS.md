@@ -3,8 +3,14 @@ Obavijesti
 
 Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene termina predavanja. Najnovije obavijesti će biti na vrhu.
 
-## U dogovoru sa polaznicima i HR-om predavanje od petka (23.12.2016) će se održati dogodine
-## Božićni domjenak počinje u petak u 14:30h. Svi ste pozvani :)
+## HTTP Cache primjeri su postavljeni online (sa dodatnim objašnjenjima) i nalaze se u [ExampleController-u](booking/src/AppBundle/Controller/ExampleController.php#L115)
+
+## Accommodation entity sada sadrži i [primjer](https://github.com/adriatichr/php-academy/commit/c802d730be720dfc54691090b9ee57f2359fc37a) Doctrine [događaja](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/events.html)
+
+### 22.12.2016
+
+* U dogovoru sa polaznicima i HR-om predavanje od petka (23.12.2016) će se održati dogodine
+* Božićni domjenak počinje u petak u 14:30h. Svi ste pozvani :)
 
 ### 21.12.2016
 
