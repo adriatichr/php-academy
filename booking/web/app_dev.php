@@ -23,8 +23,18 @@ $loader = require __DIR__.'/../app/autoload.php';
 Debug::enable();
 
 $kernel = new AppKernel('dev', true);
-$kernel->loadClassCache();
+
+// Symfony developeri preporučuju da se loadClassCache ne koristi u PHP 7 jer uzrokuje greške u kombinaciji sa HTTP
+// cache-om
+//
+// https://github.com/symfony/symfony/issues/20560#issuecomment-266477399
+// $kernel->loadClassCache();
+
+// Odkomentirati ovu liniju ako želimo testirati cache u development modu
+// $kernel = new AppCache($kernel);
+
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
+
 $kernel->terminate($request, $response);

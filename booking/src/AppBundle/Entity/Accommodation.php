@@ -6,6 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AccommodationRepository")
+ * @ORM\HasLifecycleCallbacks koristi se za pokretanje određenih događaja svaki put kada entitet doživi neki lifecycle
+ * event (npr. update ili flush). U našem slučaju ovo koristimo za ažuriranje modified datuma kod svake promjene podataka
+ * u bazi.
+ * @see self::updateModified()
+ * @link http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/events.html#lifecycle-callbacks
  */
 class Accommodation
 {
@@ -30,6 +35,9 @@ class Accommodation
 
     /** @ORM\Column(type="datetime") */
     private $created;
+
+    /** @ORM\Column(type="datetime") */
+    private $modified;
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
@@ -98,8 +106,22 @@ class Accommodation
         return $this->pricePerDay;
     }
 
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
     public function getOwner()
     {
         return $this->owner;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function updateModified()
+    {
+        $this->modified = new \DateTimeImmutable('now');
     }
 }
