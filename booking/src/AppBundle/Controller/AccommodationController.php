@@ -64,9 +64,9 @@ class AccommodationController extends Controller
      */
     public function mainImageAction(int $accommodationId)
     {
-        $imagePath = '../src/AppBundle/Resources/images/accommodation/apartman' . $accommodationId . '.jpg';
+        $imagePath = __DIR__ . '/../Resources/images/accommodation/apartman' . $accommodationId . '.jpg';
         if(!file_exists($imagePath))
-            $imagePath = '../src/AppBundle/Resources/images/accommodation/no-image.jpg';
+            $imagePath = __DIR__ . '/../Resources/images/accommodation/no-image.jpg';
 
         $response = new BinaryFileResponse($imagePath);
         $response->headers->set('Content-Type', 'image/jpeg');

@@ -129,7 +129,7 @@ class ExampleController extends Controller
     {
         // Simulira neku kompliciranu i dugotrajnu kalkulaciju koja će se izvršiti kod prvog poziva, svaki request za ovu
         // akciju će kroz idućih sat vremena biti dohvaćan iz cache-a, što znači da se ovo neće izvršiti.
-        sleep(2);
+        sleep(1);
         $response = $this->render('AppBundle:Welcome:homepage.html.twig');
 
         // Postavljamo TTL (eng. time to live) ili vrijeme trajanja response-a u cache-u. Vrijeme je u sekundama. Nakon
@@ -145,7 +145,7 @@ class ExampleController extends Controller
     }
 
     /**
-     * @Route("/example/cache/validation/etag/super-slow-page")
+     * @Route("/example/cache/validation/etag")
      */
     public function superSlowWithEtagCacheAction(Request $request)
     {
