@@ -36,5 +36,11 @@
         <service id="app.post_voter" class="AppBundle\Security\AccommodationEditVoter" public="false">
             <tag name="security.voter" />
         </service>
+
+        <service id="app.accommodation_repository" class="AppBundle\Repository\AccommodationRepository">
+            <factory service="doctrine.orm.entity_manager" method="getRepository"/>
+            <argument>AppBundle:Accommodation</argument>
+        </service>
+
     </services>
 </container>

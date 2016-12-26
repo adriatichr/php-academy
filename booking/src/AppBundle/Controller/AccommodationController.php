@@ -20,8 +20,7 @@ class AccommodationController extends Controller
      */
     public function accommodationAction($accommodationId)
     {
-        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
-        $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
+        $accommodation = $this->get('app.accommodation_repository')->findByIdWithPlace($accommodationId);
 
         $availability = $this->get('app.view.availability');
         $reservedDates = $availability->forAccommodationAndDate($accommodationId, 7, date('Y'));
@@ -45,9 +44,9 @@ class AccommodationController extends Controller
         $form = $this->get('form.factory')->createNamed(null, SearchParametersType::class, new SearchParameters());
         $form->handleRequest($request);
         if($form->isSubmitted()) {
-            $accommodations = $manager->getRepository('AppBundle:Accommodation')->findByParameters($form->getData());
+            $accommodations = $this->get('app.accommodation_repository')->findByParameters($form->getData());
         } else {
-            $accommodations = $manager->getRepository('AppBundle:Accommodation')->findAll();
+            $accommodations = $this->get('app.accommodation_repository')->findAll();
         }
 
         return $this->render('AppBundle:Accommodation:accommodationList.html.twig', [
@@ -115,8 +114,7 @@ class AccommodationController extends Controller
      */
     public function accommodationEditAction(int $accommodationId)
     {
-        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
-        $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
+        $accommodation = $this->get('app.accommodation_repository')->findByIdWithPlace($accommodationId);
         if(!$accommodation)
             throw $this->createNotFoundException('Smjestaj nije pronadjen');
 
