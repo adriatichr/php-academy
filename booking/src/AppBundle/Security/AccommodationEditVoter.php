@@ -33,11 +33,13 @@ class AccommodationEditVoter extends Voter
         $accommodation = $subject;
         $accommodationOwner = $accommodation->getOwner();
 
-        if(!$accommodationOwner)
+        if (!$accommodationOwner) {
             return false;
+        }
 
-        if($accommodationOwner->getUsername() == $user->getUsername())
+        if ($accommodationOwner->getUsername() == $user->getUsername()) {
             return true;
+        }
 
         return false;
     }

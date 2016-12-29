@@ -8,10 +8,10 @@ class ConstraintPriceValidator extends ConstraintValidator
 {
     public function validate($value, Constraint $constraint)
     {
-        if (!empty($value->priceFrom) && !empty($value->priceTo) 
-        	&& $value->priceFrom>=$value->priceTo) {
+        if (!empty($value->priceFrom) && !empty($value->priceTo)
+            && $value->priceFrom>=$value->priceTo) {
             $this->context->buildViolation($constraint->message)
-            	->atPath('priceFrom')
+                ->atPath('priceFrom')
                 ->addViolation();
         }
     }

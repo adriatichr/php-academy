@@ -26,8 +26,9 @@ class AccommodationController extends Controller
         $availability = $this->get('app.view.availability');
         $reservedDates = $availability->forAccommodationAndDate($accommodationId, 7, date('Y'));
 
-        if(!$accommodation)
+        if (!$accommodation) {
             throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
+        }
 
         return $this->render('AppBundle:Accommodation:accommodation.html.twig', [
             'accommodation' => $accommodation,
@@ -44,7 +45,7 @@ class AccommodationController extends Controller
 
         $form = $this->get('form.factory')->createNamed(null, SearchParametersType::class, new SearchParameters());
         $form->handleRequest($request);
-        if($form->isSubmitted()) {
+        if ($form->isSubmitted()) {
             $accommodations = $manager->getRepository('AppBundle:Accommodation')->findByParameters($form->getData());
         } else {
             $accommodations = $manager->getRepository('AppBundle:Accommodation')->findAll();
@@ -66,8 +67,9 @@ class AccommodationController extends Controller
     public function mainImageAction(int $accommodationId)
     {
         $imagePath = __DIR__ . '/../Resources/images/accommodation/apartman' . $accommodationId . '.jpg';
-        if(!file_exists($imagePath))
+        if (!file_exists($imagePath)) {
             $imagePath = __DIR__ . '/../Resources/images/accommodation/no-image.jpg';
+        }
 
         $response = new BinaryFileResponse($imagePath);
         $response->headers->set('Content-Type', 'image/jpeg');
@@ -87,7 +89,7 @@ class AccommodationController extends Controller
         $form->handleRequest($request);
         $insert = false;
 
-        if($form->isValid() && $form->isSubmitted()) {
+        if ($form->isValid() && $form->isSubmitted()) {
             $formAccommodation = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
 
@@ -117,16 +119,16 @@ class AccommodationController extends Controller
     {
         $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
         $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
-        if(!$accommodation)
+        if (!$accommodation) {
             throw $this->createNotFoundException('Smjestaj nije pronadjen');
+        }
 
         $this->denyAccessUnlessGranted('edit', $accommodation);
 
         return new Response('<html><body>Uređivanje smještaja</body></html>');
     }
     /**
-     * @Route("/ajax/changeCalendar",
-     *  name="AppBundle_Accommodation_accommodation_changeCalendar")
+     * @Route("/ajax/changeCalendar", name="AppBundle_Accommodation_accommodation_changeCalendar")
      */
     public function changeCalendarAction(Request $request)
     {
@@ -142,6 +144,4 @@ class AccommodationController extends Controller
             'reservedDates' => $reservedDates,
         ]);
     }
-
-
 }

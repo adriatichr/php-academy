@@ -87,5 +87,4 @@ class CalendarExtensionTest extends TestCase
     {
         return new \DateTimeImmutable($dateString);
     }
-
 }

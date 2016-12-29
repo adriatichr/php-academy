@@ -11,55 +11,56 @@ use AppBundle\Form\Model\Accommodation;
 
 class AccommodationType extends AbstractType
 {
-	private $entityManager;
+    private $entityManager;
 
-	public function __construct($entityManager)
-	{
-		$this->entityManager = $entityManager;
-	}
+    public function __construct($entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
 
-	public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name', TextType::class, [
             ])
             ->add('pricePerDay', NumberType::class, [
-            	'invalid_message' => 'Cijena mora biti broj'
+                'invalid_message' => 'Cijena mora biti broj'
             ])
             ->add('category', ChoiceType::class, [
-            	'choices'  => [
-            		'1 zvijezdica' => 1,
-            		'2 zvijezdice' => 2,
-            		'3 zvijezdice' => 3,
-            		'4 zvijezdice' => 4,
-            		'5 zvijezdica' => 5,
-            	],
-            	'expanded' => false,
-            	'multiple' => false,
-			])
-			->add('place', ChoiceType::class, [
-            	'choices'  => $this->getPlaceChoices(),
-            	'expanded' => false,
-            	'multiple' => false,
-			])
+                'choices'  => [
+                    '1 zvijezdica' => 1,
+                    '2 zvijezdice' => 2,
+                    '3 zvijezdice' => 3,
+                    '4 zvijezdice' => 4,
+                    '5 zvijezdica' => 5,
+                ],
+                'expanded' => false,
+                'multiple' => false,
+            ])
+            ->add('place', ChoiceType::class, [
+                'choices'  => $this->getPlaceChoices(),
+                'expanded' => false,
+                'multiple' => false,
+            ])
        ;
     }
 
-	public function configureOptions(OptionsResolver $resolver)
-	{
-	    $resolver->setDefaults(array(
-	    	'method' => 'post',
-	        'data_class' => Accommodation::class,
-	        'csrf_protection' => true,
-	    ));
-	}
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'method' => 'post',
+            'data_class' => Accommodation::class,
+            'csrf_protection' => true,
+        ));
+    }
 
-	private function getPlaceChoices()
-	{
-		$allPlaces = $this->entityManager->getRepository('AppBundle:Place')->findAll();
-		$placeChoices = [];
-		foreach($allPlaces as $place)
-			$placeChoices[$place->getName()] = $place->getName();
-		return $placeChoices;
-	}
+    private function getPlaceChoices()
+    {
+        $allPlaces = $this->entityManager->getRepository('AppBundle:Place')->findAll();
+        $placeChoices = [];
+        foreach ($allPlaces as $place) {
+            $placeChoices[$place->getName()] = $place->getName();
+        }
+        return $placeChoices;
+    }
 }

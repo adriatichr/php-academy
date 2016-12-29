@@ -39,11 +39,13 @@ class CalendarExtension extends \Twig_Extension
     {
         $classes = [];
 
-        if(in_array($day->format('w'), [0, 6]))
+        if (in_array($day->format('w'), [0, 6])) {
             $classes[] = 'weekend';
+        }
 
-        if($day->format('m') == $month)
+        if ($day->format('m') == $month) {
             $classes[] = $this->isReservedDate($day, $reservedDates) ? 'notFree' : 'free';
+        }
 
         return implode(' ', $classes);
     }
@@ -76,7 +78,7 @@ class CalendarExtension extends \Twig_Extension
     private function isReservedDate(\DateTimeImmutable $day, array $reservedDates)
     {
         foreach ($reservedDates as $reservedDate) {
-            if($reservedDate->format('Y-m-d') === $day->format('Y-m-d')) {
+            if ($reservedDate->format('Y-m-d') === $day->format('Y-m-d')) {
                 return true;
             }
         }

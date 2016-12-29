@@ -9,28 +9,28 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 */
-	private $id;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     */
+    private $id;
 
-	/** @ORM\Column(type="integer") */
-	private $accommodationId;
+    /** @ORM\Column(type="integer") */
+    private $accommodationId;
 
-	/** @ORM\Column(type="datetime") */
-	private $startDate;
+    /** @ORM\Column(type="datetime") */
+    private $startDate;
 
-	/** @ORM\Column(type="datetime") */
-	private $endDate;
+    /** @ORM\Column(type="datetime") */
+    private $endDate;
 
-	public function getStartDate()
-	{
-		return $this->startDate;
-	}
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
 
-	public function getEndDate()
-	{
-		return $this->endDate;
-	}
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
 }

@@ -3,10 +3,9 @@ namespace AppBundle\Form\Model;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 class User
 {
-	/**
+    /**
      * @Assert\Length(
      *      min = 2,
      *      max = 20,
@@ -22,21 +21,21 @@ class User
      *      groups={"broj"}
      * )
      */
-	public $firstname;
-	public $lastname;
-	public $age;
-	public $gender;
-	public $doner = true;
-	public $addressHome;
-	public $addressWork;
-	/**
-	 * @var string[]
-	 */
-	public $phones = [null, null, null, null, null, null];
+    public $firstname;
+    public $lastname;
+    public $age;
+    public $gender;
+    public $doner = true;
+    public $addressHome;
+    public $addressWork;
+    /**
+     * @var string[]
+     */
+    public $phones = [null, null, null, null, null, null];
 
-	public function __construct()
-	{
-		$this->addressHome = new Address();
-		$this->addressWork = new Address();
-	}
+    public function __construct()
+    {
+        $this->addressHome = new Address();
+        $this->addressWork = new Address();
+    }
 }

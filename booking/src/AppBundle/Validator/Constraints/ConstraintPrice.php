@@ -8,10 +8,10 @@ use Symfony\Component\Validator\Constraint;
  */
 class ConstraintPrice extends Constraint
 {
-	public $message = 'Cijena "Od" mora biti manja od cijene "Do"';
+    public $message = 'Cijena "Od" mora biti manja od cijene "Do"';
 
-	public function getTargets()
-	{
-	    return self::CLASS_CONSTRAINT;
-	}
+    public function getTargets()
+    {
+        return self::CLASS_CONSTRAINT;
+    }
 }
