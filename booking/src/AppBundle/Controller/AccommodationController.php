@@ -137,8 +137,8 @@ class AccommodationController extends Controller
         $reservedDates = $availability->forAccommodationAndDate($accommodationId, $month, $year);
 
         return $this->render('AppBundle:Accommodation:calendar.html.twig', [
-            'month' => 7,
-            'year' => date('Y'),
+            'month' => $month,
+            'year' => $year,
             'reservedDates' => $reservedDates,
         ]);
     }

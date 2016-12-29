@@ -37,12 +37,14 @@
 			var vrime = new Date().getHours();
 			if (vrime > 21)
 				rezultat = 'amo doma';
-			else if (vrime > 16  && vrime < 7)	
-				rezultat = 'Noć je';
-			else
+			else if (vrime > 7  && vrime < 16)	
 				rezultat = 'Dan';
-			 
+			else
+				rezultat = 'Noć je';
+			*/ 
 			//
+
+			/*
 			primjer = 'funkcija';
 			rezultat = joliDanJoliNocJoliDoma( new Date().getHours());
 			
@@ -58,7 +60,6 @@
 				
 				return rez;
 			}
-
 			*/
 			/*
 			primjer = 'objekt metoda';
@@ -67,7 +68,7 @@
 				prezime: "Perić",
 				grad: "Split",
 				punoIme: function(){
-					debugger;
+					//debugger;
 					return this.ime + ' ' + this.prezime;
 				}
 
@@ -90,11 +91,12 @@
 					return this.ime + ' ' + this.prezime;
 				}
 			}
-			rezultat = osoba.ime;
-			//rezultat = osoba['prezime'];
+			//rezultat = osoba.ime;
+			rezultat = osoba['prezime'];
+			*/
 			/*
 			primjer = "undefined"
-			var varijabla;
+			var varijabla = "";
 
 			if (varijabla === undefined) {
     		rezultat = "varijabla je nedefiniran";
@@ -103,7 +105,6 @@
 			}
 
 			*/
-			/*
 			primjer = "object prototype";
 
 			// konstruktor
@@ -119,15 +120,16 @@
 
 			predavac.godina = '1953';
 
+			rezultat = student.godina;
+			Osoba.prototype.godina = '2';
+			rezultat = student.godina;
 			rezultat = predavac.godina;
-//			rezultat = student.godina;
-//			Osoba.prototype.godina = '2';
-//			rezultat = student.godina;
-//
-//			Osoba.prototype.punoIme = function() {
-//				return this.ime+' ' +this.prezime;
-//			}
-//			rezultat = predavac.punoIme();
+
+			Osoba.prototype.punoIme = function() {
+				return this.ime+' ' +this.prezime;
+			}
+			rezultat = predavac.punoIme();
+			/*
 			*/
 			document.getElementById("primjer").innerHTML = primjer;
 			document.getElementById("rezultat").innerHTML = rezultat;	
