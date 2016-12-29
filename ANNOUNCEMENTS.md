@@ -3,9 +3,12 @@ Obavijesti
 
 Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene termina predavanja. Najnovije obavijesti će biti na vrhu.
 
-## HTTP Cache primjeri su postavljeni online (sa dodatnim objašnjenjima) i nalaze se u [ExampleController-u](booking/src/AppBundle/Controller/ExampleController.php#L115)
+## Primjeri JavaScripta i Ajaxa sa predavanja od Blagog su sada online (nalaze se na master branchu)
 
-## Accommodation entity sada sadrži i [primjer](https://github.com/adriatichr/php-academy/commit/c802d730be720dfc54691090b9ee57f2359fc37a) Doctrine [događaja](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/events.html)
+### 24.12.2016
+
+* HTTP Cache primjeri su postavljeni online (sa dodatnim objašnjenjima) i nalaze se u [ExampleController-u](booking/src/AppBundle/Controller/ExampleController.php#L115)
+* Accommodation entity sada sadrži i [primjer](https://github.com/adriatichr/php-academy/commit/c802d730be720dfc54691090b9ee57f2359fc37a) Doctrine [događaja](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/events.html)
 
 ### 22.12.2016
 
