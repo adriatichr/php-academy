@@ -210,4 +210,37 @@ class ExampleController extends Controller
 
         return $response->setContent($content);
     }
+
+    /**
+     * @Route("/example/logging")
+     */
+    public function loggingAction(Request $request)
+    {
+        $logger = $this->get('logger');
+
+        // Vrste log poruka po važnosti
+        $logger->emergency('Najsnažnija razina ozbiljnosti. Sustav je neupotrebljiv');
+        // Sve vrste log poruka kao drugi element primaju polje koje može sadržavati dodatne informacije vezane za
+        // kontekst
+        $logger->alert('Ove log poruka zahtjeva da se što prije poduzmu mjere za ispravak problema.', [
+            'primjer1' => 'Cijeli site je pao',
+            'primjer2' => 'Nedostupna baza podataka',
+            'napomena' => 'This should trigger the SMS alerts and wake you up.',
+        ]);
+        $logger->critical('Nedostupna aplikacijska komponenta, neočekivani exception');
+        $logger->error('Runtime greške koje ne zahtijevaju neposrednu reakciju ali ih je svejedno potrebno pratiti.');
+        $logger->warning(
+            'Iznimni događaji koji nisu nužno greške. Na primjer: korištenje deprecated (zastarijelog) API-ja, pogrešno korištenje API-ja');
+        $logger->notice('Normalni događaji koji ipak imaju neko značenje za nas.');
+        $logger->info('Zanimljivi događaji, poput prijave korisnika ili SQL logova.');
+        $logger->debug('Debug se koristi za debuggiranje, u ovom slučaju poruka ima i kontekst kao drugi parametar', [
+            'request' => $request,
+            'foo' => 'još malo konteksta za poruku',
+        ]);
+        $logger->log(\Psr\Log\LogLevel::EMERGENCY, 'Ova metoda omogućuje da poruci zadamo neku proizvoljnu razinu.', [
+            'napomena1' => 'U ovom slučaju je poziv ekvivalentan pozivu emergency() metode',
+        ]);
+
+        return new Response('<html><body>Logovi iz ove akcije se u razvojnoj okolini mogu vidjeti u Symfony Profileru</body></html>');
+    }
 }
