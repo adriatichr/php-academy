@@ -82,6 +82,14 @@ class CalendarExtensionTest extends TestCase
         $this->assertEquals('{"month":12,"year":2016}', $this->extension->getPreviousMonth(1, 2017));
     }
 
+    /** @test */
+    public function getPreviousMonthFebruaryRegression()
+    {
+        $this->assertEquals('{"month":2,"year":2017}', $this->extension->getPreviousMonth(3, 2017),
+            sprintf("Ako je trenutni datum npr. 29.12 \n%s\nće stvoriti datum u 29.02.2017 što je zapravo 01.03.2017. Bolje je koristiti npr. \n%s.",
+                '\DateTimeImmutable::createFromFormat("Y-m", $year . "-" . $month);',
+                '\DateTimeImmutable::createFromFormat("Y-m-d", $year . "-" . $month . "-01");'));
+    }
 
     private function date($dateString)
     {
