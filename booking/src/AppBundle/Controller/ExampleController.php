@@ -244,4 +244,24 @@ class ExampleController extends Controller
 
         return new Response('<html><body>Logovi iz ove akcije se u razvojnoj okolini mogu vidjeti u Symfony Profileru</body></html>');
     }
+
+    /**
+     * @Route("/example/logging-exceptions")
+     */
+    public function loggingExceptionAction(Request $request)
+    {
+        $logger = $this->get('logger');
+
+        try {
+            $logger->log(12345,
+                'Ova log poruka se logira za Log Level 12345 i kako ga Monolog ne podržava rezultirati će InvalidArgumentException iznimkom.');
+        } catch (\InvalidArgumentException $e) {
+            $logger->error('Logiramo grešku, i exception spremamo u kontekstno polje', [
+                'exception' => $e,
+                'napomena' => 'Svaka iznimka se po PSR-3 po konvenciji loggira pod "exception" key u kontekstnom polju',
+            ]);
+        }
+
+        return new Response('<html><body>Log iznimke iz ove akcije se u razvojnoj okolini može vidjeti u Symfony Profileru</body></html>');
+    }
 }
