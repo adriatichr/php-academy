@@ -12,20 +12,20 @@ use AppBundle\Form\Model\Address;
 
 class AddressType extends AbstractType
 {
-	public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        	->add('street', TextType::class, ['required' => true, 'label' => 'Ulica'])
-        	->add('postCode', NumberType::class, ['required' => true, 'label' => 'Poštanski broj'])
-            ->add('place', TextType::class,['required' => true, 'label' => 'Mjesto'])
-            ->add('county', TextType::class,['required' => true, 'label' => 'Država'])
+            ->add('street', TextType::class, ['required' => true, 'label' => 'Ulica'])
+            ->add('postCode', NumberType::class, ['required' => true, 'label' => 'Poštanski broj'])
+            ->add('place', TextType::class, ['required' => true, 'label' => 'Mjesto'])
+            ->add('county', TextType::class, ['required' => true, 'label' => 'Država'])
        ;
     }
 
-	public function configureOptions(OptionsResolver $resolver)
-	{
-	    $resolver->setDefaults(array(
-	        'data_class' => Address::class,
-	    ));
-	}
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => Address::class,
+        ));
+    }
 }

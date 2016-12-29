@@ -60,8 +60,9 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        if('alice@gmail.com' === $this->email)
+        if ('alice@gmail.com' === $this->email) {
             return ['ROLE_ADMIN'];
+        }
 
         return ['ROLE_USER'];
     }
@@ -82,7 +83,7 @@ class User implements UserInterface, \Serializable
     /** @see \Serializable::unserialize() */
     public function unserialize($serialized)
     {
-        list (
+        list(
             $this->id,
             $this->email,
             $this->password,
@@ -98,5 +99,4 @@ class User implements UserInterface, \Serializable
     {
         return $this->surname;
     }
-
 }

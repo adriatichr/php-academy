@@ -8,9 +8,9 @@ use AppBundle\Validator\Constraints as AcmeAssert;
  */
 class SearchParameters
 {
-	public $priceFrom;
+    public $priceFrom;
 
-	public $priceTo;
+    public $priceTo;
 
-	public $place;
+    public $place;
 }

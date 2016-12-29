@@ -46,9 +46,10 @@ class ExampleController extends Controller
             ->execute();
 
         $accommodation = $statement->fetch();
-        if(!$accommodation)
+        if (!$accommodation) {
             throw $this->createNotFoundException(
                 sprintf('Accommodation with id "%s" not found.', $accommodationId));
+        }
 
         return $this->render('AppBundle:Example:accommodationQueryBuilder.html.twig', [
             'accommodation' => $accommodation,
@@ -66,8 +67,7 @@ class ExampleController extends Controller
         $form = $this->createForm(UserType::class, $user, ['validation_groups' => ['broj', 'tekst']]);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             dump($form->getData());
         }
 
@@ -180,8 +180,9 @@ class ExampleController extends Controller
         $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
         $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
 
-        if(!$accommodation)
+        if (!$accommodation) {
             throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
+        }
 
         $response = new Response();
         // U ovom slučaju smo response cachirali po datumu zadnje promjene smještaja.
@@ -193,7 +194,7 @@ class ExampleController extends Controller
         // promijenjen i isNotModified() postavlja http kôd na 304, briše sadržaj response-a i vraća true.
         // Ako se ne poklapaju znači da je došlo do izmjene i isNotModified() vraća false, što znači da ćemo za za
         // response ponovo renderirati twig template.
-        if($response->isNotModified($request)) {
+        if ($response->isNotModified($request)) {
             return $response;
         }
 

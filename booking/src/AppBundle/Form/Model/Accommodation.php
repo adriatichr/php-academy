@@ -6,7 +6,7 @@ use AppBundle\Validator\Constraints as AcmeAssert;
 
 class Accommodation
 {
-	/**
+    /**
      * @Assert\Length(
      *      min = 5,
      *      max = 20,
@@ -15,11 +15,11 @@ class Accommodation
      * )
      * @AcmeAssert\ConstraintAccommodationName
      */
-	public $name;
+    public $name;
 
-	public $category = 3;
+    public $category = 3;
 
-	public $pricePerDay;
+    public $pricePerDay;
 
-	public $place;
+    public $place;
 }

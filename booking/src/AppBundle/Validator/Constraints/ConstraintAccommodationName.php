@@ -8,6 +8,6 @@ use Symfony\Component\Validator\Constraint;
  */
 class ConstraintAccommodationName extends Constraint
 {
-	public $messageLetters = 'Ime smještaja mora sadržavati samo slova';
+    public $messageLetters = 'Ime smještaja mora sadržavati samo slova';
     public $messageSameName = 'Smještaj naziva "%string%" već postoji';
 }
