@@ -29,7 +29,7 @@
 
         <service id="app.validator_accommodation_name"
             class="AppBundle\Validator\Constraints\ConstraintAccommodationNameValidator">
-            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="app.accommodation_repository" />
             <tag name="validator.constraint_validator" />
         </service>
 

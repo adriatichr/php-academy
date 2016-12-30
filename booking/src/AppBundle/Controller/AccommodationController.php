@@ -86,7 +86,7 @@ class AccommodationController extends Controller
         $form->handleRequest($request);
         $insert = false;
 
-        if($form->isValid() && $form->isSubmitted()) {
+        if($form->isSubmitted() && $form->isValid()) {
             $formAccommodation = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
 
