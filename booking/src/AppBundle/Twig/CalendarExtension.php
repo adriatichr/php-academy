@@ -52,7 +52,7 @@ class CalendarExtension extends \Twig_Extension
 
     public function getMonthName(int $monthNumber)
     {
-        return \DateTimeImmutable::createFromFormat('m', $monthNumber)->format('F');
+        return \DateTimeImmutable::createFromFormat('m-d', $monthNumber . '-01')->format('F');
     }
 
     public function getNextMonth(int $month, int $year)

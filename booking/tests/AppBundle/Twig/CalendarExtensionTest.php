@@ -68,6 +68,25 @@ class CalendarExtensionTest extends TestCase
         $this->assertContains('weekend', explode(' ', $class));
     }
 
+    /**
+     * @testWith ["January", 1]
+     *           ["February", 2]
+     *           ["March", 3]
+     *           ["April", 4]
+     *           ["May", 5]
+     *           ["June", 6]
+     *           ["July", 7]
+     *           ["August", 8]
+     *           ["September", 9]
+     *           ["October", 10]
+     *           ["November", 11]
+     *           ["December", 12]
+     */
+    public function getMonthName($expectedMonthName, $monthNumber)
+    {
+        $this->assertEquals($expectedMonthName, $this->extension->getMonthName($monthNumber));
+    }
+
     /** @test */
     public function getNextMonth()
     {
