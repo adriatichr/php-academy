@@ -253,9 +253,11 @@ class ExampleController extends Controller
         $logger = $this->get('logger');
 
         try {
-            $logger->log(12345,
-                'Ova log poruka se logira za Log Level 12345 i kako ga Monolog ne podržava rezultirati će InvalidArgumentException iznimkom.');
-        } catch (\InvalidArgumentException $e) {
+            $logger->log(
+                12345,
+                'Ova log poruka se logira za Log Level 12345 i kako ga Monolog ne podržava rezultirati će InvalidArgumentException iznimkom.'
+            );
+        } catch (\Psr\Log\InvalidArgumentException $e) {
             $logger->error('Logiramo grešku, i exception spremamo u kontekstno polje', [
                 'exception' => $e,
                 'napomena' => 'Svaka iznimka se po PSR-3 po konvenciji loggira pod "exception" key u kontekstnom polju',
@@ -263,5 +265,23 @@ class ExampleController extends Controller
         }
 
         return new Response('<html><body>Log iznimke iz ove akcije se u razvojnoj okolini može vidjeti u Symfony Profileru</body></html>');
+    }
+
+    /**
+     * @Route("/example/logging-with-placeholders")
+     */
+    public function loggingWithPlaceholdersAction(Request $request)
+    {
+        $logger = $this->get('logger');
+        for ($i = 0; $i < 5; ++$i) {
+            $logger->notice(
+                'Ova log poruka sadrži placeholder koji će logger zamijeniti odgovarajućom varijablom iz konteksta: {i}.',
+                ['i' => $i, 'napomena' => 'kontekst naravno može sadržavati i druge podatke']
+            );
+        }
+
+        $logger->info('Placeholderi su u formatu: {ključ_placeholdera_iz_kontekstnog_polja}');
+
+        return new Response('<html><body>Logove iz ove akcije se u razvojnoj okolini može vidjeti u Symfony Profileru</body></html>');
     }
 }
