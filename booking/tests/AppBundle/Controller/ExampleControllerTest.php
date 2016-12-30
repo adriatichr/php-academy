@@ -6,11 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ExampleControllerTest extends WebTestCase
 {
+    private static $accommodationRepository;
+
     private $client;
 
     public function setUp()
     {
         $this->client = static::createClient();
+        self::$accommodationRepository = static::$kernel->getContainer()->get('app.accommodation_repository');
     }
 
     public function testAccommodationDbalQueryBuilder()
@@ -41,5 +44,10 @@ class ExampleControllerTest extends WebTestCase
     {
         $crawler = $this->client->request('GET', '/example/cache/validation/last-modified/accommodation/1');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+    }
+
+    public static function tearDownAfterClass()
+    {
+        self::$accommodationRepository->deleteAllWithName('orm test');
     }
 }
