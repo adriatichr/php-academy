@@ -42,4 +42,14 @@ class AccommodationRepository extends EntityRepository
             ->setParameters($parameters)
             ->getResult();
     }
+
+    public function deleteAllWithName($name)
+    {
+        $dql = 'DELETE FROM AppBundle:Accommodation a WHERE a.name = :name';
+
+        return $this->getEntityManager()
+            ->createQuery($dql)
+            ->setParameter('name', $name)
+            ->execute();
+    }
 }

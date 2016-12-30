@@ -6,7 +6,7 @@
 
     <services>
         <service id="app.view.availability" class="AppBundle\View\Availability">
-            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="app.reservation_repository" />
         </service>
 
         <service id="app.demo_extension" class="AppBundle\Twig\DemoExtension" public="false">
@@ -29,12 +29,33 @@
 
         <service id="app.validator_accommodation_name"
             class="AppBundle\Validator\Constraints\ConstraintAccommodationNameValidator">
-            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="app.accommodation_repository" />
             <tag name="validator.constraint_validator" />
         </service>
 
         <service id="app.post_voter" class="AppBundle\Security\AccommodationEditVoter" public="false">
             <tag name="security.voter" />
         </service>
+
+        <!--
+            Doctrine Repozitorije možemo definirati kao servise koristeći mogućnost da servis stvorimo preko tzv. factory
+            metode.
+            U ovom slučaju factory metoda je getRepository() u doctrine.orm.entity_manager servisu koja za argument
+            prima repozitorij koji želimo.
+            Sada će kad god zatražimo servis app.accommodation_repository Symfony za nas pozvati na entity manageru
+            metodu getRepository('AppBundle:Accommodation') i vratiti nam njen rezultat, tj. AccommodationRepository.
+
+            @link http://symfony.com/doc/current/service_container/factories.html službena dokumentacija
+        -->
+        <service id="app.accommodation_repository" class="AppBundle\Repository\AccommodationRepository">
+            <factory service="doctrine.orm.entity_manager" method="getRepository"/>
+            <argument>AppBundle:Accommodation</argument>
+        </service>
+
+        <service id="app.reservation_repository" class="AppBundle\Repository\ReservationRepository">
+            <factory service="doctrine.orm.entity_manager" method="getRepository"/>
+            <argument>AppBundle:Reservation</argument>
+        </service>
+
     </services>
 </container>

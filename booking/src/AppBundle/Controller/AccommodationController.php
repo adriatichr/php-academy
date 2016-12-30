@@ -20,8 +20,7 @@ class AccommodationController extends Controller
      */
     public function accommodationAction($accommodationId)
     {
-        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
-        $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
+        $accommodation = $this->get('app.accommodation_repository')->findByIdWithPlace($accommodationId);
 
         $availability = $this->get('app.view.availability');
         $reservedDates = $availability->forAccommodationAndDate($accommodationId, 7, date('Y'));
@@ -41,14 +40,13 @@ class AccommodationController extends Controller
      */
     public function accommodationListAction(Request $request)
     {
-        $manager = $this->getDoctrine()->getManager();
-
         $form = $this->get('form.factory')->createNamed(null, SearchParametersType::class, new SearchParameters());
         $form->handleRequest($request);
+
         if ($form->isSubmitted()) {
-            $accommodations = $manager->getRepository('AppBundle:Accommodation')->findByParameters($form->getData());
+            $accommodations = $this->get('app.accommodation_repository')->findByParameters($form->getData());
         } else {
-            $accommodations = $manager->getRepository('AppBundle:Accommodation')->findAll();
+            $accommodations = $this->get('app.accommodation_repository')->findAll();
         }
 
         return $this->render('AppBundle:Accommodation:accommodationList.html.twig', [
@@ -66,9 +64,9 @@ class AccommodationController extends Controller
      */
     public function mainImageAction(int $accommodationId)
     {
-        $imagePath = __DIR__ . '/../Resources/images/accommodation/apartman' . $accommodationId . '.jpg';
+        $imagePath = __DIR__.'/../Resources/images/accommodation/apartman'.$accommodationId.'.jpg';
         if (!file_exists($imagePath)) {
-            $imagePath = __DIR__ . '/../Resources/images/accommodation/no-image.jpg';
+            $imagePath = __DIR__.'/../Resources/images/accommodation/no-image.jpg';
         }
 
         $response = new BinaryFileResponse($imagePath);
@@ -82,14 +80,12 @@ class AccommodationController extends Controller
      */
     public function accommodationAddAction(Request $request)
     {
-        $manager = $this->getDoctrine()->getManager();
-
         $formAccommodation = new FormAccommodation();
         $form = $this->createForm(AccommodationType::class, $formAccommodation);
         $form->handleRequest($request);
         $insert = false;
 
-        if ($form->isValid() && $form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $formAccommodation = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
 
@@ -108,7 +104,7 @@ class AccommodationController extends Controller
 
         return $this->render('AppBundle:Accommodation:accommodationAdd.html.twig', [
             'form' => $form->createView(),
-            'insert' => $insert
+            'insert' => $insert,
         ]);
     }
 
@@ -117,8 +113,7 @@ class AccommodationController extends Controller
      */
     public function accommodationEditAction(int $accommodationId)
     {
-        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
-        $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
+        $accommodation = $this->get('app.accommodation_repository')->findByIdWithPlace($accommodationId);
         if (!$accommodation) {
             throw $this->createNotFoundException('Smjestaj nije pronadjen');
         }

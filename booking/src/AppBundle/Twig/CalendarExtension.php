@@ -52,7 +52,7 @@ class CalendarExtension extends \Twig_Extension
 
     public function getMonthName(int $monthNumber)
     {
-        return \DateTimeImmutable::createFromFormat('m', $monthNumber)->format('F');
+        return \DateTimeImmutable::createFromFormat('m-d', $monthNumber . '-01')->format('F');
     }
 
     public function getNextMonth(int $month, int $year)
@@ -68,7 +68,7 @@ class CalendarExtension extends \Twig_Extension
     private function getJsonMonthData(string $nextOrPrevious, int $month, int $year)
     {
         $month = $nextOrPrevious === 'next' ? $month + 1 : $month - 1;
-        $date = \DateTimeImmutable::createFromFormat('Y-m', $year . '-' . $month);
+        $date = \DateTimeImmutable::createFromFormat('Y-m-d', $year . '-' . $month . '-01');
         $month = (int)$date->format('m');
         $year = (int)$date->format('Y');
 

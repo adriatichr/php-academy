@@ -2,41 +2,24 @@
 
 namespace AppBundle\View;
 
+use AppBundle\Repository\ReservationRepository;
+
 class Availability
 {
-    private $entityManager;
+    private $reservationRepository;
 
-    public function __construct($entityManager)
+    public function __construct(ReservationRepository $reservationRepository)
     {
-        $this->entityManager = $entityManager;
+        $this->reservationRepository = $reservationRepository;
     }
 
     public function forAccommodationAndDate(int $accommodationId, int $month, int $year)
     {
-        // Slučajevi koje moramo pokriti sa queryjem (puna crta je ciljani mjesec):
-        // ---------_________________--------
-        //       [     ]
-        //             [    ]
-        //                       [      ]
-        //     [                          ]
-        //
-        $dql = 'SELECT r FROM AppBundle:Reservation AS r
-            WHERE r.accommodationId = :id
-            AND (
-                (r.startDate >= :start AND r.startDate < :end)
-                OR (r.endDate > :start AND r.endDate <= :end)
-                OR (r.startDate < :start AND r.endDate > :end)
-            )';
-
         $startDate = \DateTimeImmutable::createFromFormat('Y-m-d', sprintf('%s-%s-01', $year, $month));
         $endDate = \DateTimeImmutable::createFromFormat('Y-m-d', sprintf('%s-%s-01', $year, $month + 1));
 
-        $reservations = $this->entityManager
-            ->createQuery($dql)
-            ->setParameter('id', $accommodationId)
-            ->setParameter('start', $startDate)
-            ->setParameter('end', $endDate)
-            ->getResult();
+        $reservations = $this->reservationRepository->findForAccommodationByStartAndEndDate(
+            $accommodationId, $startDate, $endDate);
 
         $reservedDates = [];
         foreach ($reservations as $reservation) {
