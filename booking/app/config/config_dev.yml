@@ -13,6 +13,7 @@ web_profiler:
 
 monolog:
     handlers:
+        # Ime loggera je proizvoljno
         main:
             type: stream
             path: "%kernel.logs_dir%/%kernel.environment%.log"
@@ -21,6 +22,12 @@ monolog:
         console:
             type:   console
             channels: [!event, !doctrine]
+        # Naš custom handler je tipa "stream", tj. zapisuje poruke u file, ali samo ako im je razina "warning" ili veća.
+        # File je definiran "path" ključem, u našem slučaju to je var/logs/dev_nas_custom_handler.log
+        nas_custom_handler:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%_nas_custom_handler.log"
+            level: warning
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
         #firephp:
