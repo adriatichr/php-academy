@@ -211,4 +211,20 @@ class ExampleController extends Controller
 
         return $response->setContent($content);
     }
+
+    /**
+     * @Route("/example/translation-in-controller")
+     */
+    public function translationInController()
+    {
+        $translations = [];
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'hr');
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'en');
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'en_US');
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'en_GB');
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'fr');
+
+        return new Response(sprintf('<html><body>%s</body></html>', implode('<br />', $translations)));
+    }
+
 }
