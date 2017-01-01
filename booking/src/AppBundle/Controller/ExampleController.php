@@ -243,4 +243,12 @@ class ExampleController extends Controller
 
         return new Response(sprintf('<html><body>%s</body></html>', implode('<br />', $translations)));
     }
+
+    /**
+     * @Route("/example/translation-in-twig-template")
+     */
+    public function translationWithinTwigTemplate()
+    {
+        return $this->render('AppBundle:Example:translation.html.twig', ['name' => 'Fabien']);
+    }
 }

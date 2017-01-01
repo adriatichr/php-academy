@@ -1,0 +1,37 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+    <h1>Prevođenje unutar Twiga</h1>
+
+    <h3>Prijevod pomoću Twig taga</h3>
+    <p>
+        {% trans with {'%name%': name} %}Hello %name%{% endtrans %}<br />
+        {% trans with {'%name%': name} into 'fr' %}Hello %name%{% endtrans %}<br />
+        {% trans into 'hr' %}Symfony is great{% endtrans %}<br />
+        {% trans into 'cs' %}Symfony is great{% endtrans %}<br />
+        {% trans into 'en_GB' %}Symfony is great {% endtrans %}<br />
+    </p>
+
+
+    <h3>Prijevod pomoću Twig filtera</h3>
+    <p>
+        {{ 'Hello %name%'|trans({'%name%': name}) }}!<br />
+        {{ 'Symfony is great'|trans }}!<br />
+        {{ 'Symfony is great'|trans({}, 'messages', 'hr') }}!<br />
+    </p>
+
+    {# Prijevodi iz tag-ova nikad nisu escape-ani #}
+    {% trans %}
+        <strong>foo</strong>
+    {% endtrans %}
+    <br />
+
+    {% set message = '<strong>foo</strong>' %}
+
+    {#
+        String i varijable prevedene pomoću filtera su escape-ane po defaultu, ako ne želimo da ih se escape-a, moramo
+        dodati i *raw* filter.
+    #}
+    {{ message|trans|raw }}<br />
+    {{ '<strong>foo</strong>'|trans({}, 'messages', 'fr')|raw }}<br />
+{% endblock %}
