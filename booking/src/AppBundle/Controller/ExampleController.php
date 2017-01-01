@@ -218,11 +218,11 @@ class ExampleController extends Controller
     public function translationInController()
     {
         $translations = [];
-        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'hr');
-        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'en');
-        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'en_US');
-        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'en_GB');
-        $translations[] = $this->get('translator')->trans('Symfony is great', [], null, 'fr');
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], 'messages', 'hr');
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], 'messages', 'en');
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], 'messages', 'en_US');
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], 'messages', 'en_GB');
+        $translations[] = $this->get('translator')->trans('Symfony is great', [], 'messages', 'fr');
 
         return new Response(sprintf('<html><body>%s</body></html>', implode('<br />', $translations)));
     }
@@ -233,10 +233,10 @@ class ExampleController extends Controller
     public function translationWithPlaceholders()
     {
         $translations = [];
-        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'hr');
-        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'en');
-        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'fr');
-        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'it');
+        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], 'messages', 'hr');
+        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], 'messages', 'en');
+        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], 'messages', 'fr');
+        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], 'messages', 'it');
         // Kako ne postoji prijevod za poruku Hello %name% na lokalu "fr_BE", Symfony će prijevod prvo potražiti za "fr"
         // lokal, a tek onda za fallback lokal
         $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'fr_BE');
