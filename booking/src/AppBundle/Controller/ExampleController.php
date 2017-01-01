@@ -227,4 +227,20 @@ class ExampleController extends Controller
         return new Response(sprintf('<html><body>%s</body></html>', implode('<br />', $translations)));
     }
 
+    /**
+     * @Route("/example/translation-with-placeholders")
+     */
+    public function translationWithPlaceholders()
+    {
+        $translations = [];
+        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'hr');
+        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'en');
+        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'fr');
+        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'it');
+        // Kako ne postoji prijevod za poruku Hello %name% na lokalu "fr_BE", Symfony će prijevod prvo potražiti za "fr"
+        // lokal, a tek onda za fallback lokal
+        $translations[] = $this->get('translator')->trans('Hello %name%', ['%name%' => 'Fabien'], null, 'fr_BE');
+
+        return new Response(sprintf('<html><body>%s</body></html>', implode('<br />', $translations)));
+    }
 }

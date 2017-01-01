@@ -59,6 +59,17 @@ class ExampleControllerTest extends WebTestCase
         $this->assertContains('J\'aime Symfony', $content);
     }
 
+    public function testTranslationWithPlaceholders()
+    {
+        $crawler = $this->client->request('GET', '/example/translation-with-placeholders');
+        $content = (string)$this->client->getResponse()->getContent();
+
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+        $this->assertContains('Hello Fabien', $content);
+        $this->assertContains('Bonjour Fabien', $content);
+        $this->assertContains('Zdravo Fabien', $content);
+    }
+
     public static function tearDownAfterClass()
     {
         self::$accommodationRepository->deleteAllWithName('orm test');

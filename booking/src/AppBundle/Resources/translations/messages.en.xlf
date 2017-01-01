@@ -6,6 +6,10 @@
                 <source>Symfony is great</source>
                 <target>Symfony is great</target>
             </trans-unit>
+            <trans-unit id="hello_name">
+                <source>Hello %name%</source>
+                <target>Hello %name%</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
