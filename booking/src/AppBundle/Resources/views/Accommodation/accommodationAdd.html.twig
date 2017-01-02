@@ -4,17 +4,22 @@
 
 {% block content %}
     <h1>Unos smještaja</h1>
-    {% if insert == false %}
-        {{ form_start(form) }}
+
+    {{ form_start(form) }}
+        {#
+            Za više informacija o flash porukama vidjeti: https://symfony.com/doc/current/controller.html#flash-messages
+         #}
+        {% if app.request.hasPreviousSession %}
+            {% for flashMessage in app.session.flashBag.get('notice') %}
+                <div class="free">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+        {% endif %}
         {{ form_row(form.name, {'label' : 'Ime smještaja'}) }}
         {{ form_row(form.pricePerDay, {'label' : 'Cijena po danu'}) }}
         {{ form_row(form.category, {'label' : 'Kategorija'}) }}
         {{ form_row(form.place, {'label' : 'Mjesto'}) }}
         <input type="submit" value="Dodaj smještaj">
-        {{ form_end(form) }}
-    {% else %}
-        {% do form.setRendered() %}
-        <h3>Smještaj je uspješno unešen!<h3>
-        <a href="{{ path("AppBundle_Accommodation_accommodationAdd") }}">Dodaj novi smještaj</a>
-    {% endif %}
+    {{ form_end(form) }}
 {% endblock content %}
