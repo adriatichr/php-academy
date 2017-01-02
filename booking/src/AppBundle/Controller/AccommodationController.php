@@ -18,7 +18,7 @@ class AccommodationController extends Controller
     /**
      * @Route("/accommodation/{accommodationId}", name="AppBundle_Accommodation_accommodation")
      */
-    public function accommodationAction($accommodationId)
+    public function accommodationAction(Request $request, int $accommodationId)
     {
         $accommodation = $this->get('app.accommodation_repository')->findByIdWithPlace($accommodationId);
 
