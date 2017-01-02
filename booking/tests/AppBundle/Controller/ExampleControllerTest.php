@@ -48,7 +48,7 @@ class ExampleControllerTest extends WebTestCase
 
     public function testTranslationInControllerAction()
     {
-        $crawler = $this->client->request('GET', '/example/translation-in-controller');
+        $crawler = $this->client->request('GET', '/example/en/translation-in-controller');
         $content = (string)$this->client->getResponse()->getContent();
 
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
@@ -61,13 +61,30 @@ class ExampleControllerTest extends WebTestCase
 
     public function testTranslationWithPlaceholders()
     {
-        $crawler = $this->client->request('GET', '/example/translation-with-placeholders');
+        $crawler = $this->client->request('GET', '/example/en/translation-with-placeholders');
         $content = (string)$this->client->getResponse()->getContent();
 
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         $this->assertContains('Hello Fabien', $content);
         $this->assertContains('Bonjour Fabien', $content);
         $this->assertContains('Zdravo Fabien', $content);
+    }
+
+    /**
+     * @testWith ["hr"]
+     *           ["en"]
+     *           ["fr"]
+     */
+    public function translationWithinTwig($locale)
+    {
+        $crawler = $this->client->request('GET', sprintf('/example/%s/translation-with-placeholders', $locale));
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+    }
+
+    public function testTranslationWithinTwigNotFoundForUnsupportedLocale()
+    {
+        $crawler = $this->client->request('GET', '/example/cs/translation-with-placeholders');
+        $this->assertEquals(404, $this->client->getResponse()->getStatusCode());
     }
 
     public static function tearDownAfterClass()
