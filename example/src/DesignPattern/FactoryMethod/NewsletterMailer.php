@@ -17,7 +17,8 @@ abstract class NewsletterMailer
 
     private function mailNewsletter(Newsletter $newsletter)
     {
-        echo sprintf('Newsletter sa sadržajem "%s" je poslan na email %s sa adrese %s!<br />',
+        echo sprintf(
+            'Newsletter sa sadržajem "%s" je poslan na email %s sa adrese %s!<br />',
             $newsletter->getContent(),
             $newsletter->getRecipient(),
             $newsletter->getSender()
