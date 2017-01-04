@@ -3,9 +3,15 @@ Obavijesti
 
 Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene termina predavanja. Najnovije obavijesti će biti na vrhu.
 
-## Napravljen je primjer definiranja [Doctrine repozitorija kao servisa](https://github.com/adriatichr/php-academy/commit/1ac013a00b516bb6016575a9ecb20e3a3c2c78ac). Konfiguraciju možete vidjeti u [services.xml](https://github.com/adriatichr/php-academy/commit/1ac013a00b516bb6016575a9ecb20e3a3c2c78ac#diff-ba87dd91ea6711fefbc06152a8cdd3e6R40) datoteci.
+## Predavanja se nastavljaju 09.01.2017. Od tada pa do kraja akademije predavanja počinju *točno* u 17:00h.
 
-## Primjeri JavaScripta i Ajaxa sa predavanja od Blagog su sada online (nalaze se na master branchu)
+### 30.12.2016 
+
+* Napravljen je primjer definiranja [Doctrine repozitorija kao servisa](https://github.com/adriatichr/php-academy/commit/1ac013a00b516bb6016575a9ecb20e3a3c2c78ac). Konfiguraciju možete vidjeti u [services.xml](https://github.com/adriatichr/php-academy/commit/1ac013a00b516bb6016575a9ecb20e3a3c2c78ac#diff-ba87dd91ea6711fefbc06152a8cdd3e6R40) datoteci.
+
+### 29.12.2016 
+
+* Primjeri JavaScripta i Ajaxa sa predavanja od Blagog su sada online (nalaze se na master branchu)
 
 ### 24.12.2016
 
