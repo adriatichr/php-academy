@@ -6,7 +6,7 @@ class WhippedCream extends CondimentDecorator
 {
     public function getDescription() : string
     {
-        return $this->beverage->getDescription() . ' sa šlagom';
+        return $this->beverage->getDescription() . ', šlag';
     }
 
     public function getCost() : float

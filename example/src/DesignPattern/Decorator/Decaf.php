@@ -11,6 +11,6 @@ class Decaf extends Beverage
 
     public function getCost() : float
     {
-        return 6.99;
+        return 5.99;
     }
 }

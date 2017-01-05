@@ -6,7 +6,7 @@ class Milk extends CondimentDecorator
 {
     public function getDescription() : string
     {
-        return $this->beverage->getDescription() . ' sa mlijekom';
+        return $this->beverage->getDescription() . ', mlijeko';
     }
 
     public function getCost() : float

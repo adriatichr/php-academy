@@ -23,7 +23,7 @@ class BeverageTest extends TestCase
     {
         $beverage = new Decaf();
         $this->assertEquals('Kava bez kofeina', $beverage->getDescription());
-        $this->assertEquals(6.99, $beverage->getCost(), null, 0.001);
+        $this->assertEquals(5.99, $beverage->getCost(), null, 0.001);
     }
 
     /** @test */
@@ -31,7 +31,7 @@ class BeverageTest extends TestCase
     {
         $beverage = new Milk(new WhippedCream(new Espresso()));
 
-        $this->assertEquals('Espresso sa šlagom sa mlijekom', $beverage->getDescription());
+        $this->assertEquals('Espresso, šlag, mlijeko', $beverage->getDescription());
         $this->assertEquals(7.27, $beverage->getCost(), null, 0.001);
     }
 }
