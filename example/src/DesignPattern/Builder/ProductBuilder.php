@@ -7,4 +7,5 @@ interface ProductBuilder
     public function withName(string $name) : self;
     public function withCategory(string $category) : self;
     public function withPrice(float $price) : self;
+    public function build() : Product;
 }

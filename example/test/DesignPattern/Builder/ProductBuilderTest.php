@@ -14,12 +14,12 @@ class ProductBuilderTest extends TestCase
             ->withName('Mlijeko')
             ->withCategory('Namirnice')
             ->withPrice(5.99)
-            ->getProduct();
+            ->build();
         $product2 = Product::createBuilder()
             ->withName('Pasta za zube')
             ->withCategory('Higijenski proizvodi')
             ->withPrice(24.99)
-            ->getProduct();
+            ->build();
 
         $this->assertEquals('Mlijeko', $product1->name());
         $this->assertEquals('Namirnice', $product1->category());

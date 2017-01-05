@@ -64,7 +64,7 @@ class Product
                 return $this;
             }
 
-            public function getProduct()
+            public function build() : Product
             {
                 return ($this->createProduct)($this);
             }
