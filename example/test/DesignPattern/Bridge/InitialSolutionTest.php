@@ -2,11 +2,11 @@
 
 namespace Adriatic\PHPAkademija\Test\DesignPattern\Facade;
 
-use Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution\SamsungControl;
-use Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution\SamsungTv;
 use Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution\RemoteControl;
+use Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution\SamsungControl;
 use Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution\SonyControl;
-use Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution\SonyTv;
+use Adriatic\PHPAkademija\DesignPattern\Bridge\TvImplementations\SamsungTv;
+use Adriatic\PHPAkademija\DesignPattern\Bridge\TvImplementations\SonyTv;
 use PHPUnit\Framework\TestCase;
 
 class InitialSolutionTest extends TestCase

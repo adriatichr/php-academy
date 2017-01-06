@@ -1,6 +1,6 @@
 <?php
 
-namespace Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution;
+namespace Adriatic\PHPAkademija\DesignPattern\Bridge\TvImplementations;
 
 class SamsungTv
 {

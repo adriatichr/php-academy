@@ -2,6 +2,8 @@
 
 namespace Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution;
 
+use Adriatic\PHPAkademija\DesignPattern\Bridge\TvImplementations\SonyTv;
+
 class SonyControl implements RemoteControl
 {
     private $sonyTv;
