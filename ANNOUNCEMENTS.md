@@ -3,6 +3,7 @@ Obavijesti
 
 Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene termina predavanja. Najnovije obavijesti će biti na vrhu.
 
+## *Preporuka za predavanje u ponedjeljak:* stavite svježu kopiju booking aplikacije sa ovog repozitorija u ```//phpacademy/booking.{inicijali}``` direktorij
 ## Predavanja se nastavljaju 09.01.2017. Od tada pa do kraja akademije predavanja počinju *točno* u 17:00h.
 
 ### 30.12.2016 
