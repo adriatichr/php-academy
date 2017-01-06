@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class FacadeTest extends TestCase
 {
     /** @test */
-    public function buildProductWithName()
+    public function watchMovieEasily()
     {
         $facade = new HomeTheaterFacade(new Television, new BluRayPlayer, new Amplifier);
 
