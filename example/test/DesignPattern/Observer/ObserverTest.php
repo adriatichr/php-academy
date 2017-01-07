@@ -1,6 +1,6 @@
 <?php
 
-namespace Adriatic\PHPAkademija\Test\DesignPattern\Facade;
+namespace Adriatic\PHPAkademija\Test\DesignPattern\Observer;
 
 use Adriatic\PHPAkademija\DesignPattern\Observer\DepartmentEmployee;
 use Adriatic\PHPAkademija\DesignPattern\Observer\DepartmentHead;

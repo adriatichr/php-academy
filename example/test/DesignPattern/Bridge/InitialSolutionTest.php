@@ -1,6 +1,6 @@
 <?php
 
-namespace Adriatic\PHPAkademija\Test\DesignPattern\Facade;
+namespace Adriatic\PHPAkademija\Test\DesignPattern\Bridge;
 
 use Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution\RemoteControl;
 use Adriatic\PHPAkademija\DesignPattern\Bridge\InitialSolution\SamsungControl;

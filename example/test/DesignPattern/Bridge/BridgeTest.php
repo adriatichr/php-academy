@@ -1,6 +1,6 @@
 <?php
 
-namespace Adriatic\PHPAkademija\Test\DesignPattern\Facade;
+namespace Adriatic\PHPAkademija\Test\DesignPattern\Bridge;
 
 use Adriatic\PHPAkademija\DesignPattern\Bridge\OrdinaryRemoteControl;
 use Adriatic\PHPAkademija\DesignPattern\Bridge\RefinedRemoteControl;
