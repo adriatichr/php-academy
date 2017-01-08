@@ -58,7 +58,6 @@ class GameCharacterTest extends TestCase
         $this->assertEquals('Već sam u skoku', $this->character->jump());
     }
 
-
     /** @test */
     public function startWalking()
     {
