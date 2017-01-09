@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="symfony_is_great">
+                <source>Symfony is great</source>
+                <target>Symfony is great</target>
+            </trans-unit>
+            <trans-unit id="hello_name">
+                <source>Hello %name%</source>
+                <target>Hello %name%</target>
+            </trans-unit>
+            <trans-unit id="foo_with_html_tags">
+                <source><![CDATA[<strong>foo</strong>]]></source>
+                <target><![CDATA[<strong>The foo</strong>]]></target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
