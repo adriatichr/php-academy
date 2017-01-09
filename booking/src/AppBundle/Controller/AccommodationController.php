@@ -83,7 +83,6 @@ class AccommodationController extends Controller
         $formAccommodation = new FormAccommodation();
         $form = $this->createForm(AccommodationType::class, $formAccommodation);
         $form->handleRequest($request);
-        $insert = false;
 
         if ($form->isSubmitted() && $form->isValid()) {
             $formAccommodation = $form->getData();
@@ -99,12 +98,26 @@ class AccommodationController extends Controller
             $entityManager->persist($accommodation);
             $entityManager->flush();
 
-            $insert = true;
+            /**
+             * Flash poruke su poruke koje se spremaju u sesiju i traju samo jedan request, nakon kojeg se brišu. Ovo ih
+             * čini vrlo korisnima za jednokratne obavijesti korisniku, npr. da je objekt uspješno spremljen u bazu.
+             *
+             * @link https://symfony.com/doc/current/controller.html#flash-messages
+             */
+            $this->addFlash('notice', 'Mjesto je spremljeno!');
+
+            /**
+             * Nakon uspješnog spremanja podataka sa POST forme dobra je praksa izvršiti redirect na istu ili neku drugu
+             * akciju. Ovim sprječavamo da korisnik dvaput submit-a istu formu ako refresh-a stranicu nakon uspješnog
+             * spremanja.
+             *
+             * @link http://symfony.com/doc/current/forms.html#handling-form-submissions
+             */
+            return $this->redirectToRoute('AppBundle_Accommodation_accommodationAdd');
         }
 
         return $this->render('AppBundle:Accommodation:accommodationAdd.html.twig', [
             'form' => $form->createView(),
-            'insert' => $insert,
         ]);
     }
 
