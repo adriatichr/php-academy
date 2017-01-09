@@ -57,5 +57,11 @@
             <argument>AppBundle:Reservation</argument>
         </service>
 
+        <service id="app.locale_listener"
+            class="AppBundle\EventListener\LocaleListener">
+            <argument>%kernel.default_locale%</argument>
+            <tag name="kernel.event_subscriber" />
+        </service>
+
     </services>
 </container>

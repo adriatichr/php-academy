@@ -286,7 +286,7 @@ class ExampleController extends Controller
     }
 
     /**
-     * @Route("/example/translation-in-controller")
+     * @Route("/example/{_locale}/translation-in-controller", requirements={"_locale": "en|fr|hr"})
      */
     public function translationInController()
     {
@@ -301,7 +301,7 @@ class ExampleController extends Controller
     }
 
     /**
-     * @Route("/example/translation-with-placeholders")
+     * @Route("/example/{_locale}/translation-with-placeholders", requirements={"_locale": "en|fr|hr"})
      */
     public function translationWithPlaceholders()
     {
@@ -318,7 +318,7 @@ class ExampleController extends Controller
     }
 
     /**
-     * @Route("/example/translation-in-twig-template")
+     * @Route("/example/{_locale}/translation-in-twig-template", requirements={"_locale": "en|fr|hr"})
      */
     public function translationWithinTwigTemplate()
     {
