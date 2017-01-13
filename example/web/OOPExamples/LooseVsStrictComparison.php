@@ -1,6 +1,6 @@
 <?php
 
-// http://phpacademy.example.{inicijali}/web/OOPExamples/LooseVsStrictComparison.php
+// http://phpacademy.example.{inicijali}/OOPExamples/LooseVsStrictComparison.php
 require_once __DIR__.'/../../app/bootstrap.php';
 
 use Adriatic\PHPAkademija\OOPIntro\Car;

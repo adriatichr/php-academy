@@ -1,6 +1,6 @@
 <?php
 
-// http://phpacademy.example.{inicijali}/web/OOPExamples/Interface.php
+// http://phpacademy.example.{inicijali}/OOPExamples/Interface.php
 require_once __DIR__.'/../../app/bootstrap.php';
 
 use Adriatic\PHPAkademija\OOPIntro\InterfaceExample\DieselCar;

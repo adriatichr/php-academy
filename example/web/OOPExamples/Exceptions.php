@@ -1,6 +1,6 @@
 <?php
 
-// http://phpacademy.example.{inicijali}/web/OOPExamples/Exceptions.php
+// http://phpacademy.example.{inicijali}/OOPExamples/Exceptions.php
 require_once __DIR__.'/../../app/bootstrap.php';
 
 use Adriatic\PHPAkademija\OOPIntro\Exceptions\Employee;

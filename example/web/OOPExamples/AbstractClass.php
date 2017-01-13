@@ -1,6 +1,6 @@
 <?php
 
-// http://phpacademy.example.{inicijali}/web/OOPExamples/AbstractClass.php
+// http://phpacademy.example.{inicijali}/OOPExamples/AbstractClass.php
 
 require_once __DIR__ . '/../../app/bootstrap.php';
 

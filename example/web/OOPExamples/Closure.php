@@ -1,6 +1,6 @@
 <?php
 
-// http://phpacademy.example.{inicijali}/web/OOPExamples/Closure.php
+// http://phpacademy.example.{inicijali}/OOPExamples/Closure.php
 require_once __DIR__ . '/../../app/bootstrap.php';
 
 use Adriatic\PHPAkademija\OOPIntro\ClosureExample\ArticleRepository;

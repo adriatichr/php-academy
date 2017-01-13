@@ -1,6 +1,6 @@
 <?php
 
-// http://phpacademy.example.{inicijali}/web/OOPExamples/Inheritance.php
+// http://phpacademy.example.{inicijali}/OOPExamples/Inheritance.php
 require_once __DIR__.'/../../app/bootstrap.php';
 
 use Adriatic\PHPAkademija\OOPIntro\Inheritance\Employee;

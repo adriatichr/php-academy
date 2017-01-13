@@ -1,6 +1,6 @@
 <?php
 
-// http://phpacademy.example.{inicijali}/web/OOPExamples/TypeDeclarations.php
+// http://phpacademy.example.{inicijali}/OOPExamples/TypeDeclarations.php
 require_once __DIR__.'/../../app/bootstrap.php';
 
 use Adriatic\PHPAkademija\OOPIntro\TypeDeclarations\TypeFoo;
