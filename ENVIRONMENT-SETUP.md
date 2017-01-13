@@ -62,3 +62,26 @@ Svaki korisnik će na serveru imati tri direktorija, po jedan za svaku web aplik
 	stranica ``` http://phpacademy.booking.pp ``` pokazuje na ``` \\\\phpacademy\\booking.pp\\web\ ``` direktorij na serveru.
 
 	**VAŽNO**: Nikada nemojte podatke za prijavu spremati unutar *web* direktorija, jer je **sve** što se nalazi u njemu **vidljivo svima**.
+
+## Konfiguracija i korištenje mail servera u Symfony-ju
+
+Na ```phpacademy``` server instaliran je Mailhog mail server koji omogućava pregled svih izlaznih mailova preko [web sučelja](http://phpacademy:8025/). 
+
+Symfony aplikaciju možemo jednostavno konfigurirati da koristi Mailhog server:
+
+1. Postaviti sljedećih pet mailer_* parametara u ```app/config/parameters.yml.dist``` datoteku:
+```
+mailer_transport:  smtp
+mailer_host:       phpacademy
+mailer_user:       ~
+mailer_password:   ~
+mailer_port:       1025
+```
+
+2. Izbrisati sve mailer_* parametre iz ```app/config/parameters.yml``` datoteke. Ako nemate tu datoteku u ```app/config/``` direktoriju, preskočite ovaj korak.
+
+3. Pokrenuti ```composer install``` naredbu iz roota aplikacije i kada Symfony zatraži mailer parametre samo prihvatiti zadane vrijednosti.
+
+4. Za slanje mail-a iz Symfony-ja vidjeti službenu [dokumentaciju](http://symfony.com/doc/current/email.html). Primjer akcije za slanje email-a može se vidjeti i unutar [booking aplikacije](https://github.com/adriatichr/php-academy/commit/16751989933601437f99c1cde8d3fbdda523ba40#diff-e1223b33055e8c06db399471f0172ef5).
+
+5. Svi mailovi koje pošaljete se mogu vidjeti na ovoj [stranici](http://phpacademy:8025/).
