@@ -324,4 +324,20 @@ class ExampleController extends Controller
     {
         return $this->render('AppBundle:Example:translation.html.twig', ['name' => 'Fabien']);
     }
+
+    /**
+     * @Route("/example/send-email")
+     */
+    public function sendEmailAction()
+    {
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Test Email')
+            ->setFrom('send@example.com')
+            ->setTo('recipient@example.com')
+            ->setBody('test')
+        ;
+        $this->get('mailer')->send($message);
+
+        return new Response('<html><body>Poruka poslana</body></html>');
+    }
 }
