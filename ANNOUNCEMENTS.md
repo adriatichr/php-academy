@@ -7,6 +7,10 @@ Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene term
 
 Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu uče stvari koje će vam trebati u projektu, a smatramo da vam online materijali neće biti dovoljni. Za one koji žele pogledati predavanja omogućiti ćemo da to naprave u prostorijama firme bilo kada radnim danom između 8-21h. U svakom slučaju ćete moći prezentirati vaš projekt na kraju akademije.
 
+## Primjeri design patterna i SOLID principa su sada na master branchu.
+
+## Omogućeno je slanje maila iz Symfony aplikacije, upute za konfiguraciju možete vidjeti [ovdje](/ENVIRONMENT-SETUP.md#konfiguracija-i-korištenje-mail-servera-u-symfony-ju).
+
 ### 09.01.2017
 
 * Primjeri za [redirect nakon uspješnog submita forme i flash poruka](https://github.com/adriatichr/php-academy/commit/eff96916f5e3c57b997202abdd8180f48c41025f) i primjeri korištenja loggera i translator komponente su sada online.
