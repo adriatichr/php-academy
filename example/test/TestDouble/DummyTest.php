@@ -1,6 +1,6 @@
 <?php
 
-namespace Adriatic\PHPAkademija\Test\SolidPrinciples\DependencyInversionPrinciple;
+namespace Adriatic\PHPAkademija\Test\TestDouble;
 
 use Adriatic\PHPAkademija\SolidPrinciples\DependencyInversionPrinciple\DIPSolution\ReservationServiceImpl;
 use Adriatic\PHPAkademija\SolidPrinciples\DependencyInversionPrinciple\DIPSolution\ProviderNotifier;
