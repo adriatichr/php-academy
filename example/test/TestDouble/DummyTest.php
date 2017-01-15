@@ -12,15 +12,15 @@ class DummyTest extends TestCase
     public function canAcceptReservation()
     {
         // ProviderNotifier nam je potreban samo za bookAccommodation metodu, stoga za testiranje acceptReservation()
-        // metode servisu šaljemo DummyProviderNotifier
-        $reservationService = new ReservationServiceImpl(new DummyProviderNotifier());
+        // metode servisu šaljemo ProviderNotifierDummy
+        $reservationService = new ReservationServiceImpl(new ProviderNotifierDummy());
         $this->assertEquals('Prihvaćamo zahtjev za rezervacijom "15" smještaja za korisnika',
             $reservationService->acceptReservation(15));
     }
 }
 
 
-class DummyProviderNotifier implements ProviderNotifier
+class ProviderNotifierDummy implements ProviderNotifier
 {
     public function askForConfirmation(int $accommodationId) {}
 }
