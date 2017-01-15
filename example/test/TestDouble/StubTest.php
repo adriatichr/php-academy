@@ -2,8 +2,8 @@
 
 namespace Adriatic\PHPAkademija\Test\TestDouble;
 
-use Adriatic\PHPAkademija\TestDouble\ReservationService;
 use Adriatic\PHPAkademija\TestDouble\LoginService;
+use Adriatic\PHPAkademija\TestDouble\ReservationService;
 use PHPUnit\Framework\TestCase;
 
 class StubTest extends TestCase
