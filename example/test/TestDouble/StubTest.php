@@ -17,6 +17,14 @@ class StubTest extends TestCase
         $reservationService = new ReservationService($loginService);
         $this->assertEquals('Smještaj 15 je bookiran', $reservationService->bookAccommodation(15, 42));
     }
+
+    /** @test */
+    public function customerCanBookReservationOnlyIfLoggedInUsingHardCodedTestStub()
+    {
+        $reservationService = new ReservationService(new AcceptingLoginServiceStub());
+        $this->assertEquals('Smještaj 15 je bookiran', $reservationService->bookAccommodation(15, 42));
+    }
+
 }
 
 
@@ -32,5 +40,14 @@ class LoginServiceStub implements LoginService
     public function isLoggedIn(int $customerId) : bool
     {
         return $this->loggedInCustomer === $customerId;
+    }
+}
+
+
+class AcceptingLoginServiceStub implements LoginService
+{
+    public function isLoggedIn(int $customerId) : bool
+    {
+        return true;
     }
 }
