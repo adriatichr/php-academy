@@ -9,7 +9,7 @@ Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu u
 
 ## Primjeri [design patterna](example/src/DesignPattern) i [SOLID principa](example/src/SolidPrinciples) su sada na master branchu. Primjere korištenja možete vidjeti u [unit](example/test/DesignPattern) [testovima](example/test/SolidPrinciples).
 
-## Omogućeno je slanje maila iz Symfony aplikacije, upute za konfiguraciju možete vidjeti [ovdje](/ENVIRONMENT-SETUP.md#konfiguracija-i-korištenje-mail-servera-u-symfony-ju).
+## Omogućeno je slanje maila iz Symfony aplikacije, upute za konfiguraciju možete vidjeti [ovdje](/ENVIRONMENT-SETUP.md#konfiguracija-i-korištenje-mail-servera-u-symfony-ju). Login podaci za mailhog web sučelje su isti kao i za SSH i Sambu.
 
 ### 09.01.2017
 
