@@ -27,13 +27,13 @@ class StringCalculator
 
     private function getNumbersAsArray(string $numbers) : array
     {
-        return explode('__delimiter__', $this->normalizeDelimiters($numbers));
+        return explode(',', $this->normalizeDelimiters($numbers));
     }
 
     private function normalizeDelimiters(string $numbers) : string
     {
         foreach ($this->getDelimiters($numbers) as $delimiter) {
-            $numbers = str_replace($delimiter, '__delimiter__', $numbers);
+            $numbers = str_replace($delimiter, ',', $numbers);
         }
 
         return $numbers;
@@ -41,7 +41,7 @@ class StringCalculator
 
     private function getDelimiters(string $numbers) : array
     {
-        $defaultDelimiters = ["\n", ','];
+        $defaultDelimiters = ["\n"];
 
         if (!$this->hasUserDefinedDelimiters($numbers)) {
             return $defaultDelimiters;

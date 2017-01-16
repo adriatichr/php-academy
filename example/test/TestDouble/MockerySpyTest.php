@@ -14,7 +14,7 @@ class MockerySpyTest extends TestCase
     public function shouldNotifyProviderOfSuccessfulBooking()
     {
         $providerNotifier = \Mockery::mock(ProviderNotifier::class);
-        $providerNotifier->shouldReceive('askForConfirmation')->with(15);
+        $providerNotifier->shouldReceive('askForConfirmation')->with(15)->once();
         $reservationService = new ReservationServiceImpl($providerNotifier);
 
         $reservationService->bookAccommodation(15, 0);

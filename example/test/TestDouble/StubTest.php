@@ -24,7 +24,6 @@ class StubTest extends TestCase
         $reservationService = new ReservationService(new AcceptingLoginServiceStub());
         $this->assertEquals('Smještaj 15 je bookiran', $reservationService->bookAccommodation(15, 42));
     }
-
 }
 
 
