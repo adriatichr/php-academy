@@ -84,4 +84,4 @@ mailer_port:       1025
 
 4. Za slanje mail-a iz Symfony-ja vidjeti službenu [dokumentaciju](http://symfony.com/doc/current/email.html). Primjer akcije za slanje email-a može se vidjeti i unutar [booking aplikacije](https://github.com/adriatichr/php-academy/commit/16751989933601437f99c1cde8d3fbdda523ba40#diff-e1223b33055e8c06db399471f0172ef5).
 
-5. Svi mailovi koje pošaljete se mogu vidjeti na ovoj [stranici](http://phpacademy:8025/).
+5. Svi mailovi koje pošaljete se mogu vidjeti na ovoj [stranici](http://phpacademy:8025/). Korisničko ime i lozinka su isti kao i podaci koje su polaznici dobili na početku akademije.
