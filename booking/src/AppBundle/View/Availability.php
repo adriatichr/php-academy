@@ -15,8 +15,8 @@ class Availability
 
     public function forAccommodationAndDate(int $accommodationId, int $month, int $year)
     {
-        $startDate = \DateTimeImmutable::createFromFormat('Y-m-d', sprintf('%s-%s-01', $year, $month));
-        $endDate = \DateTimeImmutable::createFromFormat('Y-m-d', sprintf('%s-%s-01', $year, $month + 1));
+        $startDate = \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', sprintf('%s-%s-01 00:00:00', $year, $month));
+        $endDate = \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', sprintf('%s-%s-01 00:00:00', $year, $month + 1));
 
         $reservations = $this->reservationRepository->findForAccommodationByStartAndEndDate(
             $accommodationId, $startDate, $endDate);
@@ -29,6 +29,9 @@ class Availability
                 $reservation->getEndDate());
 
             foreach ($reservationPeriod as $date) {
+                if($date < $startDate || $date >= $endDate)
+                    continue;
+
                 $reservedDates[] = $date;
             }
         }

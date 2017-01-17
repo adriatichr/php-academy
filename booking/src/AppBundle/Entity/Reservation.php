@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ReservationRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ReservationRepositoryImpl")
  */
 class Reservation
 {
@@ -32,5 +32,15 @@ class Reservation
     public function getEndDate()
     {
         return $this->endDate;
+    }
+
+    public function setStartDate(\DateTimeImmutable $date)
+    {
+        $this->startDate = $date;
+    }
+
+    public function setEndDate(\DateTimeImmutable $date)
+    {
+        $this->endDate = $date;
     }
 }
