@@ -2,8 +2,8 @@
 
 namespace Tests\AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use AppBundle\Entity\Accommodation;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class RestControllerTest extends WebTestCase
 {
@@ -21,13 +21,15 @@ class RestControllerTest extends WebTestCase
     public function getAccommodation()
     {
         $crawler = $this->client->request('GET', '/rest/accommodations/1');
+
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+        $this->assertContentTypeIsJson();
         $content = json_decode((string)$this->client->getResponse()->getContent());
         $this->assertEquals('Split Luxury Rentals', $content->name);
     }
 
     /** @test */
-    public function postMethodNotAllowedAccommodation()
+    public function postMethodNotAllowedForAccommodation()
     {
         $crawler = $this->client->request('POST', '/rest/accommodations/1');
         $this->assertEquals(405, $this->client->getResponse()->getStatusCode());
@@ -39,6 +41,7 @@ class RestControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/rest/accommodations/-500');
 
         $this->assertEquals(404, $this->client->getResponse()->getStatusCode());
+        $this->assertContentTypeIsJson();
         $content = json_decode((string)$this->client->getResponse()->getContent());
         $this->assertEquals('Accommodation with id -500 not found.', $content->error);
     }
@@ -46,12 +49,15 @@ class RestControllerTest extends WebTestCase
     /** @test */
     public function deleteAccommodation()
     {
-        $accommodation = $this->createTestingAccommodation();
+        $accommodationId = $this->createTestingAccommodation();
 
-        $crawler = $this->client->request('DELETE', '/rest/accommodations/' . $accommodation->getId());
+        $crawler = $this->client->request('DELETE', '/rest/accommodations/' . $accommodationId);
 
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
-        $this->assertNull(self::$accommodationRepository->findOneById($accommodation->getId()));
+        $this->assertContentTypeIsJson();
+        $content = json_decode((string)$this->client->getResponse()->getContent());
+        $this->assertEquals(sprintf('Accommodation with id %d deleted', $accommodationId), $content->success);
+        $this->assertNull(self::$accommodationRepository->findOneById($accommodationId));
     }
 
     /** @test */
@@ -60,11 +66,12 @@ class RestControllerTest extends WebTestCase
         $crawler = $this->client->request('DELETE', '/rest/accommodations/-500');
 
         $this->assertEquals(404, $this->client->getResponse()->getStatusCode());
+        $this->assertContentTypeIsJson();
         $content = json_decode((string)$this->client->getResponse()->getContent());
         $this->assertEquals('Accommodation with id -500 not found.', $content->error);
     }
 
-    private function createTestingAccommodation() : Accommodation
+    private function createTestingAccommodation() : int
     {
         $placeRepository = static::$kernel->getContainer()->get('app.place_repository');
 
@@ -77,11 +84,16 @@ class RestControllerTest extends WebTestCase
         $entityManager->persist($accommodation);
         $entityManager->flush();
 
-        return $accommodation;
+        return $accommodation->getId();
     }
 
     public static function tearDownAfterClass()
     {
         self::$accommodationRepository->deleteAllWithName('orm test');
+    }
+
+    private function assertContentTypeIsJson()
+    {
+        $this->assertEquals('application/json', $this->client->getResponse()->headers->get('Content-Type'));
     }
 }
