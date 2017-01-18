@@ -12,6 +12,7 @@ class Reservation
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -23,6 +24,13 @@ class Reservation
 
     /** @ORM\Column(type="datetime") */
     private $endDate;
+
+    public function __construct(int $accommodationId, \DateTimeImmutable $startDate, \DateTimeImmutable $endDate)
+    {
+        $this->accommodationId = $accommodationId;
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
+    }
 
     public function getStartDate()
     {

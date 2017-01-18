@@ -20,7 +20,7 @@ class RestControllerTest extends WebTestCase
     /** @test */
     public function getAccommodation()
     {
-        $crawler = $this->client->request('GET', '/rest/accommodations/1');
+        $crawler = $this->client->request('GET', '/api/accommodation/1');
 
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         $this->assertContentTypeIsJson();
@@ -31,19 +31,16 @@ class RestControllerTest extends WebTestCase
     /** @test */
     public function postMethodNotAllowedForAccommodation()
     {
-        $crawler = $this->client->request('POST', '/rest/accommodations/1');
+        $crawler = $this->client->request('POST', '/api/accommodation/1');
         $this->assertEquals(405, $this->client->getResponse()->getStatusCode());
     }
 
     /** @test */
     public function getAccommodationNotFound()
     {
-        $crawler = $this->client->request('GET', '/rest/accommodations/-500');
+        $crawler = $this->client->request('GET', '/api/accommodation/-500');
 
         $this->assertEquals(404, $this->client->getResponse()->getStatusCode());
-        $this->assertContentTypeIsJson();
-        $content = json_decode((string)$this->client->getResponse()->getContent());
-        $this->assertEquals('Accommodation with id -500 not found.', $content->error);
     }
 
     /** @test */
@@ -51,24 +48,30 @@ class RestControllerTest extends WebTestCase
     {
         $accommodationId = $this->createTestingAccommodation();
 
-        $crawler = $this->client->request('DELETE', '/rest/accommodations/' . $accommodationId);
+        $crawler = $this->client->request('DELETE', '/api/accommodation/' . $accommodationId);
 
-        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
-        $this->assertContentTypeIsJson();
-        $content = json_decode((string)$this->client->getResponse()->getContent());
-        $this->assertEquals(sprintf('Accommodation with id %d deleted', $accommodationId), $content->success);
+        $this->assertEquals(204, $this->client->getResponse()->getStatusCode());
         $this->assertNull(self::$accommodationRepository->findOneById($accommodationId));
     }
 
     /** @test */
-    public function deleteAccommodation404()
+    public function deleteAccommodationNotFound()
     {
-        $crawler = $this->client->request('DELETE', '/rest/accommodations/-500');
+        $crawler = $this->client->request('DELETE', '/api/accommodation/-500');
 
         $this->assertEquals(404, $this->client->getResponse()->getStatusCode());
-        $this->assertContentTypeIsJson();
-        $content = json_decode((string)$this->client->getResponse()->getContent());
-        $this->assertEquals('Accommodation with id -500 not found.', $content->error);
+    }
+
+    /** @test */
+    public function patchAccommodationAvailability()
+    {
+        $content = json_encode(['status' => 'unavailable', 'start_date' => '2017-07-03', 'end_date' => '2017-07-05']);
+        $crawler = $this->client->request('PATCH', '/api/accommodation/1/availability', [], [], [
+            'CONTENT_TYPE' => 'application/json',
+        ], $content);
+
+        $this->assertEquals(204, $this->client->getResponse()->getStatusCode());
+        $this->assertEquals('', (string)$this->client->getResponse()->getContent());
     }
 
     private function createTestingAccommodation() : int
