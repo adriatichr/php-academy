@@ -1,11 +1,13 @@
 Obavijesti
 ==========
 
-Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene termina predavanja. Najnovije obavijesti će biti na vrhu.
+Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene termina predavanja. Najnovije i aktualne obavijesti će biti na vrhu.
 
 ## Obavijest za one koji su imali izostanke sa predavanja: 
 
 Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu uče stvari koje će vam trebati u projektu, a smatramo da vam online materijali neće biti dovoljni. Za one koji žele pogledati predavanja omogućiti ćemo da to naprave u prostorijama firme bilo kada radnim danom između 8-21h. U svakom slučaju ćete moći prezentirati vaš projekt na kraju akademije.
+
+## Materijali REST predavanja su [online](https://github.com/adriatichr/php-academy/commit/44e604576c081868e3ed99c8fe0235a1f33a5fad). Da bi ste mogli testirati [PATCH metodu za dostupnost smještaja](https://github.com/adriatichr/php-academy/blob/ff483257728880ef912bab3b6de4dd4897d8087a/booking/src/AppBundle/Controller/RestController.php#L93) morate ažurirati tablicu rezervacija na način da ```customer_id``` polje [može biti](https://github.com/adriatichr/php-academy/commit/ff483257728880ef912bab3b6de4dd4897d8087a#diff-69c8c87e785c5e8b37d5a30ed4fb7727) ```NULL```.
 
 ### 16.01.2017 
 
