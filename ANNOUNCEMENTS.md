@@ -7,9 +7,13 @@ Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene term
 
 Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu uče stvari koje će vam trebati u projektu, a smatramo da vam online materijali neće biti dovoljni. Za one koji žele pogledati predavanja omogućiti ćemo da to naprave u prostorijama firme bilo kada radnim danom između 8-21h. U svakom slučaju ćete moći prezentirati vaš projekt na kraju akademije.
 
-## Primjeri [design patterna](example/src/DesignPattern) i [SOLID principa](example/src/SolidPrinciples) su sada na master branchu. Primjere korištenja možete vidjeti u [unit](example/test/DesignPattern) [testovima](example/test/SolidPrinciples).
+### 16.01.2017 
 
-## Omogućeno je slanje maila iz Symfony aplikacije, upute za konfiguraciju možete vidjeti [ovdje](/ENVIRONMENT-SETUP.md#konfiguracija-i-korištenje-mail-servera-u-symfony-ju). Login podaci za mailhog web sučelje su isti kao i za SSH i Sambu.
+* Omogućeno je slanje maila iz Symfony aplikacije, upute za konfiguraciju možete vidjeti [ovdje](/ENVIRONMENT-SETUP.md#konfiguracija-i-korištenje-mail-servera-u-symfony-ju). Login podaci za mailhog web sučelje su isti kao i za SSH i Sambu.
+
+### 14.01.2017
+
+* Primjeri [design patterna](example/src/DesignPattern) i [SOLID principa](example/src/SolidPrinciples) su sada na master branchu. Primjere korištenja možete vidjeti u [unit](example/test/DesignPattern) [testovima](example/test/SolidPrinciples).
 
 ### 09.01.2017
 
