@@ -57,6 +57,11 @@
             <argument>AppBundle:Reservation</argument>
         </service>
 
+        <service id="app.place_repository" class="AppBundle\Repository\ReservationRepository">
+            <factory service="doctrine.orm.entity_manager" method="getRepository"/>
+            <argument>AppBundle:Place</argument>
+        </service>
+
         <service id="app.locale_listener"
             class="AppBundle\EventListener\LocaleListener">
             <argument>%kernel.default_locale%</argument>
