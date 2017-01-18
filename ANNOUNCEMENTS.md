@@ -9,6 +9,8 @@ Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu u
 
 ## Materijali REST predavanja su [online](https://github.com/adriatichr/php-academy/commit/44e604576c081868e3ed99c8fe0235a1f33a5fad). Da bi ste mogli testirati [PATCH metodu za dostupnost smještaja](https://github.com/adriatichr/php-academy/blob/ff483257728880ef912bab3b6de4dd4897d8087a/booking/src/AppBundle/Controller/RestController.php#L93) morate ažurirati tablicu rezervacija na način da ```customer_id``` polje [može biti](https://github.com/adriatichr/php-academy/commit/ff483257728880ef912bab3b6de4dd4897d8087a#diff-69c8c87e785c5e8b37d5a30ed4fb7727) ```NULL```.
 
+## Primjer unit testa za Availability servis je online.
+
 ### 16.01.2017 
 
 * Omogućeno je slanje maila iz Symfony aplikacije, upute za konfiguraciju možete vidjeti [ovdje](/ENVIRONMENT-SETUP.md#konfiguracija-i-korištenje-mail-servera-u-symfony-ju). Login podaci za mailhog web sučelje su isti kao i za SSH i Sambu.
