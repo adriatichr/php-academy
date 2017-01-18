@@ -92,11 +92,7 @@ class AvailabilityTest extends TestCase
 
     private function reservation(string $startDate, string $endDate)
     {
-        $reservation = new Reservation();
-        $reservation->setStartDate(new \DateTimeImmutable($startDate));
-        $reservation->setEndDate(new \DateTimeImmutable($endDate));
-
-        return $reservation;
+        return new Reservation(100, new \DateTimeImmutable($startDate), new \DateTimeImmutable($endDate));
     }
 }
 

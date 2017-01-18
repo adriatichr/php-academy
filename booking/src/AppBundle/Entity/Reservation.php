@@ -41,14 +41,4 @@ class Reservation
     {
         return $this->endDate;
     }
-
-    public function setStartDate(\DateTimeImmutable $date)
-    {
-        $this->startDate = $date;
-    }
-
-    public function setEndDate(\DateTimeImmutable $date)
-    {
-        $this->endDate = $date;
-    }
 }
