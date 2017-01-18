@@ -52,7 +52,7 @@
             <argument>AppBundle:Accommodation</argument>
         </service>
 
-        <service id="app.reservation_repository" class="AppBundle\Repository\ReservationRepository">
+        <service id="app.reservation_repository" class="AppBundle\Repository\ReservationRepositoryImpl">
             <factory service="doctrine.orm.entity_manager" method="getRepository"/>
             <argument>AppBundle:Reservation</argument>
         </service>
