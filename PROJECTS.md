@@ -8,7 +8,7 @@ Svaki polaznik akademije mora odabrati projekt koji će raditi dok traje akademi
 - PHP kôd mora biti dokumentiran koristeći [PHPDoc](https://phpdoc.org/docs/latest/getting-started/your-first-set-of-documentation.html)
 - mora koristiti [Doctrine](http://www.doctrine-project.org/) za pristup [MySQL](http://dev.mysql.com/doc/refman/5.7/en/) bazi
 - mora koristiti  [HTML5](https://en.wikipedia.org/wiki/HTML5) i [Twig](http://twig.sensiolabs.org/) kao templating engine
-- mora imati barem jednu GET i POST formu (koristeći [Symfony form](http://twig.sensiolabs.org) komponentu)
+- mora imati barem jednu GET i POST formu (koristeći [Symfony form](http://symfony.com/doc/current/forms.html) komponentu)
 - mora imati server side [validaciju](https://symfony.com/doc/current/validation.html) za barem jednu formu
 - mora podržavati dvije vrste korisnika, običnog korisnika i administratora (preko [Symfony Security](http://symfony.com/doc/current/security.html) komponente)
 
