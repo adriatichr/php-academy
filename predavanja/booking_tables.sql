@@ -52,6 +52,40 @@ CREATE TABLE IF NOT EXISTS shortlist (
 	CONSTRAINT shortlist_customer FOREIGN KEY (customer_id) REFERENCES customer (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) COLLATE utf8_general_ci;
 
+# Accounting Payment Schedule tablice
+CREATE TABLE payment_schedule (
+	id INT AUTO_INCREMENT NOT NULL, 
+	reservation INT NOT NULL, PRIMARY KEY(id)) 
+	DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
+	
+CREATE TABLE payment (
+	id INT AUTO_INCREMENT NOT NULL, 
+	payment_schedule_id INT DEFAULT NULL, 
+	deadline_id INT DEFAULT NULL, 
+	ordinal INT NOT NULL, 
+	payment_to VARCHAR(255) NOT NULL, 
+	INDEX IDX_6D28840D5287120F (payment_schedule_id), 
+	UNIQUE INDEX UNIQ_6D28840D73EA0AF8 (deadline_id), PRIMARY KEY(id)) 
+	DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
+	
+CREATE TABLE payment_amount (
+	id INT AUTO_INCREMENT NOT NULL, 
+	payment_id INT DEFAULT NULL, 
+	amount_value NUMERIC(10, 2) DEFAULT NULL, 
+	amount_currency VARCHAR(3) DEFAULT NULL, 
+	INDEX IDX_AB99EBD44C3A3BB (payment_id), PRIMARY KEY(id)) 
+	DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
+	
+CREATE TABLE payment_deadline (
+	id INT AUTO_INCREMENT NOT NULL, 
+	deadline_type VARCHAR(255) NOT NULL, 
+	deadline_time DATETIME DEFAULT NULL, PRIMARY KEY(id)) 
+	DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
+	
+ALTER TABLE payment ADD CONSTRAINT FK_6D28840D5287120F FOREIGN KEY (payment_schedule_id) REFERENCES payment_schedule (id);
+ALTER TABLE payment ADD CONSTRAINT FK_6D28840D73EA0AF8 FOREIGN KEY (deadline_id) REFERENCES payment_deadline (id);
+ALTER TABLE payment_amount ADD CONSTRAINT FK_AB99EBD44C3A3BB FOREIGN KEY (payment_id) REFERENCES payment (id);
+
 # Punjenje tablica dummy podacima
 START TRANSACTION;
 INSERT INTO place (id, name, postal_code) VALUES
