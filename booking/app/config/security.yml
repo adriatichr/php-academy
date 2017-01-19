@@ -15,7 +15,7 @@ security:
         #                 roles: 'ROLE_ADMIN'
         database_provider:
             entity:
-                class: AppBundle:User
+                class: Agency\Domain\Model\User\User
                 property: email
 
     encoders:
@@ -24,7 +24,7 @@ security:
         #     algorithm: bcrypt
         #     cost: 13
 
-        AppBundle\Entity\User:
+        Agency\Domain\Model\User\User:
             algorithm: bcrypt
             cost: 13
 
