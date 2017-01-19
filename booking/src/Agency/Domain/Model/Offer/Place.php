@@ -1,0 +1,43 @@
+<?php
+
+namespace Agency\Domain\Model\Offer;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ */
+class Place
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Accommodation", mappedBy="place")
+     */
+    private $accommodations;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getAccommodations()
+    {
+        return $this->accommodations;
+    }
+}

@@ -4,6 +4,10 @@ namespace AppBundle\Controller;
 
 use AppBundle\Form\Model\User;
 use AppBundle\Form\Type\UserType;
+use AppBundle\Form\Model\Reservation as FormReservation;
+use AppBundle\Form\Type\ReservationType;
+use Agency\Domain\Model\Offer\Accommodation;
+use Agency\Domain\Model\Offer\Place;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,8 +22,8 @@ class ExampleController extends Controller
     public function storingAccommodationAction()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $place = $entityManager->getRepository('AppBundle:Place')->findOneByName('Split');
-        $accommodation = new \AppBundle\Entity\Accommodation();
+        $place = $entityManager->getRepository(Place::class)->findOneByName('Split');
+        $accommodation = new \Agency\Domain\Model\Offer\Accommodation();
         $accommodation->setName('orm test');
         $accommodation->setCategory(4);
         $accommodation->setPricePerDay(99.99);
@@ -177,7 +181,7 @@ class ExampleController extends Controller
      */
     public function accommodationAction($accommodationId, Request $request)
     {
-        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Accommodation');
+        $accommodationRepository = $this->getDoctrine()->getManager()->getRepository(Accommodation::class);
         $accommodation = $accommodationRepository->findByIdWithPlace($accommodationId);
 
         if (!$accommodation) {
@@ -204,9 +208,13 @@ class ExampleController extends Controller
          */
 
         // Donji dio kôda se neće izvršiti ako se nije promijenio datum izmjene smještaja.
+        $formReservation = new FormReservation();
+        $formReservation->accomodation = $accommodationId;
+        $form = $this->createForm(ReservationType::class, $formReservation);
         $content = $this->renderView('AppBundle:Accommodation:accommodation.html.twig', [
             'accommodation' => $accommodation,
             'reservedDates' => [],
+            'form' => $form->createView(),
         ]);
 
         return $response->setContent($content);

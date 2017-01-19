@@ -2,10 +2,15 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Accommodation as EntityAccommodation;
+use Agency\Domain\Model\Offer\Accommodation as EntityAccommodation;
+use Agency\Domain\Model\Offer\Place;
+use Agency\Domain\Model\Order\Reservation as EntityReservation;
+use Agency\Domain\Model\Accounting\PaymentScheduleFactory;
 use AppBundle\Form\Model\Accommodation as FormAccommodation;
+use AppBundle\Form\Model\Reservation as FormReservation;
 use AppBundle\Form\Model\SearchParameters;
 use AppBundle\Form\Type\AccommodationType;
+use AppBundle\Form\Type\ReservationType;
 use AppBundle\Form\Type\SearchParametersType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -20,19 +25,48 @@ class AccommodationController extends Controller
      */
     public function accommodationAction(Request $request, int $accommodationId)
     {
-        $accommodation = $this->get('app.accommodation_repository')->findByIdWithPlace($accommodationId);
+        $formReservation = new FormReservation();
+        $formReservation->accomodation = $accommodationId;
+        $form = $this->createForm(ReservationType::class, $formReservation);
+        $form->handleRequest($request);
 
-        $availability = $this->get('app.view.availability');
-        $reservedDates = $availability->forAccommodationAndDate($accommodationId, 7, date('Y'));
+        if ($form->isSubmitted() && $form->isValid()) {
+            $formReservation = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
 
-        if (!$accommodation) {
-            throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
+            $reservation = new EntityReservation(
+                $formReservation->accomodation,
+                \DateTimeImmutable::createFromMutable($formReservation->startDate),
+                \DateTimeImmutable::createFromMutable($formReservation->endDate)
+                );
+
+            $entityManager->persist($reservation);
+            $entityManager->flush();
+
+            $accommodation = $this->get('app.accommodation_repository')->findByIdWithPlace($accommodationId);
+
+            $paymentScheduleFactory = new PaymentScheduleFactory();
+            $paymentSchedule = $paymentScheduleFactory->fromReservationAndAccommodation($reservation, $accommodation);
+            $entityManager->persist($paymentSchedule);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('AppBundle_Accommodation_accommodation', ['accommodationId' => $accommodationId]);
+        } else {
+            $accommodation = $this->get('app.accommodation_repository')->findByIdWithPlace($accommodationId);
+
+            $availability = $this->get('app.view.availability');
+            $reservedDates = $availability->forAccommodationAndDate($accommodationId, 7, date('Y'));
+
+            if (!$accommodation) {
+                throw $this->createNotFoundException(sprintf('Accommodation with id "%s" not found.', $accommodationId));
+            }
+
+            return $this->render('AppBundle:Accommodation:accommodation.html.twig', [
+                'accommodation' => $accommodation,
+                'reservedDates' => $reservedDates,
+                'form' => $form->createView(),
+            ]);
         }
-
-        return $this->render('AppBundle:Accommodation:accommodation.html.twig', [
-            'accommodation' => $accommodation,
-            'reservedDates' => $reservedDates,
-        ]);
     }
 
     /**
@@ -88,7 +122,7 @@ class AccommodationController extends Controller
             $formAccommodation = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
 
-            $place = $entityManager->getRepository('AppBundle:Place')->findOneByName($formAccommodation->place);
+            $place = $entityManager->getRepository(Place::class)->findOneByName($formAccommodation->place);
             $accommodation = new EntityAccommodation();
             $accommodation->setName($formAccommodation->name);
             $accommodation->setCategory($formAccommodation->category);

@@ -23,6 +23,17 @@
         <div class="col-2 white kartica">
             <img src="{{ path('AppBundle_Accommodation_mainImage', {'accommodationId': accommodation.id}) }}"
                     alt="Apartment image" />
+
+            <p>
+                {{ form_start(form) }}
+                    <h4>Rezerviraj</h4>
+                    {{ form_row(form.accomodation) }}
+                    <h4>Termin</h4>
+                    {{ form_row(form.startDate, {'label' : 'Od'}) }}
+                    {{ form_row(form.endDate, {'label' : 'Do'}) }}
+                    <input type="submit" value="Rezerviraj">
+                {{ form_end(form) }}
+            </p>
         </div>
         <div class="col-2">
             {{ helper.printCategory(accommodation.category) }}

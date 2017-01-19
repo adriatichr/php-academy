@@ -47,19 +47,19 @@
 
             @link http://symfony.com/doc/current/service_container/factories.html službena dokumentacija
         -->
-        <service id="app.accommodation_repository" class="AppBundle\Repository\AccommodationRepository">
+        <service id="app.accommodation_repository" class="Agency\Infrastructure\Doctrine\AccommodationRepositoryImpl">
             <factory service="doctrine.orm.entity_manager" method="getRepository"/>
-            <argument>AppBundle:Accommodation</argument>
+            <argument>Agency\Domain\Model\Offer\Accommodation</argument>
         </service>
 
-        <service id="app.reservation_repository" class="AppBundle\Repository\ReservationRepositoryImpl">
+        <service id="app.reservation_repository" class="Agency\Infrastructure\Doctrine\ReservationRepositoryImpl">
             <factory service="doctrine.orm.entity_manager" method="getRepository"/>
-            <argument>AppBundle:Reservation</argument>
+            <argument>Agency\Domain\Model\Order\Reservation</argument>
         </service>
 
-        <service id="app.place_repository" class="AppBundle\Repository\ReservationRepository">
+        <service id="app.place_repository" class="AAgency\Infrastructure\Doctrine\ReservationRepository">
             <factory service="doctrine.orm.entity_manager" method="getRepository"/>
-            <argument>AppBundle:Place</argument>
+            <argument>Agency\Domain\Model\Offer\Place</argument>
         </service>
 
         <service id="app.locale_listener"

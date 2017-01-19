@@ -2,8 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Accommodation;
-use AppBundle\Entity\Reservation;
+use Agency\Domain\Model\Offer\Accommodation;
+use Agency\Domain\Model\Order\Reservation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

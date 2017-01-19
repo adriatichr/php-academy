@@ -8,6 +8,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use AppBundle\Form\Model\Accommodation;
+use Agency\Domain\Model\Offer\Place;
+
 
 class AccommodationType extends AbstractType
 {
@@ -56,7 +58,7 @@ class AccommodationType extends AbstractType
 
     private function getPlaceChoices()
     {
-        $allPlaces = $this->entityManager->getRepository('AppBundle:Place')->findAll();
+        $allPlaces = $this->entityManager->getRepository(Place::class)->findAll();
         $placeChoices = [];
         foreach ($allPlaces as $place) {
             $placeChoices[$place->getName()] = $place->getName();

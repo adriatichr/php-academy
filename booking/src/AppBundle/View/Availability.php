@@ -2,7 +2,7 @@
 
 namespace AppBundle\View;
 
-use AppBundle\Repository\ReservationRepository;
+use Agency\Domain\Model\Order\ReservationRepository;
 
 class Availability
 {

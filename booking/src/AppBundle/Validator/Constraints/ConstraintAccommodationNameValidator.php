@@ -2,7 +2,7 @@
 
 namespace AppBundle\Validator\Constraints;
 
-use AppBundle\Repository\AccommodationRepository;
+use Agency\Domain\Model\Offer\AccommodationRepository;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 

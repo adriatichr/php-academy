@@ -7,6 +7,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use AppBundle\Form\Model\SearchParameters;
+use Agency\Domain\Model\Offer\Place;
 
 class SearchParametersType extends AbstractType
 {
@@ -51,7 +52,7 @@ class SearchParametersType extends AbstractType
 
     private function getPlaceChoices()
     {
-        $allPlaces = $this->entityManager->getRepository('AppBundle:Place')->findAll();
+        $allPlaces = $this->entityManager->getRepository(Place::class)->findAll();
         $placeChoices = [];
         foreach ($allPlaces as $place) {
             $placeChoices[$place->getName()] = $place->getId();
