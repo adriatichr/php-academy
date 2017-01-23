@@ -56,18 +56,13 @@ class AccommodationController extends Controller
     }
 
     /**
-     * Akcija koja servira slike smještaja.
-     *
-     * Ako slika ne postoji, servira se no-image.jpg slika.
+     * Akcija koja servira glavnu sliku smještaja.
      *
      * @Route("/accommodation/image/main/{accommodationId}", name="AppBundle_Accommodation_mainImage")
      */
     public function mainImageAction(int $accommodationId)
     {
-        $imagePath = __DIR__.'/../Resources/images/accommodation/apartman'.$accommodationId.'.jpg';
-        if (!file_exists($imagePath)) {
-            $imagePath = __DIR__.'/../Resources/images/accommodation/no-image.jpg';
-        }
+        $imagePath = $this->get('app.image_service')->getAccommodationMainImagePath($accommodationId);
 
         $response = new BinaryFileResponse($imagePath);
         $response->headers->set('Content-Type', 'image/jpeg');
