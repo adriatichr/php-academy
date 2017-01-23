@@ -137,7 +137,11 @@ class AccommodationController extends Controller
     }
 
     /**
-     * @Route("/ajax/changeCalendar", name="AppBundle_Accommodation_accommodation_changeCalendar")
+     * @Route(
+     *     "/ajax/change-calendar",
+     *     name="AppBundle_Accommodation_accommodation_changeCalendar",
+     *     condition="request.isXmlHttpRequest()"
+     * )
      */
     public function changeCalendarAction(Request $request)
     {

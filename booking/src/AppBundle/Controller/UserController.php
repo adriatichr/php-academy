@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class UserController extends Controller
 {
     /**
-     * @Route("/ajax/user-data", name="AppBundle_User_userData")
+     * @Route("/ajax/user-data", name="AppBundle_User_userData", condition="request.isXmlHttpRequest()")
      */
     public function userDataAction()
     {

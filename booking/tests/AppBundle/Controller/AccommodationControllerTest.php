@@ -39,4 +39,11 @@ class AccommodationControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/accommodation');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
+
+    /** @test */
+    public function calendarActionShouldReturn404UnlessAjax()
+    {
+        $crawler = $this->client->request('GET', '/ajax/change-calendar');
+        $this->assertEquals(404, $this->client->getResponse()->getStatusCode());
+    }
 }
