@@ -135,6 +135,7 @@ class AccommodationController extends Controller
 
         return new Response('<html><body>Uređivanje smještaja</body></html>');
     }
+
     /**
      * @Route("/ajax/changeCalendar", name="AppBundle_Accommodation_accommodation_changeCalendar")
      */
