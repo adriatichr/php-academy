@@ -10,14 +10,33 @@
             <div id="logo"><img src="{{ asset('images/logo.png') }}"></div>
         </a>
 
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <a href="{{ path('logout') }}" class="prijavaOdjava">{{ app.user.name }} {{ app.user.surname }} - Logout</a>
-        {% else %}
-            <a href="{{ path('AppBundle_Security_login') }}" class="prijavaOdjava">Login</a>
-        {% endif %}
+        <span id="userButtonContainer"></span>
+
+        <span id="userButtonTemplate" class="hidden">
+            <a href="__PATH__" class="prijavaOdjava">__USER_NAME__ __USER_SURNAME__ __BUTTON_TITLE__</a>
+        </span>
     </header>
     <div id="main">
         {% block content %}
         {% endblock %}
     </div>
-{% endblock %}
+{% endblock body %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/userButton.js') }}"></script>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+        (function($) {
+            $(document).ready(function(){
+                userButton.init({
+                    "buttonContainerId": "userButtonContainer",
+                    "buttonTemplateId": "userButtonTemplate",
+                    "userDataPath": "{{ path('AppBundle_User_userData') }}",
+                    "logoutPath": "{{ path('logout') }}",
+                    "loginPath": "{{ path('AppBundle_Security_login') }}",
+                });
+            });
+        })(jQuery);
+    /* ]]> */
+    </script>
+{% endblock javascripts %}

@@ -13,7 +13,11 @@ class WelcomeController extends Controller
      */
     public function homepageAction(Request $request)
     {
-        return $this->render('AppBundle:Welcome:homepage.html.twig');
+        $response = $this->render('AppBundle:Welcome:homepage.html.twig');
+        $response->setSharedMaxAge(7200);
+        $response->headers->addCacheControlDirective('must-revalidate', true);
+
+        return $response;
     }
 
     /**
@@ -21,6 +25,10 @@ class WelcomeController extends Controller
      */
     public function aboutAction()
     {
-        return $this->render('AppBundle:Welcome:about.html.twig');
+        $response = $this->render('AppBundle:Welcome:about.html.twig');
+        $response->setSharedMaxAge(7200);
+        $response->headers->addCacheControlDirective('must-revalidate', true);
+
+        return $response;
     }
 }
