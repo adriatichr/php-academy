@@ -7,9 +7,15 @@ Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene term
 
 Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu uče stvari koje će vam trebati u projektu, a smatramo da vam online materijali neće biti dovoljni. Za one koji žele pogledati predavanja omogućiti ćemo da to naprave u prostorijama firme bilo kada radnim danom između 8-21h. U svakom slučaju ćete moći prezentirati vaš projekt na kraju akademije.
 
-## Predavanje u ponedjeljak 23.01.2017 će se održati u standardnom terminu (17h). Neke teme predavanja: Symfony parametri, AJAX primjer i pitanja i odgovori u vezi projekta i Symfony-ja.
+## Prezentacija završnih projekata će se održati u ponedjeljak 30.01.2017 sa početkom u 17h.
+
+## Dodane su [upute za deploy](DEPLOY.md) projektne aplikacije.
 
 ## Polaznicima koji uspješno prezentiraju projekt uručiti ćemo potvrde da su pohađali akademiju. U tu svrhu trebati će nam vaš OIB koji možete poslati na [ovaj mail](mailto:danko.lucic@adriatic.hr).
+
+### 21.01.2017 
+
+* Predavanje u ponedjeljak 23.01.2017 će se održati u standardnom terminu (17h). Neke teme predavanja: Symfony parametri, AJAX primjer i pitanja i odgovori u vezi projekta i Symfony-ja.
 
 ### 19.01.2017
 
