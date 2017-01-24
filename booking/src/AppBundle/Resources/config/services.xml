@@ -4,6 +4,10 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="app.main_accommodation_images_dir">%kernel.root_dir%/../src/AppBundle/Resources/images/accommodation/</parameter>
+    </parameters>
+
     <services>
         <service id="app.view.availability" class="AppBundle\View\Availability">
             <argument type="service" id="app.reservation_repository" />
@@ -62,10 +66,13 @@
             <argument>Agency\Domain\Model\Offer\Place</argument>
         </service>
 
-        <service id="app.locale_listener"
-            class="AppBundle\EventListener\LocaleListener">
+        <service id="app.locale_listener" class="AppBundle\EventListener\LocaleListener">
             <argument>%kernel.default_locale%</argument>
             <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service id="app.image_service" class="AppBundle\View\ImageService">
+            <argument>%app.main_accommodation_images_dir%</argument>
         </service>
 
     </services>

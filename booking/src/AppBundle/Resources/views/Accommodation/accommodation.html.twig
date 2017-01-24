@@ -58,6 +58,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script src="{{ asset('js/calendar.js') }}"></script>
     <script type="text/javascript">
     /* <![CDATA[ */
@@ -78,4 +79,4 @@
         });
     /* ]]> */
     </script>
-{% endblock %}
+{% endblock javascripts %}
