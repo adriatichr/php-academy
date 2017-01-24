@@ -13,10 +13,12 @@ Na lokalnoj aplikaciji:
 2. Ako koristite [npm](https://www.npmjs.com/), potrebno je pobrisati i node_modules direktorij.
 3. Kopirati aplikaciju na ```\\phpacademy\project.{inicijali polaznika akademije}```
 4. Spojiti se preko SSH na ```phpacademy``` server i pokrenuti ```composer install``` (ako koristite npm, instalirati i npm pakete)
+5. Postaviti bazu podataka ```project_{inicijali polaznika akademije}``` na ```phpacademy``` serveru
 
 ## Priprema projekta za prezentaciju
 
 Projekt će se prezentirati u produkcijskom načinu rada, stoga je prije prezentacije potrebno pripremiti projekt za produkciju:
 
 1. Ukloniti sve pozive Symfony ```dump()``` funkcije iz kôda.
-2. Počistiti produkcijski cache konzolnom naredbom ```php bin\console cache:clear --env=prod```
+16. Počistiti produkcijski cache konzolnom naredbom ```php bin\console cache:clear --env=prod```
+15. Provjeriti je li aplikacija dostupna na ```http://phpacademy.project.{inicijali polaznika akademije}```
