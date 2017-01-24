@@ -11,13 +11,13 @@ var userButton = (function($){
                 .replace('__PATH__', options.logoutPath)
                 .replace('__USER_NAME__', userData.name)
                 .replace('__USER_SURNAME__', userData.surname)
-                .replace('__BUTTON_TITLE__', ' - Logout');
+                .replace('__ACTION__', ' - Logout');
         } else {
             htmlButton = htmlTemplate
                 .replace('__PATH__', options.loginPath)
                 .replace('__USER_NAME__', '')
                 .replace('__USER_SURNAME__', '')
-                .replace('__BUTTON_TITLE__', 'Login');
+                .replace('__ACTION__', 'Login');
         }
 
         $container.replaceWith(htmlButton);
