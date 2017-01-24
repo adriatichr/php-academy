@@ -2,8 +2,8 @@
 
 namespace Tests\AppBundle\View;
 
-use AppBundle\Entity\Reservation;
-use AppBundle\Repository\ReservationRepository;
+use Agency\Domain\Model\Order\Reservation;
+use Agency\Domain\Model\Order\ReservationRepository;
 use AppBundle\View\Availability;
 use PHPUnit\Framework\TestCase;
 

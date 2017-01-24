@@ -2,7 +2,7 @@
 
 namespace Tests\AppBundle\Controller;
 
-use AppBundle\Entity\Accommodation;
+use Agency\Domain\Model\Offer\Accommodation;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class RestControllerTest extends WebTestCase
