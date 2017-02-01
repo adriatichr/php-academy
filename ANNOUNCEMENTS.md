@@ -3,15 +3,14 @@ Obavijesti
 
 Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene termina predavanja. Najnovije i aktualne obavijesti će biti na vrhu.
 
-## Obavijest za one koji su imali izostanke sa predavanja: 
+## Dragi polaznici
 
-Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu uče stvari koje će vam trebati u projektu, a smatramo da vam online materijali neće biti dovoljni. Za one koji žele pogledati predavanja omogućiti ćemo da to naprave u prostorijama firme bilo kada radnim danom između 8-21h. U svakom slučaju ćete moći prezentirati vaš projekt na kraju akademije.
+Kako smo imali nekoliko molbi za odgodom, obavještavamo sve koji nisu iz bilo kojeg razloga stigli prezentirati svoj projekt kako ga mogu prezentirati u ponedjeljak 06.01.2017. u 13:30 sati. Potrebno se prethodno prijaviti na [mail](mailto:danko.lucic@adriatic.hr) do  ponedjeljaka 06.01.2017. u 10:00 sati. Uspješnom prezentacijom ostvarujete pravo na potvrdu da ste uspješno završili Adriatic.hr PHP Akademiju. U ovu svrhu opet je omogućen pristup ```phpacademy``` serveru do utorka 07.02.2017. Nakon ovog roka, na žalost, neće biti moguće prezentirati projekt.
 
-## Prezentacija završnih projekata će se održati u ponedjeljak 30.01.2017 sa početkom u 17h.
+### 24.01.2017
 
-## Dodane su [upute za deploy](DEPLOY.md) projektne aplikacije.
-
-## Polaznicima koji uspješno prezentiraju projekt uručiti ćemo potvrde da su pohađali akademiju. U tu svrhu trebati će nam vaš OIB koji možete poslati na [ovaj mail](mailto:danko.lucic@adriatic.hr).
+* Prezentacija završnih projekata će se održati u ponedjeljak 30.01.2017 sa početkom u 17h.
+* Dodane su [upute za deploy](DEPLOY.md) projektne aplikacije.
 
 ### 21.01.2017 
 
@@ -19,6 +18,7 @@ Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu u
 
 ### 19.01.2017
 
+* Polaznicima koji uspješno prezentiraju projekt uručiti ćemo potvrde da su pohađali akademiju. U tu svrhu trebati će nam vaš OIB koji možete poslati na [ovaj mail](mailto:danko.lucic@adriatic.hr).
 * Domain Driven Design izmjene za booking aplikaciju su postavljene online, ali u zaseban [branch](https://github.com/adriatichr/php-academy/tree/ddd_branch). Prezentacije su na [master branchu](predavanja).
 
 ### 18.01.2017
@@ -33,6 +33,10 @@ Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu u
 ### 14.01.2017
 
 * Primjeri [design patterna](example/src/DesignPattern) i [SOLID principa](example/src/SolidPrinciples) su sada na master branchu. Primjere korištenja možete vidjeti u [unit](example/test/DesignPattern) [testovima](example/test/SolidPrinciples).
+
+### 13.01.2017 Obavijest za one koji su imali izostanke sa predavanja: 
+
+* Preporučamo vam da pogledate snimke predavanja koja ste propustili, jer se tu uče stvari koje će vam trebati u projektu, a smatramo da vam online materijali neće biti dovoljni. Za one koji žele pogledati predavanja omogućiti ćemo da to naprave u prostorijama firme bilo kada radnim danom između 8-21h. U svakom slučaju ćete moći prezentirati vaš projekt na kraju akademije.
 
 ### 09.01.2017
 
