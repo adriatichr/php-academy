@@ -12,7 +12,7 @@ Svaki polaznik akademije mora odabrati projekt koji će raditi dok traje akademi
 - mora imati server side [validaciju](https://symfony.com/doc/current/validation.html) za barem jednu formu
 - mora podržavati dvije vrste korisnika, običnog korisnika i administratora (preko [Symfony Security](http://symfony.com/doc/current/security.html) komponente)
 
-Kao bonus projekt može sadržavati nešto od sljedećeg:
+### Kao bonus projekt može sadržavati nešto od sljedećeg:
 - kôd napisan koristeći [PSR-1](http://www.php-fig.org/psr/psr-1/) i [PSR-2](http://www.php-fig.org/psr/psr-2/) coding standard
 - client side validaciju preko JavaScript-a, ili [AJAX](https://en.wikipedia.org/wiki/Ajax_(programming)) pozive
 - jednostavni REST servis
