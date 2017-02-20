@@ -3,7 +3,19 @@ Obavijesti
 
 Ovdje će se objavljivati obavijesti vezane uz PHP akademiju, npr. promjene termina predavanja. Najnovije i aktualne obavijesti će biti na vrhu.
 
-# Poštovani polaznici akademije
+Obavijest o završetku PHP akademije
+===================================
+
+Poštovani polaznici PHP akademije, želimo se zahvaliti svima na sudjelovanju. Nadamo se da ćete znanja i vještine koje ste stekli nastaviti proširivati i da će vam koristiti u daljnjoj karijeri.
+
+Za one koji žele preuzeti zadnju verziju svog projekta, ```phpacademy``` server će opet biti **otvoren za sve polaznike do utorka 28.02.2017** (preko korisničkog imena i šifre koje ste dobili na početku akademije). Nakon ovog datuma server će biti ugašen.
+
+Srdačan pozdrav,
+Adriatic.hr
+
+### 06.02.2017
+
+#### Poštovani polaznici akademije
 
 Sa zadovoljstvom pozivamo sve polaznike koji su prezentirali projekte da nam se pridruže **8.2.2017 u 17:00 sati** na uručenju potvrda.
 Molimo da potvrdite svoj dolazak na e-mail hr@adriatic.hr do utorka 7.2.2017. u 16:00 sati.
@@ -12,7 +24,9 @@ Srdačan pozdrav, Adriatic.hr
 
 Hvala
 
-## Dragi polaznici
+### 01.02.2017
+
+#### Dragi polaznici
 
 Kako smo imali nekoliko molbi za odgodom, obavještavamo sve koji nisu iz bilo kojeg razloga stigli prezentirati svoj projekt kako ga mogu prezentirati u ponedjeljak 06.01.2017. u 13:30 sati. Potrebno se prethodno prijaviti na [mail](mailto:danko.lucic@adriatic.hr) do  ponedjeljaka 06.01.2017. u 10:00 sati. Uspješnom prezentacijom ostvarujete pravo na potvrdu da ste uspješno završili Adriatic.hr PHP Akademiju. U ovu svrhu opet je omogućen pristup ```phpacademy``` serveru do utorka 07.02.2017. Nakon ovog roka, na žalost, neće biti moguće prezentirati projekt.
 
