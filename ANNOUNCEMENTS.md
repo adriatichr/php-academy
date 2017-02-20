@@ -8,7 +8,7 @@ Obavijest o završetku PHP akademije
 
 Poštovani polaznici PHP akademije, želimo se zahvaliti svima na sudjelovanju. Nadamo se da ćete znanja i vještine koje ste stekli nastaviti proširivati i da će vam koristiti u daljnjoj karijeri.
 
-Za one koji žele preuzeti zadnju verziju svog projekta, ```phpacademy``` server će opet biti **otvoren za sve polaznike do utorka 28.02.2017** (preko korisničkog imena i šifre koje ste dobili na početku akademije). Nakon ovog datuma server će biti ugašen.
+Za one koji žele preuzeti zadnju verziju svog projekta, ```phpacademy``` server će opet biti **otvoren za sve polaznike od 22.02.2017 do 01.03.2017** (preko korisničkog imena i šifre koje ste dobili na početku akademije). Nakon ovog datuma server će biti ugašen.
 
 Srdačan pozdrav,
 Adriatic.hr
