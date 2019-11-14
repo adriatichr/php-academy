@@ -1,6 +1,8 @@
 Adriatic.hr PHP Akademija (prosinac 2016. - siječanj 2017.)
 =============================
 
+**NAPOMENA** Akademija je zatvorena i ovaj repozitorij *se više ne održava*, hvala svima na sudjelovanju.
+
 Ovo je službeni repozitorij [Adriatic PHP akademije](http://www.adriatic.hr/php-akademija). Repozitorij će biti ažuriran nakon svakog predavanja sa najnovijim materijalima i PHP kôdom.
 
 Repozitorij se sastoji od tri direktorija:
